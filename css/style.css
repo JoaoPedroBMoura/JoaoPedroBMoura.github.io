@@ -1,9 +1,23 @@
-.container {
+.lado-a-lado {
     display: flex;
     justify-content: space-between;
   }
   
-  .dados-pessoais, .resumo-profissional {
+  .item {
     flex: 1;
     padding: 20px;
   }
+
+  .centro {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+}
+
+.centralizaImg{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: auto;
+}
