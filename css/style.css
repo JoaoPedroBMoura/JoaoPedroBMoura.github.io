@@ -1,0 +1,9 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .dados-pessoais, .resumo-profissional {
+    flex: 1;
+    padding: 20px;
+  }
