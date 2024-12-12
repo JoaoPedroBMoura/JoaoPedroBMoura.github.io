@@ -1,4 +1,9 @@
-.font-titulo-principal{
-    size: 20px;
+.jumbotron h1{
+    font-size: 70px;
     color: white;
-}
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  .letra-branca{
+    color: white
+  }
