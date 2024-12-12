@@ -1,9 +1,22 @@
-.jumbotron h1{
-    font-size: 70px;
+.jumbotron  h1{
+    font-size: 60px;
     color: white;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
   }
 
   .letra-branca{
     color: white
+  }
+
+  .letra-preta{
+    color: black;
+    font-weight: bold;
+  }
+
+  .font-media{
+    font-size: 15px;
+  }
+
+  .no-break-line{
+    white-space: nowrap;
   }

@@ -1,3 +1,22 @@
+.jumbotron{
+    background-image: url("../../img/backgound/Backgound\ página\ pessoal\ v1.png");
+    background-size: cover;
+    height: 300px;
+    background-position: center center;
+    margin-top: 0;
+}
+
 .backgound-complemento{
     background-image: url(../../img/backgound/Complemento.png);
+    background-size: cover;
+    height: cover;
+    background-position: center center;
+    margin-top: 0;
 }
+
+
+.navbar-brown {
+    background-color: #D08E6C; 
+    color: white; 
+}
+
