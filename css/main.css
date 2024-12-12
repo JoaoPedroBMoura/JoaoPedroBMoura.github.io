@@ -1,3 +1,5 @@
+@import url(../css/fonts/fonts.css);
+
 .lado-a-lado {
     display: flex;
     justify-content: space-between;
@@ -23,8 +25,13 @@
 }
 
 .jumbotron{
-  background-image: url("../img/CAPA\ 7.png");
+  background-image: url("../img/Backgound\ página\ pessoal\ v1.png");
   background-size: cover;
   height: 300px;
   background-position: center center;
+}
+
+.letra-branca{
+  font-size: 20px;
+  color: white;
 }
