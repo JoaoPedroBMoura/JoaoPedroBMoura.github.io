@@ -20,3 +20,14 @@
     color: white; 
 }
 
+@media (max-width: 425px) { 
+    .jumbotron{
+        background-image: url("../../img/backgound/Backgound\ página\ pessoal\ v1.png") !important;
+        background-size: 980px 300px !important;
+        height: 300px !important;
+        background-repeat: no-repeat !important;
+        background-position: center center !important;
+        margin-top: 0 !important;
+    }
+} 
+
