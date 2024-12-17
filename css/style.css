@@ -52,3 +52,17 @@ section ul{
   padding: 20px;
   justify-content: center;
 }
+
+html, body { 
+  height: 100%; 
+  margin: 0; 
+  padding: 0; 
+  background-color: #393939; /* Cor de fundo desejada */ 
+} 
+.flex-wrapper { 
+    display: flex; 
+    flex-direction: column; 
+    min-height: 100vh; /* 100% da altura da viewport */ 
+  } 
+
+#main-content { flex: 1; /* Garante que o main-content ocupe o espaço disponível */ }
