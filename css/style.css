@@ -47,3 +47,8 @@ section ul{
 .no-link-style{
   list-style: none;
 }
+
+.img-banner{
+  padding: 20px;
+  justify-content: center;
+}

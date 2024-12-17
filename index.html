@@ -18,10 +18,11 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <main>
-    <header class="">
+    <header class="container">
       <!--Menu Superior principal-->
-      <nav class="navbar navbar-expand-lg navbar-light navbar-brown margem-0">
+      <nav class="navbar navbar-expand-lg navbar-light navbar-brown margem-0 ">
         <div class="container">
+          <!-- Botão toggle das opções -->
           <button class="navbar-toggler" 
               type="buttom" 
               data-toggle="collapse" 
@@ -31,11 +32,11 @@
 
           <div class="collapse navbar-collapse letra-preta font-media ">
               <!--Opções do menu-->
-              <ul class="navbar-nav mr-auto">
-                  <li class="nav-item"><a href="#" class="nav-link">Currículo</a></li>
-                  <li class="nav-item"><a href="#" class="nav-link">Cursos e certificações</a></li>
+              <ul class="navbar-nav mr-auto ">
+                  <li class="nav-item no-break"><a href="#" class="nav-link">Currículo</a></li>
+                  <li class="nav-item no-break"><a href="#" class="nav-link">Cursos e certificações</a></li>
                   <!-- Botão dropdown -->
-                  <li class="nav-item dropdown">
+                  <li class="nav-item dropdown no-break">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Projetos</a>
                     <ul class="dropdown-menu">
                         <li><a href="#" class="dropdown-item">Analise de Dados</a></li>
@@ -43,7 +44,7 @@
                     </ul>
                 </li>
                   <!-- Botão dropdown -->
-                  <li class="nav-item dropdown">
+                  <li class="nav-item dropdown no-break">
                       <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Experiências</a>
                       <ul class="dropdown-menu">
                           <li><a href="#" class="dropdown-item">Logistica</a></li>
@@ -52,21 +53,28 @@
                       </ul>
                   </li>
 
-                  <li class="nav-item"><a href="#" class="nav-link">Graduação</a></li>
+                  <li class="nav-item no-break"><a href="#" class="nav-link">Graduação</a></li>
 
-                  <li class="nav-item "><a href="#" class="nav-link" style="color: white">Está menu está em manutenção ⚠️</a></li>
+                  <li class="nav-item no-break"><a href="#" class="nav-link" style="color: white">Está menu está em manutenção ⚠️</a></li>
               </ul>
           </div><!--Div Collpase-->
         </div> <!--Div Conteiner-->
       </nav>
       <div class="">
-          <!-- Banner -->
-          <div class="jumbotron margem-0">
-            <div class="container">
-              <h1 class="letra-branca">João Pedro Barcellos Moura</h1>
+          <!-- Banner --> 
+            <div class="row lado-a-lado"> 
+              
+              <div class="col-md-4 col-xs-4 col-lg-4 img-banner "> 
+                <img class="img-fluid " src="./img/backgound/Homem Analista.png" alt="Boneco em um computador">
+               </div> 
+              <div class="col-md-12 col-xs-12 col-lg-12"> 
+                <h1 class="letra-branca centralizaImg font-grande">João Pedro Barcellos Moura</h1> 
+              </div> 
+              <div class="col-md-4 col-xs-4 col-lg-4 img-banner "> 
+                <img class="img-fluid " src="./img/backgound/Homem No computador.png" alt="Boneco em um computador">
+               </div> 
             </div>
-          </div>
-      </div>
+       </div>
     </header>
     <body class="backgound-complemento">
         <section class="row item  margem-0 lado-a-lado ">

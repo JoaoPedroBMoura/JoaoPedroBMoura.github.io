@@ -17,6 +17,34 @@
     font-size: 15px;
   }
 
+  .font-grande{
+    font-size: 60px;
+  }
+
   .no-break-line{
     white-space: nowrap;
+  }
+
+  @media (max-width: 768px) { 
+    .jumbotron h1{
+      font-size: 40px;
+      color: white;
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
+    }
+  }
+
+  @media (max-width: 472px) { 
+    .jumbotron h1{
+      font-size: 35px;
+      color: white;
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
+    }
+  }
+
+  @media (max-width: 425px) { 
+    .jumbotron h1{
+      font-size: 15px;
+      color: white;
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
+    }
   }
