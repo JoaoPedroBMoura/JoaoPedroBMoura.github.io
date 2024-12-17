@@ -17,11 +17,12 @@
     <link rel="stylesheet" href="./js/jquery.js">
     <link rel="stylesheet" href="css/style.css">
   </head>
-  <main>
-    <header class="container">
+  <body>
+    <header class="">
       <!--Menu Superior principal-->
       <nav class="navbar navbar-expand-lg navbar-light navbar-brown margem-0 ">
         <div class="container">
+
           <!-- Botão toggle das opções -->
           <button class="navbar-toggler" 
               type="buttom" 
@@ -30,11 +31,13 @@
               <i class="bi bi-list"></i>Menu
           </button>
 
+          <!-- Opções do Menu -->
           <div class="collapse navbar-collapse letra-preta font-media ">
               <!--Opções do menu-->
               <ul class="navbar-nav mr-auto ">
-                  <li class="nav-item no-break"><a href="#" class="nav-link">Currículo</a></li>
-                  <li class="nav-item no-break"><a href="#" class="nav-link">Cursos e certificações</a></li>
+                <li class="nav-item no-break"><a href="#" id="home" class="nav-link">Home</a></li>  
+                <li class="nav-item no-break"><a href="#" class="nav-link">Currículo</a></li>
+                  <li class="nav-item no-break"><a href="#" id="cursos-e-certificacoes" class="nav-link">Cursos e certificações</a></li>
                   <!-- Botão dropdown -->
                   <li class="nav-item dropdown no-break">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Projetos</a>
@@ -42,7 +45,7 @@
                         <li><a href="#" class="dropdown-item">Analise de Dados</a></li>
                         <li><button id="projeto-programacao" class="dropdown-item">Programação</button></li>
                     </ul>
-                </li>
+                  </li>
                   <!-- Botão dropdown -->
                   <li class="nav-item dropdown no-break">
                       <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Experiências</a>
@@ -58,71 +61,76 @@
                   <li class="nav-item no-break"><a href="#" class="nav-link" style="color: white">Está menu está em manutenção ⚠️</a></li>
               </ul>
           </div><!--Div Collpase-->
+          
         </div> <!--Div Conteiner-->
       </nav>
-      <div class="">
-          <!-- Banner --> 
-            <div class="row lado-a-lado"> 
-              
-              <div class="col-md-4 col-xs-4 col-lg-4 img-banner "> 
-                <img class="img-fluid " src="./img/backgound/Homem Analista.png" alt="Boneco em um computador">
-               </div> 
-              <div class="col-md-12 col-xs-12 col-lg-12"> 
-                <h1 class="letra-branca centralizaImg font-grande">João Pedro Barcellos Moura</h1> 
-              </div> 
-              <div class="col-md-4 col-xs-4 col-lg-4 img-banner "> 
-                <img class="img-fluid " src="./img/backgound/Homem No computador.png" alt="Boneco em um computador">
-               </div> 
-            </div>
-       </div>
     </header>
-    <body class="backgound-complemento">
-        <section class="row item  margem-0 lado-a-lado ">
-          
-          <section class="letra-branca font-media col-md-4 col-xs-12 col-lg-6 margem-esquerda">
-            <h2>Resumo profissional</h2>
-            <p>
-                Profissional com visão analítica madura, mentalidade ágil, facilidade de aprendizado e com
-              foco em resolução de problemas. Experiência com SQL,Power BI, ETL, Excel e Google
-              Sheets, DBeaver, tarefas sobre demandas, tratar dados para geração de insight’s, métricas
-              de negócios e controle de KPI,lógica de programação e Power Point. Curso atualmente
-              bacharelado em Sistemas de Informação no Centro Federal de Educação Tecnológica
-              Celso Suckow da Fonseca (CEFET), iniciado em 2023.1 e com previsão de término e
-              2027.2. Atualmente estou me capacitando na Comunidade DS, uma escola com foco em
-              carreira na área de Dados, conclusão prevista para fevereiro de 2025
-            </p>
-          </section>
-          
-          <div class="letra-branca font-media col-md-2 col-xs-12 col-lg-3 ">
-              <h2>Dados Pessoais</h2>
-              <ul class="no-break-line">
-                  <li>Endereço: Nova Friburgo,RJ</li>
-                  <li ><a href="https://wa.me/5521987421561"><i class="fab fa-whatsapp"></i> whatsapp</a></li> 
-                  <li style="white-space: none;"><a href="mailto:joaopedrobarcelllosmoura@gmail.com">joaopedrobarcelllosmoura@gmail.com</a></li>
-                  <li> <a href="https://www.linkedin.com/in/joaopedrobmoura/">Linkedin</a></li>
-                  <li><a href="https://github.com/JoaoPedroBMoura/JoaoPedroBMoura">GitHub</a></li>
-              </ul>
+    <main id="main-content" class="backgound-complemento">
+       <!-- Banner --> 
+      <div class="">
+       
+          <div class="row lado-a-lado"> 
+            
+            <div class="col-md-4 col-xs-4 col-lg-4 img-banner "> 
+              <img class="img-fluid " src="./img/backgound/Homem Analista.png" alt="Boneco em um computador">
+             </div> 
+            <div class="col-md-12 col-xs-12 col-lg-12"> 
+              <h1 class="letra-branca centralizaImg font-grande">João Pedro Barcellos Moura</h1> 
+            </div> 
+            <div class="col-md-4 col-xs-4 col-lg-4 img-banner "> 
+              <img class="img-fluid " src="./img/backgound/Homem No computador.png" alt="Boneco em um computador">
+             </div> 
           </div>
-      
-          <section class="letra-branca font-media col-md-3 col-xs-12 col-lg-2 margem-direita">
-            <h2>Idiomas</h2>
-            <p>
-              <li>inglês, básico</li>  
-            </p>
-          </section>
-          
-        </section>
+      </div>
 
-        <section class="container">
-          <h1 class="letra-branca">Projetos</h1>
-           <ul class="font-media ">
-            <li ><a class="letra-branca" href="https://joaopedrobmoura.github.io/Web-Fundamentals-Project/">Projeto Cerulean</a></li>
-            <li><a  class="letra-branca" href="https://joaopedrobmoura.github.io/Reportagens/">Reportagens</a></li>
-            <li><a class="letra-branca" href="https://joaopedrobmoura.github.io/Momentos-Perfeitos/">Página de vendas</a></li>
-           </ul>
+      <!-- Resumo profissional | Dados para contato | Nível Inglês -->
+      <section class="row item  margem-0 lado-a-lado ">
+        
+        <section class="letra-branca font-media col-md-4 col-xs-12 col-lg-6 margem-esquerda">
+          <h2>Resumo profissional</h2>
+          <p>
+              Profissional com visão analítica madura, mentalidade ágil, facilidade de aprendizado e com
+            foco em resolução de problemas. Experiência com SQL,Power BI, ETL, Excel e Google
+            Sheets, DBeaver, tarefas sobre demandas, tratar dados para geração de insight’s, métricas
+            de negócios e controle de KPI,lógica de programação e Power Point. Curso atualmente
+            bacharelado em Sistemas de Informação no Centro Federal de Educação Tecnológica
+            Celso Suckow da Fonseca (CEFET), iniciado em 2023.1 e com previsão de término e
+            2027.2. Atualmente estou me capacitando na Comunidade DS, uma escola com foco em
+            carreira na área de Dados, conclusão prevista para fevereiro de 2025
+          </p>
         </section>
-    </body>
-  </main>
+        
+        <div class="letra-branca font-media col-md-2 col-xs-12 col-lg-3 ">
+            <h2>Dados Pessoais</h2>
+            <ul class="no-break-line">
+                <li>Endereço: Nova Friburgo,RJ</li>
+                <li ><a href="https://wa.me/5521987421561"><i class="fab fa-whatsapp"></i> whatsapp</a></li> 
+                <li style="white-space: none;"><a href="mailto:joaopedrobarcelllosmoura@gmail.com">joaopedrobarcelllosmoura@gmail.com</a></li>
+                <li> <a href="https://www.linkedin.com/in/joaopedrobmoura/">Linkedin</a></li>
+                <li><a href="https://github.com/JoaoPedroBMoura/JoaoPedroBMoura">GitHub</a></li>
+            </ul>
+        </div>
+    
+        <section class="letra-branca font-media col-md-3 col-xs-12 col-lg-2 margem-direita">
+          <h2>Idiomas</h2>
+          <p>
+            <li>inglês, básico</li>  
+          </p>
+        </section>
+        
+      </section>
+
+      <!-- Projetos, momentáneo -->
+      <section class="container">
+        <h1 class="letra-branca">Projetos</h1>
+          <ul class="font-media ">
+          <li ><a class="letra-branca" href="https://joaopedrobmoura.github.io/Web-Fundamentals-Project/">Projeto Cerulean</a></li>
+          <li><a  class="letra-branca" href="https://joaopedrobmoura.github.io/Reportagens/">Reportagens</a></li>
+          <li><a class="letra-branca" href="https://joaopedrobmoura.github.io/Momentos-Perfeitos/">Página de vendas</a></li>
+          </ul>
+      </section>
+    </main>
+  </body>
   <script src="./js/jquery.js" defer></script> 
   <script src="./js/bootstrap.js" defer></script> 
   <script type="module" src="./pages/pages.js" defer></script>
