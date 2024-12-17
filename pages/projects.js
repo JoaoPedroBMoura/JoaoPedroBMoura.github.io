@@ -1,5 +1,5 @@
-export const Projeto = document.createElement('main')
-Projeto.className = 'letra-branca'
+export const Projeto = document.createElement('div')
+Projeto.className = 'letra-branca   '
 
 const titulo = document.createElement('h1')
 titulo.innerText = 'Projetos'
@@ -30,27 +30,18 @@ function criarUl(arrayObj) {
 
 }
 
-const arrayObj = []
+async function pegarDados() {
+    
+    const respose = await fetch("http://localhost:3000/pages", {
 
-const obj = {
-    nome: "Natureza",
-    link: "https://joaopedrobmoura.github.io/Reportagens/"
+        method: "GET"
+
+    })
+    return respose.json()
+
 }
 
-const obj2 = {
-    nome: "Reportagem",
-    link: "https://joaopedrobmoura.github.io/Web-Fundamentals-Project/"
-}
-
-const obj3 = {
-    nome: "Site de Vendas",
-    link: "https://joaopedrobmoura.github.io/Momentos-Perfeitos/"
-}
-
-arrayObj.push(obj, obj2, obj3)
-
-const ul = criarUl(arrayObj)
+const ul = criarUl(await pegarDados())
 ul.className = 'no-link-style'
 
 Projeto.append(titulo, ul)
-

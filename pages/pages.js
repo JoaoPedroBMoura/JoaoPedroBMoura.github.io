@@ -1,17 +1,38 @@
 import { Projeto } from "./projects.js";
-const body = document.querySelector('body')
+import { skillAndCourses } from "./skills-and-courses.js";
+const body = document.getElementById("main-content");
 
-function pegarOsItensDeOutroHTML() {   
-    body.innerHTML = ``
-    body.append(Projeto)
+const initialContent = body.innerHTML;
+
+
+function pegarOsItensDeOutroHTML(pagina) {   
+    body.innerHTML = ``;
+    body.append(pagina);
 }
 
-const linkProjeto = document.getElementById('projeto-programacao')
+const linkProjetos = document.getElementById('projeto-programacao');
 
-    linkProjeto.addEventListener('click', (env) => {
+linkProjetos.addEventListener('click', (env) => {
         
-        env.preventDefault()
-        pegarOsItensDeOutroHTML()
+    env.preventDefault();
+    pegarOsItensDeOutroHTML(Projeto);
 
 
-    })
+});
+
+const linkSkillAndCourses = document.getElementById('cursos-e-certificacoes');
+    
+linkSkillAndCourses.addEventListener('click', (env) => {
+            
+    env.preventDefault();
+    pegarOsItensDeOutroHTML(skillAndCourses);
+
+});
+
+const home = document.getElementById('home');
+    home.addEventListener('click', (env) => {
+                
+        env.preventDefault();
+        body.innerHTML = initialContent;
+
+    });
