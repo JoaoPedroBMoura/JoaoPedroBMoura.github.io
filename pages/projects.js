@@ -3,6 +3,7 @@ Projeto.className = 'letra-branca'
 
 const titulo = document.createElement('h1')
 titulo.innerText = 'Projetos'
+titulo.className = 'centro'
 
 function criarLi(nomeLink,link) {
     const liProjeto = document.createElement('li')
