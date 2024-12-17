@@ -1,0 +1,33 @@
+{
+    "pages":[
+        {
+            "nome": "Natureza",
+            "link": "https://joaopedrobmoura.github.io/Reportagens/"
+        },
+        {
+            "nome": "Reportagem",
+            "link": "https://joaopedrobmoura.github.io/Web-Fundamentals-Project/"
+        },
+        {
+            "nome": "Site de Vendas",
+            "link": "https://joaopedrobmoura.github.io/Momentos-Perfeitos/"
+        }
+    ],
+    "cursos":[
+
+        {
+            "nome": "Stack,Heap e Garbage Collector no C#",
+            "link": "https://www.dio.me/certificate/QXHYG4CA/share"
+        },
+
+        {
+           "nome": "Nuget, Serializar e Atributos em C#",
+           "link": "https://www.dio.me/certificate/QSQTPIQA/share"
+        },
+        {
+            "nome": "Exceções e Coleções em C#",
+            "link": "https://www.dio.me/certificate/FGRBBYRX/share"
+        }
+
+    ]
+}
