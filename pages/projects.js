@@ -7,6 +7,7 @@ titulo.className = 'centro'
 
 function criarLi(nomeLink,link) {
     const liProjeto = document.createElement('li')
+         liProjeto.className ='margin-list-10'
     const linkSiteNatureza = document.createElement("a")
     linkSiteNatureza.className = 'letra-branca font-media'
     linkSiteNatureza.href = link

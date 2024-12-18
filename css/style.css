@@ -66,3 +66,8 @@ html, body {
   } 
 
 #main-content { flex: 1; /* Garante que o main-content ocupe o espaço disponível */ }
+
+.margin-list-10{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

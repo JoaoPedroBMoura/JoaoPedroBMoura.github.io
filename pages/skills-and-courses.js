@@ -11,6 +11,7 @@ tituloCarreiraProgramacao.className = 'container letra-branca'
 
 function criarLiCursos(nomeCurso,link) {
     const liCurso = document.createElement('li')
+        liCurso.className ='margin-list-10'
     const linkCurso = document.createElement("a")
 
     linkCurso.className = 'letra-branca font-media'
