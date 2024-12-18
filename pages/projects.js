@@ -31,15 +31,27 @@ function criarUl(arrayObj) {
 
 }
 
-async function pegarDados() {
+// async function pegarDados() {
     
-    const respose = await fetch("http://localhost:3000/pages", {
+//     const respose = await fetch("http://localhost:3000/pages", {
 
+//         method: "GET"
+
+//     })
+//     return respose.json()
+
+// }
+
+async function pegarDados() {
+    const response = await fetch("https://joaopedrobmoura.github.io/data/db.json", { 
         method: "GET"
-
-    })
-    return respose.json()
-
+    }); 
+        if (response.ok) {
+            const json = await response.json();
+            return json.pages; // Extrai e retorna o array específico 
+    } else {
+        console.error("Erro ao carregar os dados JSON");
+    }
 }
 
 const ul = criarUl(await pegarDados())
