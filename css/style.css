@@ -71,3 +71,7 @@ html, body {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+.padding-esquerda-20{
+  padding-left: 20px;
+}
