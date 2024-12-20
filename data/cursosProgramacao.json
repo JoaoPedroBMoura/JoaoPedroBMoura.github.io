@@ -25,6 +25,12 @@
                 "nome":"Introdução as IDE's e Configuração do Ambiente .NET",
                 "link":"https://www.dio.me/certificate/5FZNHYZH/share"
             }
+          ],
+          "gitGitHub":[
+               {
+                "nome":"Git e Git Hub: Repositóio, Commit e Versões",
+                "link":"https://github.com/JoaoPedroBMoura/my-certification/blob/main/Git%20e%20GitHub/Git%20e%20GitHub/Versionamento%20de%20C%C3%B3digo%20com%20Git%20E%20GitHub.pdf"
+               }
           ]
 
 }
