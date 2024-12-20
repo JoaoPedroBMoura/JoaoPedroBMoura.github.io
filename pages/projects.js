@@ -14,13 +14,13 @@ async function criaPagina() {
     titulo.className = 'centro letra-branca'
 
     const tituloProjetosProgramacao = document.createElement('h2')
-    tituloProjetosProgramacao.innerText = 'Fundamentos da Web'
+    tituloProjetosProgramacao.innerText = ''
     tituloProjetosProgramacao.className = 'container letra-branca'
     
     const divProjetosProgramcao = document.createElement('div');
     divProjetosProgramcao.className = 'container col-md-6 col-xs-6 col-lg-6';
 
-    const projetosProgramcao = await projetos.criaToggle("Progamação", "programacao");
+    const projetosProgramcao = await projetos.criaToggle("Fundamentos da Web", "programacao");
     projetosProgramcao.className = 'padding-esquerda-20'
 
     // const gitGitHub = await projetos.criaToggle("Git e Git Hub", "gitGitHub");
