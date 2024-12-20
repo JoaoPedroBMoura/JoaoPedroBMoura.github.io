@@ -65,7 +65,8 @@ export class Util{
             divBotao.className = 'navbar-toggler dropdown no-break letra-branca';
 
             const toggleButton = document.createElement('a'); 
-            toggleButton.href = '#cursos';
+            toggleButton.href = `#${curso}`;
+            console.log(toggleButton)
             toggleButton.className = 'dropdown-toggle letra-branca font-media'; 
             toggleButton.setAttribute('data-toggle', 'collapse');
             toggleButton.innerText = nomeToggle;
@@ -74,7 +75,7 @@ export class Util{
             const array = await this.pegarDados(curso)
 
             const ulDeProjetos = this.criarUl(array);
-            ulDeProjetos.id = 'cursos';
+            ulDeProjetos.id = curso;
             ulDeProjetos.className = 'collapse list-unstyled'
             divBotao.appendChild(ulDeProjetos);
         
