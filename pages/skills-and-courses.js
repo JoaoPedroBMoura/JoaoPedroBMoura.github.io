@@ -20,10 +20,10 @@ async function criaPagina() {
     const cursoDotNet = await cursosProgramacao.criaToggle(".Net", ".Net");
     cursoDotNet.className = 'padding-esquerda-20'
 
-    const gitGitHub = await cursosProgramacao.criaToggle("Git e Git Hub", "gitGitHub");
-    gitGitHub.className = 'padding-esquerda-20'
+    // const gitGitHub = await cursosProgramacao.criaToggle("Git e Git Hub", "gitGitHub");
+    // gitGitHub.className = 'padding-esquerda-20'
 
-    divProgramacao.append(tituloCarreiraProgramacao, cursoDotNet, gitGitHub);
+    divProgramacao.append(tituloCarreiraProgramacao, cursoDotNet);
     skillAndCourses.append(titulo, divProgramacao);
 }
 
