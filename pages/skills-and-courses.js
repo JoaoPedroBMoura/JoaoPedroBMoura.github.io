@@ -17,7 +17,7 @@ async function criaPagina() {
     const divProgramacao = document.createElement('div');
     divProgramacao.className = 'container col-md-6 col-xs-6 col-lg-6';
 
-    const cursoDotNet = await cursosProgramacao.criaToggle(".Net", ".Net");
+    const cursoDotNet = await cursosProgramacao.criaToggle(".Net", "dotNet");
     cursoDotNet.className = 'padding-esquerda-20'
 
     const gitGitHub = await cursosProgramacao.criaToggle("Git e Git Hub", "gitGitHub");
