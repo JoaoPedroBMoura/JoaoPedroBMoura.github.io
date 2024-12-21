@@ -1,29 +1,29 @@
 {
     "ComunidadeDs":[
-       {
-        "nome":"SQL - do básico ao avançado",
-        "link":"https://github.com/JoaoPedroBMoura/my-certification/blob/main/dados/Comunidade%20DS/Certificado%20SQL%20do%20B%C3%A1sico%20ao%20Avan%C3%A7ado.pdf"
+      {
+         "nome":"Estatística para analise de Dados - (10/2024)",
+         "link":"https://github.com/JoaoPedroBMoura/my-certification/blob/main/dados/Comunidade%20DS/Estat%C3%ADsitca%20para%20Analise%20de%20Dados.pdf"
+      }, 
+      {
+         "nome":"Viualização de dados com Power Bi - (09/2024)",
+         "link":"https://github.com/JoaoPedroBMoura/my-certification/blob/main/dados/Comunidade%20DS/Power%20BI.pdf"
+      },
+      {
+         "nome":"Excel para análise de Dados - (08/2024)",
+         "link":"https://github.com/JoaoPedroBMoura/my-certification/blob/main/dados/Comunidade%20DS/Excel%20para%20Analise%20de%20Dados.pdf"
+      },
+      {
+         "nome":"SQL - do básico ao avançado - (07/2024)",
+         "link":"https://github.com/JoaoPedroBMoura/my-certification/blob/main/dados/Comunidade%20DS/Certificado%20SQL%20do%20B%C3%A1sico%20ao%20Avan%C3%A7ado.pdf"
        },
        {
-        "nome":"Métricas de negócio",
-        "link":"https://github.com/JoaoPedroBMoura/my-certification/blob/main/dados/Comunidade%20DS/M%C3%A9tricas%20de%20Neg%C3%B3cio.pdf"
-       },
-       {
-        "nome":"Excel para análise de Dados",
-        "link":"https://github.com/JoaoPedroBMoura/my-certification/blob/main/dados/Comunidade%20DS/Excel%20para%20Analise%20de%20Dados.pdf"
-       },
-       {
-        "nome":"Viualização de dados com Power Bi",
-        "link":"https://github.com/JoaoPedroBMoura/my-certification/blob/main/dados/Comunidade%20DS/Power%20BI.pdf"
-       },
-       {
-        "nome":"Estatística para analise de Dados",
-        "link":"https://github.com/JoaoPedroBMoura/my-certification/blob/main/dados/Comunidade%20DS/Estat%C3%ADsitca%20para%20Analise%20de%20Dados.pdf"
+         "nome":"Métricas de negócio - (07/2024)",
+         "link":"https://github.com/JoaoPedroBMoura/my-certification/blob/main/dados/Comunidade%20DS/M%C3%A9tricas%20de%20Neg%C3%B3cio.pdf"
        }
     ],
     "Dio":[
        {
-        "nome":"Introdução a bancos de Dados relacionais",
+        "nome":"Introdução a bancos de Dados relacionais - (11/2024)",
         "link":"https://github.com/JoaoPedroBMoura/my-certification/tree/main/dados/Dio"
        }
     ]
