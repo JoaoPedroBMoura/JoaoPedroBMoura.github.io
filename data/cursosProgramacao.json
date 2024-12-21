@@ -2,34 +2,22 @@
     
     "dotNet":[
             {
-                "nome": "Stack,Heap e Garbage Collector no C#",
-                "link": "https://www.dio.me/certificate/QXHYG4CA/share"
+                "nome": "Fundamentos em .NET- Dio (12/2024)",
+                "link": "https://github.com/JoaoPedroBMoura/my-certification/tree/main/dotnet/1.Fundamentos%20de%20.NET"
             },
             {
-            "nome": "Nuget, Serializar e Atributos em C#",
-            "link": "https://www.dio.me/certificate/QSQTPIQA/share"
+                "nome":"Explorando linguagem C# - Dio (12/2024)",
+                "link":"https://github.com/JoaoPedroBMoura/my-certification/tree/main/dotnet/2.Explorando%20linguagem%20C%23"
             },
             {
-                "nome":"Tupla, Operador Ternário e Desconstrução de objetos com C#",
-                "link":"https://www.dio.me/certificate/FZR3LUPZ/share"
-            },
-            {
-                "nome": "Exceções e Coleções em C#",
-                "link": "https://www.dio.me/certificate/FGRBBYRX/share"
-            },
-            {
-                "nome":"Conhecendo a organização de um Programa C#",
-                "link":"https://www.dio.me/certificate/KOK63MRG/share"
-            },
-            {
-                "nome":"Introdução as IDE's e Configuração do Ambiente .NET",
-                "link":"https://www.dio.me/certificate/5FZNHYZH/share"
+                "nome":"Poo com C#",
+                "link":"https://github.com/JoaoPedroBMoura/my-certification/tree/main/dotnet/3.Poo%20com%20C%23"
             }
           ],
           "gitGitHub":[
                {
-                "nome":"Git e Git Hub: Repositóio, Commit e Versões",
-                "link":"https://github.com/JoaoPedroBMoura/my-certification/blob/main/Git%20e%20GitHub/Git%20e%20GitHub/Versionamento%20de%20C%C3%B3digo%20com%20Git%20E%20GitHub.pdf"
+                "nome":"Git e Git Hub - Dio (01/2024)",
+                "link":"https://github.com/JoaoPedroBMoura/my-certification/tree/main/git%20e%20gitHub"
                }
           ]
 
