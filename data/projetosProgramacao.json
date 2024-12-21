@@ -15,7 +15,16 @@
     ],
     "deConsole":[
         {
-            
+            "nome":"Simula celular",
+            "link":"https://github.com/JoaoPedroBMoura/Simulando-celular"
+        },
+        {
+            "nome":"Sistema de Hospedagem",
+            "link":"https://github.com/JoaoPedroBMoura/Sistema-de-hospedagem"
+        },
+        {
+            "nome":"Controle de Estacionamento",
+            "link":"https://github.com/JoaoPedroBMoura/Sistema-de-controle-estacionamento"
         }
     ]
    
