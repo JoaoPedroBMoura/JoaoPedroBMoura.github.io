@@ -15,15 +15,15 @@
     ],
     "deConsole":[
         {
-            "nome":"Simula celular",
+            "nome":"Simula celular - c#/.NET 9.0",
             "link":"https://github.com/JoaoPedroBMoura/Simulando-celular"
         },
         {
-            "nome":"Sistema de Hospedagem",
+            "nome":"Sistema de Hospedagem - c#/.NET 9.0",
             "link":"https://github.com/JoaoPedroBMoura/Sistema-de-hospedagem"
         },
         {
-            "nome":"Controle de Estacionamento",
+            "nome":"Controle de Estacionamento - c#/.NET 9.0",
             "link":"https://github.com/JoaoPedroBMoura/Sistema-de-controle-estacionamento"
         }
     ]

@@ -1,6 +1,6 @@
 {
     
-    "dotNet":[
+            "dotNet":[
             {
                 "nome": "Fundamentos em .NET- Dio (12/2024)",
                 "link": "https://github.com/JoaoPedroBMoura/my-certification/tree/main/dotnet/1.Fundamentos%20de%20.NET"
@@ -12,6 +12,10 @@
             {
                 "nome":"Poo com C# - Dio (12/2024)",
                 "link":"https://github.com/JoaoPedroBMoura/my-certification/tree/main/dotnet/3.Poo%20com%20C%23"
+            },
+            {
+                "nome":"BD relacionais e não relacionais - SQL Server e MongoDB - Dio (12/2024)",
+                "link":"https://github.com/JoaoPedroBMoura/my-certification/tree/main/dotnet/4.BD%20Relacionais%20e%20n%C3%A3o%20relacionais"
             }
           ],
           "gitGitHub":[
