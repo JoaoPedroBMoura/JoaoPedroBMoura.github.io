@@ -64,11 +64,12 @@ export class Util{
             const divBotao = document.createElement("div");
             divBotao.className = 'navbar-toggler dropdown no-break letra-branca';
 
-            const toggleButton = document.createElement('a'); 
-            toggleButton.href = `#${curso}`;
-            console.log(toggleButton)
-            toggleButton.className = 'dropdown-toggle letra-branca font-media'; 
+            const toggleButton = document.createElement('button'); 
+            toggleButton.className = 'bnt button-text font-media'; 
             toggleButton.setAttribute('data-toggle', 'collapse');
+            toggleButton.setAttribute('data-target', `#${curso}`);
+            toggleButton.setAttribute('type', 'button');
+            toggleButton.setAttribute('aria-controls',`${curso}` );
             toggleButton.innerText = nomeToggle;
             divBotao.append(toggleButton);
             
