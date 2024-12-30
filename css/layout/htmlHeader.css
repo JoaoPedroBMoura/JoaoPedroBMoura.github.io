@@ -13,12 +13,19 @@
 }
 
 
+@media (min-width: 768px){
+  .img-margem-esquerda-40{
+    margin-left: 40px;
+  }
+
+  .img-margem-direita-40{
+    margin-right: 80px;
+  }
+
+}
+
 @media (max-width: 767px) { /* Ajuste para tablets e telas médias */
    .no-break{
      padding-left: 10px;
    }
-}
-
-@media (max-width: 425px) { /* Ajuste para dispositivos móveis */
-   
 }

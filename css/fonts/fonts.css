@@ -18,7 +18,7 @@
   }
 
   .font-grande{
-    font-size: 60px;
+    font-size: 40px;
   }
 
   .no-break-line{
@@ -29,11 +29,24 @@
   a:hover { color: white; } 
   a:visited { color: white; }
 
+  .button-text { 
+    background: none; /* Remove o fundo */ 
+    border: none; /* Remove a borda */ 
+    padding: 0; /* Remove o preenchimento */ 
+    margin: 0; /* Remove a margem */ 
+    color: inherit; /* Herda a cor do texto */ 
+    cursor: pointer; /* Mantém o cursor de ponteiro */ 
+  }
+
   @media (max-width: 768px) { 
     .jumbotron h1{
       font-size: 40px;
       color: white;
       font-family:Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .font-grande{
+      font-size: 30px;
     }
   }
 
@@ -42,6 +55,14 @@
       font-size: 35px;
       color: white;
       font-family:Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .font-grande{
+      font-size: 30px;
+    }
+
+    .img-banner{
+      margin: 20px
     }
   }
 
