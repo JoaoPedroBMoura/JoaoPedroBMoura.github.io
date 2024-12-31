@@ -13,12 +13,20 @@
     font-weight: bold;
   }
 
+  .letra-marrom{
+    color: #5d3f30;
+  }
+
   .font-media{
     font-size: 15px;
   }
 
   .font-grande{
     font-size: 40px;
+  }
+
+  .no-link-style{
+    list-style: none;
   }
 
   .no-break-line{
