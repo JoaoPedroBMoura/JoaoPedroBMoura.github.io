@@ -7,7 +7,7 @@ const cursosProgramacao = new Util("cursosProgramacao.json");
 const cursosAnaliseDados = new Util("cursosAnaliseDados.json");
 const certificacoes = new Util("certificacoes.json")
 
-async function criaPagina() { 
+export async function criaPagina(botao) { 
     const divConteudoPagina = document.createElement("div")
     divConteudoPagina.className = 'letra-branca centraliza-cursos'
 
@@ -55,7 +55,11 @@ async function criaPagina() {
     divCertificados.append(tituloCertificados,LeanSixSigma);
 
     divConteudoPagina.append(divProgramacao, divAnalistaDados,divCertificados)
-    skillAndCourses.append(titulo,divConteudoPagina);
+    skillAndCourses.append(titulo, divConteudoPagina);
+    
+    if (botao == "dotnet") {
+        return cursoDotNet;
+    } else if (botao == "gitGitHub") {
+        return gitGitHub;
+    }
 }
-
-criaPagina();

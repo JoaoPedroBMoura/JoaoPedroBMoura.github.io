@@ -5,3 +5,12 @@
     background-position: center center;
     margin-top: 0;
 }
+
+.button-menu { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+} 
+.button-menu .btn { 
+    margin: 15px; 
+}
