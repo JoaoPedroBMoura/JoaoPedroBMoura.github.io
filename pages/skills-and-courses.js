@@ -61,5 +61,9 @@ export async function criaPagina(botao) {
         return cursoDotNet;
     } else if (botao == "gitGitHub") {
         return gitGitHub;
+    } else if (botao == "analiseDeDados") {
+        return comunidadeDS;
+    } else if (botao == "leanSixSigma") {
+        return LeanSixSigma;
     }
 }

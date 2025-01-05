@@ -12,9 +12,9 @@ export class Util{
         const liCurso = document.createElement('li')
             liCurso.className ='margin-list-10 '
         const linkCurso = document.createElement("a")
-        linkCurso.className = 'dropdown-item'
+        linkCurso.className = 'dropdown-item '
 
-        linkCurso.className = 'letra-branca font-media'
+        linkCurso.className = 'herda-cor font-media'
 
         linkCurso.href = link
         linkCurso.innerText = nomeCurso
@@ -62,14 +62,15 @@ export class Util{
     async criaToggle(nomeToggle,curso) {
         try {
             const divBotao = document.createElement("div");
-            divBotao.className = 'navbar-toggler dropdown no-break letra-branca';
+            divBotao.className = 'navbar-toggler dropdown no-break herda-cor';
 
             const toggleButton = document.createElement('button'); 
             toggleButton.className = 'bnt button-text font-media'; 
             toggleButton.setAttribute('data-toggle', 'collapse');
             toggleButton.setAttribute('data-target', `#${curso}`);
             toggleButton.setAttribute('type', 'button');
-            toggleButton.setAttribute('aria-controls',`${curso}` );
+            toggleButton.setAttribute('aria-controls', `${curso}`);
+            toggleButton.setAttribute('aria-expanded', 'true');
             toggleButton.innerText = nomeToggle;
             divBotao.append(toggleButton);
             
@@ -77,7 +78,7 @@ export class Util{
 
             const ulDeProjetos = this.criarUl(array);
             ulDeProjetos.id = curso;
-            ulDeProjetos.className = 'collapse list-unstyled'
+            ulDeProjetos.className = 'collapse show list-unstyled'
             divBotao.appendChild(ulDeProjetos);
         
 

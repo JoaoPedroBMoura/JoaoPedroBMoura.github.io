@@ -15,6 +15,22 @@
   padding: 50px;
 }
 
+.centroLista {
+  display: flex;
+  flex-direction: column; /* Organiza os elementos verticalmente */
+  align-items: center;    /* Centraliza horizontalmente */
+  justify-content: flex-start; /* Garante que todos começam no topo */
+  gap: 10px;              /* Espaçamento consistente entre os elementos */
+  padding: 10px;          /* Ajuste do espaçamento interno */
+}
+
+.centroLista > * {
+  margin: 0;              /* Remove margens adicionais */
+  padding: 0;             /* Remove padding adicional */
+  text-align: center;     /* Centraliza o texto internamente */
+}
+
+
 .centralizaImg{
     display: flex;
     align-items: center;

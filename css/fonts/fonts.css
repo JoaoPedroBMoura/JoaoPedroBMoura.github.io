@@ -17,6 +17,10 @@
     color: #5d3f30;
   }
 
+  .letra-marrom .herda-cor{ 
+    color: inherit; /* Garante que os itens da lista herdem a cor da letra-marrom */ 
+  }
+
   .font-media{
     font-size: 15px;
   }

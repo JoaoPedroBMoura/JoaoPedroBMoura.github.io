@@ -14,3 +14,13 @@
 .button-menu .btn { 
     margin: 15px; 
 }
+
+.content-container { 
+    opacity: 0; 
+    visibility: hidden; 
+    transition: opacity 1s ease-in-out, visibility 1s; 
+} 
+.content-container.show { 
+    opacity: 1; 
+    visibility: visible; 
+}
