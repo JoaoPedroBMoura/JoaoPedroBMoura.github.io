@@ -2,6 +2,23 @@
     background-color: #D08E6C;
     background-size: cover;
     height: cover;
+    width: 100%;
+    margin-top: 0;
+}
+
+.backgound-caramelo{
+    background-color: #f9deb7;
+    background-size: cover;
+    height: cover;
     width: cover;
+    margin-top: 0;
+    border-radius: 50px;
+}
+
+.backgound-preto{
+    background-color: #393939;
+    background-size: cover;
+    height: cover;
+    background-position: center center;
     margin-top: 0;
 }

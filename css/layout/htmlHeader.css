@@ -12,9 +12,10 @@
 }
 
 .menu-fixo{
-  position: relative;
+  position: fixed;
   width: 100%;
   top: 0;
+  z-index: 1000;
   padding: 10px 0px;
 }
 .navbar-toggler {
@@ -36,6 +37,14 @@
   justify-content: center; /* Centraliza horizontalmente */
   align-items: center; /* Centraliza verticalmente */
 
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 80px; /* Ajuste este valor para corresponder à altura do cabeçalho fixo */
 }
 @media (min-width: 768px){
   .img-margem-esquerda-40{
