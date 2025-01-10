@@ -89,4 +89,54 @@ export class Util{
         
     }
 
+    async pegarDadosProjeto(projeto, diretorio, array) {
+        try {
+            const response = await fetch(`https://joaopedrobmoura.github.io/data/${diretorio}`, {
+                method: "GET"
+            });
+            if (response.ok) {
+                const json = await response.json();
+
+                const projetoJson = json[array]
+
+                projetoJson.find(element => element.nome == projeto)
+
+                return projetoJson;
+            } else {
+                console.error("Erro ao carregar os dados JSON");
+            }
+        } catch (error) {
+            console.error("Erro na função pegarDados", error);
+        }
+    }
+
+    async criaCard(nomeProjeto,diretorio,array) {
+
+        const dadoProjeto = await pegarDadosProjeto(nomeProjeto,diretorio,array)
+
+        const divSites = document.createElement('div');
+        divSites.className = 'container col-md-2 col-lg-3 margem-baixo-30  text-center background-ferrugem p-4';
+        
+        const tituloCard = document.createElement('h4');
+        tituloCard.innerText = `${dadoProjeto.nome}`
+        tituloCard.className = 'letra-branca mb-4'
+
+        const imagemProjeto = document.createElement('img')
+        imagemProjeto.className = 'img-fluid'
+        imagemProjeto.src = `${dadoProjeto.linkImg}`
+        imagemProjeto.alt =  `${dadoProjeto.textoAlt}`
+
+        const descricaoProjeto = document.createElement('p')
+        descricaoProjeto.innerText = `${dadoProjeto.descricao}`
+        descricaoProjeto.className = 'letra-caramelo mb-4'
+
+        const linkProjeto = document.createElement('a')
+        linkProjeto.innerText = `${dadoProjeto.nome}`
+        linkProjeto.href = `${dadoProjeto.link}`
+
+        divSites.append(tituloCard, imagemProjeto, descricaoProjeto, linkProjeto)
+        
+        return divSites;
+    }
+
 }
