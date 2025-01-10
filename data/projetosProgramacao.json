@@ -1,15 +1,24 @@
 {
     "sites":[
         {
-            "nome": "Natureza",
+            "nome": "Reportagem",
+            "linkImg":"https://raw.githubusercontent.com/JoaoPedroBMoura/Reportagens/refs/heads/main/images/siteReportagens.png",
+            "textoAlt":"Foto do site de Reportagens",
+            "descricao":"Projeto desenvolvido com o propósito de começar a estudar as divisões de tela feitas com grid pelo bootstrap",
             "link": "https://joaopedrobmoura.github.io/Reportagens/"
         },
         {
-            "nome": "Reportagem",
+            "nome": "Site de Empresa",
+            "linkImg":"https://raw.githubusercontent.com/JoaoPedroBMoura/Web-Fundamentals-Project/refs/heads/main/images/index.png",
+            "textoAlt":"site de um empresa qualquer",
+            "descricao":"Projeto desenvolvido no começo do curso para nos mostrar as principais ferramentas do bootstrap e do prórpio HTML",
             "link": "https://joaopedrobmoura.github.io/Web-Fundamentals-Project/"
         },
         {
             "nome": "Site de Vendas",
+            "linkImg":"https://raw.githubusercontent.com/JoaoPedroBMoura/Momentos-Perfeitos/refs/heads/main/img/siteVendas.png",
+            "textoAlt":"Site de vendas de alguma loja",
+            "descricao":"Ultimo projeto desenvolvido em aula. Ele já poussi bem mais elementos, mais trabalhados, e recursos mais avançados do bootstrap",
             "link": "https://joaopedrobmoura.github.io/Momentos-Perfeitos/"
         }
     ],
