@@ -3,17 +3,32 @@
     justify-content: space-between;
 }
   
-  .item {
-    flex: 1;
-    padding: 20px;
-  }
-
-  .centro {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 50px;
+.item {
+  flex: 1;
+  padding: 20px;
 }
+
+.centro {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 20px;
+}
+
+.centroLista {
+  display: flex;
+  flex-direction: column; /* Organiza os elementos verticalmente */
+  align-items: center;    /* Centraliza horizontalmente */
+  justify-content: flex-start; /* Garante que todos começam no topo */
+  gap: 10px;              /* Espaçamento consistente entre os elementos */
+}
+
+.centroLista > * {
+  margin: 0;              /* Remove margens adicionais */
+  padding: 0;             /* Remove padding adicional */
+  text-align: center;     /* Centraliza o texto internamente */
+}
+
 
 .centralizaImg{
     display: flex;
@@ -23,27 +38,8 @@
     
 }
 
-.margem-0{
-  margin-top: 0;
-  margin-bottom: 0;
-  margin: 0;
-}
-
-section ul{
-  list-style: none;
-  padding-inline-start: 0;
-}
-
-.margem-esquerda{
-  margin-left: 0;;
-}
-
-.margem-cima-30{
-  margin-top: 30px;
-}
-
-.no-link-style{
-  list-style: none;
+.img-para-direita{
+  margin-left: auto;
 }
 
 .img-banner{
@@ -51,25 +47,89 @@ section ul{
   justify-content: center;
 }
 
-html, body { 
-  height: 100%; 
-  margin: 0; 
-  padding: 0; 
-  background-color: #393939; /* Cor de fundo desejada */ 
-} 
-.flex-wrapper { 
-    display: flex; 
-    flex-direction: column; 
-    min-height: 100vh; /* 100% da altura da viewport */ 
-  } 
+.margem-0{
+  margin-top: 0;
+  margin-bottom: 0;
+  margin: 0;
+}
 
-#main-content { flex: 1; /* Garante que o main-content ocupe o espaço disponível */ }
+.zera-margem-esquerda{
+  margin-left: 0;;
+}
+
+.margem-esquerda-40{
+  padding-left: 30px;
+}
+
+.margem-esquerda{
+  margin-left: 120px;
+}
+
+.margem-esqueda-170{
+  margin-left: 120px;
+}
+
+.margem-direita{
+  margin-right: 70px;
+}
+
+.margem-cima-30{
+  margin-top: 30px;
+}
+
+.margem-baixo-30{
+  margin-bottom: 30px;
+}
 
 .margin-list-10{
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-.padding-esquerda-20{
-  padding-left: 20px;
+.padding-esquerda-0{
+  padding-left: 0px;
+}
+
+.padding-esqueda-60{
+  padding-left: 60px;
+}
+
+.padding-esquerda{
+  padding-left: 160px;
+}
+
+.padding-baixo-20{
+  padding-bottom: 20px;
+}
+
+.padding-acima{
+  padding-top: 30px;
+}
+
+section ul{
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+html, body { 
+  height: 100%; 
+  width: 100%;
+  margin: 0; 
+  padding: 0; 
+  background-color: #393939; /* Cor de fundo desejada */ 
+} 
+
+.flex-wrapper { 
+    display: flex; 
+    flex-direction: column; 
+    min-height: 100vh; /* 100% da altura da viewport */ 
+} 
+
+#main-content { 
+  flex: 1; /* Garante que o main-content ocupe o espaço disponível */ 
+}
+
+.borda-direita{
+  border-right: 2px solid #f9deb7;
+  padding-right: 20px;
 }

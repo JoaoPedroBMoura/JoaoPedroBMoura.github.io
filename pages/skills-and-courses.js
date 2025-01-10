@@ -7,7 +7,7 @@ const cursosProgramacao = new Util("cursosProgramacao.json");
 const cursosAnaliseDados = new Util("cursosAnaliseDados.json");
 const certificacoes = new Util("certificacoes.json")
 
-async function criaPagina() { 
+export async function criaPagina(botao) { 
     const divConteudoPagina = document.createElement("div")
     divConteudoPagina.className = 'letra-branca centraliza-cursos'
 
@@ -39,23 +39,31 @@ async function criaPagina() {
     tituloCertificados.className = 'container letra-branca';
     
     const cursoDotNet = await cursosProgramacao.criaToggle(".Net", "dotNet");
-    cursoDotNet.className = 'padding-esquerda-20'
+    cursoDotNet.className = 'padding-esquerda-0'
 
     const gitGitHub = await cursosProgramacao.criaToggle("Git e Git Hub", "gitGitHub");
-    gitGitHub.className = 'padding-esquerda-20'
+    gitGitHub.className = 'padding-esquerda-0'
     
     const comunidadeDS = await cursosAnaliseDados.criaToggle("Comunidade DS", "ComunidadeDs");
-    comunidadeDS.className = 'padding-esquerda-20';
+    comunidadeDS.className = 'padding-esquerda-0';
 
     const LeanSixSigma = await certificacoes.criaToggle("Lean Six Sigma", "gestao-projetos");
-    LeanSixSigma.className = 'padding-esquerda-20';
+    LeanSixSigma.className = 'padding-esquerda-0';
 
     divAnalistaDados.append(tituloCarreiraAnaliseDados,comunidadeDS);
     divProgramacao.append(tituloCarreiraProgramacao, cursoDotNet, gitGitHub);
     divCertificados.append(tituloCertificados,LeanSixSigma);
 
     divConteudoPagina.append(divProgramacao, divAnalistaDados,divCertificados)
-    skillAndCourses.append(titulo,divConteudoPagina);
+    skillAndCourses.append(titulo, divConteudoPagina);
+    
+    if (botao == "dotnet") {
+        return cursoDotNet;
+    } else if (botao == "gitGitHub") {
+        return gitGitHub;
+    } else if (botao == "analiseDeDados") {
+        return comunidadeDS;
+    } else if (botao == "leanSixSigma") {
+        return LeanSixSigma;
+    }
 }
-
-criaPagina();

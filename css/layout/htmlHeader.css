@@ -7,6 +7,10 @@
   margin-bottom: 50px;
 }
 
+.style-button{
+  margin-right: 100px !important; 
+}
+
 .menu-fixo{
   position: fixed;
   width: 100%;
@@ -14,7 +18,34 @@
   z-index: 1000;
   padding: 10px 0px;
 }
+.navbar-toggler {
+  margin: 0 auto; /* Centraliza horizontalmente */
+  display: flex; /* Garante que o botão use flexbox */
+  justify-content: center; /* Centraliza o conteúdo do botão */
+}
 
+.navbar-collapse {
+  display: flex; /* Usa flexbox para organizar os elementos */
+  flex-direction: column; /* Organiza os itens verticalmente */
+  align-items: center; /* Centraliza os itens horizontalmente */
+  justify-content: center; /* Centraliza os itens verticalmente */
+  text-align: center; /* Centraliza o texto nos links */
+}
+
+.navbar {
+  display: flex; /* Torna o menu flexível */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 80px; /* Ajuste este valor para corresponder à altura do cabeçalho fixo */
+}
 @media (min-width: 768px){
   .img-margem-esquerda-40{
     margin-left: 40px;

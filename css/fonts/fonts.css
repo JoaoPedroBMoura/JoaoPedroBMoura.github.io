@@ -9,8 +9,23 @@
   }
 
   .letra-preta{
-    color: black;
-    font-weight: bold;
+    color: #000000 !important;
+  }
+
+  .letra-caramelo{
+    color: #f9deb7 !important;
+  }
+
+  .letra-marrom{
+    color: #5d3f30;
+  }
+
+  .letra-laranja{
+    color:#AB594B;
+  }
+  
+  .letra-laranja .herda-cor{ 
+    color: inherit; /* Garante que os itens da lista herdem a cor da letra-marrom */ 
   }
 
   .font-media{
@@ -19,6 +34,16 @@
 
   .font-grande{
     font-size: 40px;
+  }
+
+  .centro-titulo{
+    align-items: center;
+    align-content: center;
+    text-align: center;
+  }
+
+  .no-link-style{
+    list-style: none;
   }
 
   .no-break-line{
@@ -58,7 +83,7 @@
     }
 
     .font-grande{
-      font-size: 30px;
+      font-size: 25px;
     }
 
     .img-banner{

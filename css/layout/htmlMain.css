@@ -1,7 +1,20 @@
-.backgound-complemento{
-    background-color: #393939;
-    background-size: cover;
-    height: cover;
-    background-position: center center;
-    margin-top: 0;
+.button-menu { 
+    display: flex; 
+    justify-content: start; 
+    align-items: start; 
+} 
+.button-menu .btn { 
+    margin-right: 20px; 
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.content-container { 
+    opacity: 0; 
+    visibility: hidden; 
+    transition: opacity 1s ease-in-out, visibility 1s; 
+} 
+.content-container.show { 
+    opacity: 1; 
+    visibility: visible; 
 }
