@@ -1,5 +1,5 @@
-import { Projeto } from "./projects.js";
-import { skillAndCourses, criaPagina } from "./skills-and-courses.js";
+import { criaPaginaProjeto } from "./projects.js";
+import { criaPagina } from "./skills-and-courses.js";
 const initialContent = document.getElementById("main-content");
 
 async function pegarOsItensDeOutroHTML(paginaAntiga, novaPagina) {
@@ -44,6 +44,15 @@ const linkLeanSixSigma = document.getElementById('cursosLeanSixSigma');
     
             pegarOsItensDeOutroHTML("divCursos", await criaPagina("leanSixSigma")); 
     });
+
+const linkProjetoSite = document.getElementById('projetosDeSite');
+
+    linkProjetoSite.addEventListener('click', async (env) => {
+        env.preventDefault();
+
+            pegarOsItensDeOutroHTML("divProjetos", await criaPaginaProjeto()); 
+    });
+
 
 /*
 const home = document.getElementById('home');
