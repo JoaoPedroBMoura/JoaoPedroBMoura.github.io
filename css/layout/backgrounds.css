@@ -1,4 +1,4 @@
-.backgound-laranja{
+.background-laranja{
     background-color: #D08E6C;
     background-size: cover;
     height: cover;
@@ -6,7 +6,7 @@
     margin-top: 0;
 }
 
-.backgound-caramelo{
+.background-caramelo{
     background-color: #f9deb7;
     background-size: cover;
     height: cover;
@@ -15,10 +15,19 @@
     border-radius: 50px;
 }
 
-.backgound-preto{
+.background-preto{
     background-color: #393939;
     background-size: cover;
     height: cover;
     background-position: center center;
     margin-top: 0;
+}
+
+.background-ferrugem{
+    background-color: #AB594B;
+    background-size: cover;
+    height: cover;
+    background-position: center center;
+    margin-top: 0;
+    border-radius: 50px;
 }
