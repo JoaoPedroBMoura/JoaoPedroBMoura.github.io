@@ -89,9 +89,9 @@ export class Util{
         
     }
 
-    async pegarDadosProjeto(projeto, diretorio, array) {
+    async pegarDadosProjeto(projeto,  array) {
         try {
-            const response = await fetch(`https://joaopedrobmoura.github.io/data/${diretorio}`, {
+            const response = await fetch(`https://joaopedrobmoura.github.io/data/projetosProgramacao.json`, {
                 method: "GET"
             });
             if (response.ok) {
@@ -99,9 +99,9 @@ export class Util{
 
                 const projetoJson = json[array]
 
-                projetoJson.find(element => element.nome == projeto)
+                const variavel = projetoJson.find(element => element.nome == projeto)
 
-                return projetoJson;
+                return variavel;
             } else {
                 console.error("Erro ao carregar os dados JSON");
             }
@@ -110,9 +110,9 @@ export class Util{
         }
     }
 
-    async criaCard(nomeProjeto,diretorio,array) {
+    async criaCard(nomeProjeto,array) {
 
-        const dadoProjeto = await pegarDadosProjeto(nomeProjeto,diretorio,array)
+        const dadoProjeto = await this.pegarDadosProjeto(nomeProjeto,array)
 
         const divSites = document.createElement('div');
         divSites.className = 'container col-md-2 col-lg-3 margem-baixo-30  text-center background-ferrugem p-4';

@@ -9,7 +9,7 @@
         },
         {
             "nome": "Site de Empresa",
-            "linkImg":"https://raw.githubusercontent.com/JoaoPedroBMoura/Web-Fundamentals-Project/refs/heads/main/images/index.png",
+            "linkImg":"https://raw.githubusercontent.com/JoaoPedroBMoura/Web-Fundamentals-Project/refs/heads/main/images/SiteConcluido.png",
             "textoAlt":"site de um empresa qualquer",
             "descricao":"Projeto desenvolvido no começo do curso para nos mostrar as principais ferramentas do bootstrap e do prórpio HTML",
             "link": "https://joaopedrobmoura.github.io/Web-Fundamentals-Project/"
@@ -25,15 +25,33 @@
     "deConsole":[
         {
             "nome":"Simula celular - c#/.NET 9.0",
+            "linkImg":"",
+            "textoAlt":"",
+            "descricao":"",
             "link":"https://github.com/JoaoPedroBMoura/Simulando-celular"
         },
         {
             "nome":"Sistema de Hospedagem - c#/.NET 9.0",
+            "linkImg":"",
+            "textoAlt":"",
+            "descricao":"",
             "link":"https://github.com/JoaoPedroBMoura/Sistema-de-hospedagem"
         },
         {
             "nome":"Controle de Estacionamento - c#/.NET 9.0",
+            "linkImg":"",
+            "textoAlt":"",
+            "descricao":"",
             "link":"https://github.com/JoaoPedroBMoura/Sistema-de-controle-estacionamento"
+        }
+    ],
+     "api": [
+        {
+            "nome":"API de cadastro de cliente - c#/.NET 6.0",
+            "linkImg":"",
+            "textoAlt":"",
+            "descricao":"",
+            "link":""
         }
     ]
    

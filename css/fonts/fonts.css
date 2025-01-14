@@ -54,6 +54,7 @@
   a:hover { color: white; } 
   a:visited { color: white; }
 
+
   .button-text { 
     background: none; /* Remove o fundo */ 
     border: none; /* Remove a borda */ 
@@ -61,6 +62,10 @@
     margin: 0; /* Remove a margem */ 
     color: inherit; /* Herda a cor do texto */ 
     cursor: pointer; /* Mantém o cursor de ponteiro */ 
+  }
+
+  button :hover{
+    color: white;
   }
 
   @media (max-width: 768px) { 
