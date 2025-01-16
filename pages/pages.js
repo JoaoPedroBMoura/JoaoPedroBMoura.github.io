@@ -8,14 +8,7 @@ async function pegarOsItensDeOutroHTML(paginaAntiga, novaPagina) {
     body.append(novaPagina);
 }
 
-// páginas 
-const linkProjetos = document.getElementById('projeto-programacao');
-
-    linkProjetos.addEventListener('click', (env) => {
-        env.preventDefault();
-        pegarOsItensDeOutroHTML(Projeto,"main-content");
-    });
-
+// páginas  
 const linkDotnet = document.getElementById('dotnet');
 
     linkDotnet.addEventListener('click', async (env) => {
