@@ -50,7 +50,16 @@ const linkProjetoSite = document.getElementById('projetosDeSite');
     linkProjetoSite.addEventListener('click', async (env) => {
         env.preventDefault();
 
-            pegarOsItensDeOutroHTML("divProjetos", await criaPaginaProjeto()); 
+            pegarOsItensDeOutroHTML("divProjetos", await criaPaginaProjeto("site")); 
+    });
+
+    
+const linkProjetosApi = document.getElementById('projetosApi');
+
+    linkProjetosApi.addEventListener('click', async (env) => {
+        env.preventDefault();
+
+            pegarOsItensDeOutroHTML("divProjetos", await criaPaginaProjeto("api")); 
     });
 
 
