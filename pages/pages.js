@@ -1,5 +1,6 @@
 import { criaPaginaProjeto } from "./projects.js";
 import { criaPagina } from "./skills-and-courses.js";
+import { criaPaginaProjetoDados } from "./dataAnalysisProjects.js";
 const initialContent = document.getElementById("main-content");
 
 async function pegarOsItensDeOutroHTML(paginaAntiga, novaPagina) {
@@ -53,6 +54,13 @@ const linkProjetosApi = document.getElementById('projetosApi');
         env.preventDefault();
 
             pegarOsItensDeOutroHTML("divProjetos", await criaPaginaProjeto("api")); 
+    });
+const linkAnaliseDadosExcel = document.getElementById('projetoAnalises');
+
+    linkAnaliseDadosExcel.addEventListener('click', async (env) => {
+        env.preventDefault();
+
+            pegarOsItensDeOutroHTML("divProjetos", await criaPaginaProjetoDados());
     });
 
 

@@ -91,7 +91,7 @@ export class Util{
 
     async pegarDadosProjeto(projeto,  array) {
         try {
-            const response = await fetch(`https://joaopedrobmoura.github.io/data/projetosProgramacao.json`, {
+            const response = await fetch(`${this.DB}/${this.entidades}`, {
                 method: "GET"
             });
             if (response.ok) {
@@ -118,8 +118,8 @@ export class Util{
         divSites.className = 'container col-md-2 col-lg-3 margem-baixo-30  text-center background-ferrugem p-4';
         
         const tituloCard = document.createElement('h4');
-        tituloCard.innerText = `${dadoProjeto.nome}`
-        tituloCard.className = 'letra-branca mb-4'
+        tituloCard.innerText = `${dadoProjeto.nome}`;
+        tituloCard.className = 'letra-branca mb-4';
 
         const imagemProjeto = document.createElement('img')
         imagemProjeto.className = 'img-fluid'
