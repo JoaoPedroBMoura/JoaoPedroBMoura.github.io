@@ -8,14 +8,7 @@ async function pegarOsItensDeOutroHTML(paginaAntiga, novaPagina) {
     body.append(novaPagina);
 }
 
-// páginas 
-const linkProjetos = document.getElementById('projeto-programacao');
-
-    linkProjetos.addEventListener('click', (env) => {
-        env.preventDefault();
-        pegarOsItensDeOutroHTML(Projeto,"main-content");
-    });
-
+// páginas  
 const linkDotnet = document.getElementById('dotnet');
 
     linkDotnet.addEventListener('click', async (env) => {
@@ -50,7 +43,16 @@ const linkProjetoSite = document.getElementById('projetosDeSite');
     linkProjetoSite.addEventListener('click', async (env) => {
         env.preventDefault();
 
-            pegarOsItensDeOutroHTML("divProjetos", await criaPaginaProjeto()); 
+            pegarOsItensDeOutroHTML("divProjetos", await criaPaginaProjeto("site")); 
+    });
+
+    
+const linkProjetosApi = document.getElementById('projetosApi');
+
+    linkProjetosApi.addEventListener('click', async (env) => {
+        env.preventDefault();
+
+            pegarOsItensDeOutroHTML("divProjetos", await criaPaginaProjeto("api")); 
     });
 
 

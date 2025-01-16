@@ -48,10 +48,10 @@
      "api": [
         {
             "nome":"API de cadastro de cliente - c#/.NET 6.0",
-            "linkImg":"",
-            "textoAlt":"",
-            "descricao":"",
-            "link":""
+            "linkImg":"https://raw.githubusercontent.com/JoaoPedroBMoura/API-de-contatos/refs/heads/main/img/photo%20from%20APi.png",
+            "textoAlt":"Home API",
+            "descricao":"Minha primeira API em C#. Ela cadastra contatos diretamente no seu banco de dados",
+            "link":"https://github.com/JoaoPedroBMoura/API-de-contatos"
         }
     ]
    
