@@ -24,24 +24,17 @@
     ],
     "deConsole":[
         {
-            "nome":"Simula celular - c#/.NET 9.0",
-            "linkImg":"",
-            "textoAlt":"",
-            "descricao":"",
-            "link":"https://github.com/JoaoPedroBMoura/Simulando-celular"
-        },
-        {
             "nome":"Sistema de Hospedagem - c#/.NET 9.0",
-            "linkImg":"",
-            "textoAlt":"",
-            "descricao":"",
+            "linkImg":"https://raw.githubusercontent.com/JoaoPedroBMoura/Sistema-de-hospedagem/refs/heads/main/img/readmeDoProjeto.png",
+            "textoAlt":"Visão geral do projeto",
+            "descricao":"Projeto de console com objetivo de simular o sistema de controle interno de um hotel. Cadastra, lista e remove do sistema as reservas",
             "link":"https://github.com/JoaoPedroBMoura/Sistema-de-hospedagem"
         },
         {
             "nome":"Controle de Estacionamento - c#/.NET 9.0",
-            "linkImg":"",
-            "textoAlt":"",
-            "descricao":"",
+            "linkImg":"https://raw.githubusercontent.com/JoaoPedroBMoura/Sistema-de-controle-estacionamento/refs/heads/main/img/visaoGeralProjeto.png",
+            "textoAlt":"Visão geral do projeto",
+            "descricao":"Projeto de console com objetivo de simular o controle de veículos em um estacionamento, e exercitar POO em C#",
             "link":"https://github.com/JoaoPedroBMoura/Sistema-de-controle-estacionamento"
         }
     ],

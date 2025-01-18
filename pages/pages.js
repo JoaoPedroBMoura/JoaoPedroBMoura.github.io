@@ -55,12 +55,21 @@ const linkProjetosApi = document.getElementById('projetosApi');
 
             pegarOsItensDeOutroHTML("divProjetos", await criaPaginaProjeto("api")); 
     });
+
 const linkAnaliseDadosExcel = document.getElementById('projetoAnalises');
 
     linkAnaliseDadosExcel.addEventListener('click', async (env) => {
         env.preventDefault();
 
             pegarOsItensDeOutroHTML("divProjetos", await criaPaginaProjetoDados());
+    });
+
+const linkConsole = document.getElementById('projetosConsole');
+
+    linkConsole.addEventListener('click', async (env) => {
+        env.preventDefault();
+
+            pegarOsItensDeOutroHTML("divProjetos", await criaPaginaProjeto("console")); 
     });
 
 
