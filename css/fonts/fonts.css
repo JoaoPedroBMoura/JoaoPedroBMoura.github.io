@@ -28,6 +28,10 @@
     color: inherit; /* Garante que os itens da lista herdem a cor da letra-marrom */ 
   }
 
+  .negrito{
+    font-weight: bold;
+  }
+
   .font-media{
     font-size: 15px;
   }
@@ -56,16 +60,17 @@
 
 
   .button-text { 
-    background: none; /* Remove o fundo */ 
-    border: none; /* Remove a borda */ 
-    padding: 0; /* Remove o preenchimento */ 
-    margin: 0; /* Remove a margem */ 
+    background: none;
+    border: none; 
+    padding: 0; 
+    margin: 0; 
     color: inherit; /* Herda a cor do texto */ 
     cursor: pointer; /* Mantém o cursor de ponteiro */ 
   }
 
-  button :hover{
-    color: white;
+  .button-menu .btn:hover { 
+    background-color: #393939;  
+    color: #F9DEB7; 
   }
 
   @media (max-width: 768px) { 

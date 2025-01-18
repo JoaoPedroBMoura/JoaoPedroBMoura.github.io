@@ -18,3 +18,8 @@
     opacity: 1; 
     visibility: visible; 
 }
+
+.borda-arredondada {
+    border: 5px solid #AB594B; 
+    padding: 5px; /* Espaço interno entre a imagem e a borda */
+}
