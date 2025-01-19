@@ -1,7 +1,10 @@
 .button-menu { 
     display: flex; 
+    flex-wrap: wrap;
+    flex: 1 1 auto;
     justify-content: center; 
     align-items: center; 
+    gap: 5px;
 } 
 .button-menu .btn { 
     margin-right: 20px; 

@@ -26,7 +26,7 @@ export class Util{
      criarUl(arrayObj) {
         console.log(`Criando UL para cursos`)
         const ulCursos = document.createElement('ul')
-        ulCursos.className = 'dropdown-menu navbar-nav'
+        ulCursos.className = 'dropdown-menu navbar-nav dropdown-toggle'
 
         arrayObj.forEach(obj => {
 
