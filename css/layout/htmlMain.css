@@ -23,3 +23,36 @@
     border: 5px solid #AB594B; 
     padding: 5px; /* Espaço interno entre a imagem e a borda */
 }
+
+@media (max-width: 768px) {
+    #formacaoes{
+        margin-left: 5em;
+    }
+
+    .padding-esqueda-60{
+        padding-left: 0px;
+    }
+
+    #cursosCertificacoes{
+            border-right: 2px solid #AB594B;
+            padding-right: 30px;
+    }
+}
+
+@media (max-width: 631px) {
+    #formacaoes{
+        margin-left: 0 !important;
+    }
+
+    .padding-esqueda-60{
+        padding-left: 10px !important;
+    }
+
+    #skillsTecnologias{
+        padding-left: 10px !important;
+    }
+
+    .margem-esquerda-30{
+        padding-left: 10px !important;
+    }
+}
