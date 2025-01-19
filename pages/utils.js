@@ -26,7 +26,7 @@ export class Util{
      criarUl(arrayObj) {
         console.log(`Criando UL para cursos`)
         const ulCursos = document.createElement('ul')
-        ulCursos.className = 'dropdown-menu navbar-nav dropdown-toggle'
+        ulCursos.className = 'dropdown-menu navbar-nav'
 
         arrayObj.forEach(obj => {
 
@@ -65,7 +65,7 @@ export class Util{
             divBotao.className = 'navbar-toggler dropdown no-break herda-cor';
 
             const toggleButton = document.createElement('button'); 
-            toggleButton.className = 'bnt button-text font-media'; 
+            toggleButton.className = 'bnt button-text font-media dropdown-toggle'; 
             toggleButton.setAttribute('data-toggle', 'collapse');
             toggleButton.setAttribute('data-target', `#${curso}`);
             toggleButton.setAttribute('type', 'button');
