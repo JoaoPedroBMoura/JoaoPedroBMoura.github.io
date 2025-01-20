@@ -73,6 +73,10 @@
     color: #F9DEB7; 
   }
 
+  .letra-laranja:hover, .letra-laranja:focus, .letra-laranja:active { 
+    color: #f9deb7 !important; 
+  }
+
   @media (max-width: 768px) { 
     .jumbotron h1{
       font-size: 40px;
