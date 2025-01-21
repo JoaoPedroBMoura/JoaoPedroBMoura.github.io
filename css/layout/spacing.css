@@ -53,7 +53,7 @@
 }
 
 .margem-esquerda-20{
-  margin-left: 6em;
+  margin-left: 9em;
 }
 
 .margem-esquerda-10{
@@ -123,4 +123,18 @@ html, body {
 .borda-direita{
   border-right: 2px solid #AB594B;
   padding-right: 30px;
+}
+.borda-menu{
+  list-style-type: disc;
+  padding: 0; 
+  margin: 0;
+  gap: 10px;
+  padding-right: 25px;
+  color: #AB594B;
+}
+
+.img-para-esquerda{
+  position: absolute;
+   left: 0;
+   margin-left: 5em;
 }
