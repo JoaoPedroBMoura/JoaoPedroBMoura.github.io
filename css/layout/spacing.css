@@ -17,16 +17,16 @@
 
 .centroLista {
   display: flex;
-  flex-direction: column; /* Organiza os elementos verticalmente */
-  align-items: center;    /* Centraliza horizontalmente */
-  justify-content: flex-start; /* Garante que todos começam no topo */
-  gap: 10px;              /* Espaçamento consistente entre os elementos */
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; 
+  gap: 10px;            
 }
 
 .centroLista > * {
-  margin: 0;              /* Remove margens adicionais */
-  padding: 0;             /* Remove padding adicional */
-  text-align: center;     /* Centraliza o texto internamente */
+  margin: 0;            
+  padding: 0;            
+  text-align: center;     
 }
 
 
@@ -58,6 +58,10 @@
 
 .margem-esquerda-10{
   margin-left: 20px;
+}
+
+.margem-esquerda-25{
+  align-items: center;
 }
 
 .margem-direita{
@@ -95,6 +99,12 @@
 
 .padding-acima{
   padding-top: 30px;
+}
+
+.margin-d-e-5{
+  margin-left: 5px;
+  margin-right: 5px;
+  max-width: 365px;
 }
 
 section ul{

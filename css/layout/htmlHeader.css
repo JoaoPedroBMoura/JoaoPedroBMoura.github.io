@@ -15,23 +15,23 @@
   padding: 10px 0px;
 }
 .navbar-toggler {
-  margin: 0 auto; /* Centraliza horizontalmente */
-  display: flex; /* Garante que o botão use flexbox */
-  justify-content: center; /* Centraliza o conteúdo do botão */
+  margin: 0 auto; 
+  display: flex; 
+  justify-content: center; 
 }
 
 .navbar-collapse {
-  display: flex; /* Usa flexbox para organizar os elementos */
-  flex-direction: column; /* Organiza os itens verticalmente */
-  align-items: center; /* Centraliza os itens horizontalmente */
-  justify-content: center; /* Centraliza os itens verticalmente */
-  text-align: center; /* Centraliza o texto nos links */
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center;
+  text-align: center; 
 }
 
 .navbar {
-  display: flex; /* Torna o menu flexível */
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center; /* Centraliza verticalmente */
+  display: flex; 
+  justify-content: center;
+  align-items: center; 
 
 }
 

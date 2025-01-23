@@ -115,7 +115,7 @@ export class Util{
         const dadoProjeto = await this.pegarDadosProjeto(nomeProjeto,array)
 
         const divSites = document.createElement('div');
-        divSites.className = 'container col-md-2 col-lg-3 margem-baixo-30  text-center background-ferrugem p-4';
+        divSites.className = 'container col-md-3 col-lg-3 margem-baixo-30 margin-d-e-5 background-ferrugem p-4';
         
         const tituloCard = document.createElement('h4');
         tituloCard.innerText = `${dadoProjeto.nome}`;

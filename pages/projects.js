@@ -6,7 +6,7 @@ export async function criaPaginaProjeto(projeto) {
 
     //sites
     const sectionSite = document.createElement('section');
-    sectionSite.className = 'container row text-center col-md-12 col-lg-12';
+    sectionSite.className = 'container row margem-esquerda-25 text-center col-md-12 col-lg-12';
 
     const projetoEmpresa = await projetos.criaCard("Site de Empresa","sites")
     const projetoNatureza = await projetos.criaCard("Reportagem", "sites")
