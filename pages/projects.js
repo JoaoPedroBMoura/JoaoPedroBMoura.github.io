@@ -10,17 +10,19 @@ export async function criaPaginaProjeto(projeto) {
 
     const projetoEmpresa = await projetos.criaCard("Site de Empresa","sites")
     const projetoNatureza = await projetos.criaCard("Reportagem", "sites")
-    const projetoVendas = await projetos.criaCard("Site de Vendas","sites")
+    const projetoVendas = await projetos.criaCard("Site de Vendas", "sites")
+    const projetoListaContatos = await projetos.criaCard("Site de Contatos","sites")
 
-    sectionSite.append(projetoEmpresa, projetoNatureza, projetoVendas)
+    sectionSite.append(projetoEmpresa, projetoNatureza, projetoVendas,projetoListaContatos)
     
     //API'S
     const sectionAPI = document.createElement('section');
     sectionAPI.className = 'container row text-center col-md-12 col-lg-12';
 
     const projetoAPIContatos = await projetos.criaCard("API de cadastro de cliente - c#/.NET 6.0", "api");
+    const projetoAPITarefas = await projetos.criaCard("API Lista de Tarefas - c#/.NET 6.0", "api");
 
-    sectionAPI.append(projetoAPIContatos)
+    sectionAPI.append(projetoAPIContatos,projetoAPITarefas)
 
     //Projetos de Console
     const sectionConsole = document.createElement('section');
