@@ -27,6 +27,10 @@
     padding: 5px; /* Espaço interno entre a imagem e a borda */
 }
 
+#imagemCentral :hover{
+    color: black;
+}
+
 @media (max-width: 768px) {
     #formacaoes{
         margin-left: 5em;
@@ -57,5 +61,13 @@
 
     .margem-esquerda-30{
         padding-left: 10px !important;
+    }
+
+    #experienciaProfissional{
+        margin-bottom: 30px;
+    }
+
+    #formacaoAcademica{
+        margin-bottom: 30px;
     }
 }

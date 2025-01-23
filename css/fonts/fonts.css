@@ -44,6 +44,10 @@
     font-size: 2em;
   }
 
+  .font-menu{
+    font-size: 1.25em;
+  }
+
   .centro-titulo{
     align-items: center;
     align-content: center;
@@ -62,6 +66,9 @@
   a:hover { color: white; } 
   a:visited { color: white; }
 
+  .font-20{
+    font-size: 18px;
+  }
 
   .button-text { 
     background: none;
@@ -81,6 +88,15 @@
   #FAQ  .letra-laranja:focus,
   #FAQ  .letra-laranja:active { 
     color: #f9deb7 !important; 
+  }
+
+  .nav-link {
+    color: #000000 !important; 
+  }
+
+  .nav-link:hover,
+  .nav-link:focus {
+      color: #C3CCC8 !important; 
   }
 
   .btn:focus { 
