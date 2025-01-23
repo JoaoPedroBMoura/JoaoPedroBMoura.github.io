@@ -20,6 +20,13 @@
             "textoAlt":"Site de vendas de alguma loja",
             "descricao":"Ultimo projeto desenvolvido em aula. Ele já poussi bem mais elementos, mais trabalhados, e recursos mais avançados do bootstrap",
             "link": "https://joaopedrobmoura.github.io/Momentos-Perfeitos/"
+        },
+        {
+            "nome": "Site de Contatos",
+            "linkImg":"https://raw.githubusercontent.com/JoaoPedroBMoura/SiteDeContatos/refs/heads/main/img/HomeContatos.png",
+            "textoAlt":"Página princiapl da página de contatos",
+            "descricao":"Esse site permite você criar e editar uma lista de contatos. Ele precisa ser conectado com um banco de dados manualmente. Foi desenvolvido em ASP.NET",
+            "link": "https://github.com/JoaoPedroBMoura/SiteDeContatos"
         }
     ],
     "deConsole":[
@@ -40,11 +47,18 @@
     ],
      "api": [
         {
-            "nome":"API de cadastro de cliente - c#/.NET 6.0",
+            "nome":"API de cadastro de contatos - c#/.NET 6.0",
             "linkImg":"https://raw.githubusercontent.com/JoaoPedroBMoura/API-de-contatos/refs/heads/main/img/photo%20from%20APi.png",
             "textoAlt":"Home API",
             "descricao":"Minha primeira API em C#. Ela cadastra contatos diretamente no seu banco de dados",
             "link":"https://github.com/JoaoPedroBMoura/API-de-contatos"
+        },
+        {
+            "nome":"API Lista de Tarefas - c#/.NET 6.0",
+            "linkImg":"https://raw.githubusercontent.com/JoaoPedroBMoura/Lista-de-tarefas/refs/heads/main/swagger.png",
+            "textoAlt":"Home API",
+            "descricao":"O propósito dessa API é permitir manipular uma lista de tarefas diretamente no seu banco de dados",
+            "link":"https://github.com/JoaoPedroBMoura/Lista-de-tarefas"
         }
     ]
    
