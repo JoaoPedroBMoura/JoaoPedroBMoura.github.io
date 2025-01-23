@@ -18,7 +18,7 @@
             "nome": "Site de Vendas",
             "linkImg":"https://raw.githubusercontent.com/JoaoPedroBMoura/Momentos-Perfeitos/refs/heads/main/img/siteVendas.png",
             "textoAlt":"Site de vendas de alguma loja",
-            "descricao":"Ultimo projeto desenvolvido em aula. Ele já possui bem mais elementos, mais trabalhados, e recursos mais avançados do bootstrap",
+            "descricao":"Ultimo projeto em aula. Já possui mais elementos, mais trabalhados, e recursos mais avançados do bootstrap",
             "link": "https://joaopedrobmoura.github.io/Momentos-Perfeitos/"
         },
         {
@@ -55,7 +55,7 @@
         },
         {
             "nome":"API Lista de Tarefas - c#/.NET 6.0",
-            "linkImg":"https://raw.githubusercontent.com/JoaoPedroBMoura/Lista-de-tarefas/refs/heads/main/swagger.png",
+            "linkImg":"https://raw.githubusercontent.com/JoaoPedroBMoura/Lista-de-tarefas/refs/heads/main/img/HomeAPI.png",
             "textoAlt":"Home API",
             "descricao":"O propósito dessa API é permitir manipular uma lista de tarefas diretamente no seu banco de dados",
             "link":"https://github.com/JoaoPedroBMoura/Lista-de-tarefas"
