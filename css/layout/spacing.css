@@ -101,6 +101,13 @@
   padding-top: 30px;
 }
 
+@media (max-width: 1072px)  {
+  .justify-content-center{
+    justify-content: center;
+    padding-top: 5em !important; 
+  }
+}
+
 .margin-d-e-5{
  border: solid ;
 }
