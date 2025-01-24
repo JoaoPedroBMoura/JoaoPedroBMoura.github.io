@@ -83,6 +83,13 @@
   margin: 0;
 }
 
+@media (max-width: 1072px)  {
+    .justify-content-center{
+      justify-content: center;
+      padding-top: 5em !important; 
+    }
+}
+
 @media (max-width: 1000px) {
     .hover-card {
         position: relative;
@@ -184,5 +191,11 @@
 
     #formacaoAcademica{
         margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 400px) {
+    .hover-card h2{
+            font-size: 1.5rem !important;
     }
 }
