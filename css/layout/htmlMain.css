@@ -24,17 +24,68 @@
 
 .borda-arredondada {
     border: 5px solid #AB594B; 
-    padding: 5px; /* Espaço interno entre a imagem e a borda */
+    padding: 5px;
 }
 
 #imagemCentral :hover{
     color: black;
 }
 
+.bloco {
+    position: relative;
+    display: inline-block;
+}
+
+.hover-image {
+    width: 200px;
+    height: auto;
+    cursor: pointer;
+}
+
+.hover-card {
+    position: absolute;
+    top: 0; 
+    left: 105%;
+    background-color: #D08E6C;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    z-index: 1;
+    display: none;
+    width: max-content;
+    max-width: 400px;
+}
+
+.bloco:hover .hover-card{
+    display: block;
+}
+
+.bloco.active .hover-card {
+    display: block; 
+}
+
+.hover-card {
+    transition: all 0.3s ease-in-out;
+}
+
+.info-container {
+    display: flex; /* Torna o contêiner pai flexível */
+    gap: 30px; /* Espaçamento entre os itens */
+    align-items: flex-start; /* Alinha os itens ao topo */
+}
+
+
+
+.dados-pessoais ul,
+.idiomas ul {
+  list-style-type: none; /* Remove os marcadores da lista */
+  padding: 0;
+  margin: 0;
+}
+
+
+
 @media (max-width: 768px) {
-    #formacaoes{
-        margin-left: 5em;
-    }
 
     .padding-esqueda-60{
         padding-left: 0px;
@@ -45,6 +96,43 @@
             padding-right: 30px;
     }
 
+    #formacaoAcademica{
+        margin-bottom: 30px;
+    }
+
+    #formacaoAcademica{
+        margin-bottom: 30px;
+    }
+
+    #experienciaProfissional{
+        margin-bottom: 30px;
+    }
+
+    .hover-card {
+        position: relative;
+        top: 110%; 
+        left: 0;
+        background-color: #D08E6C;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        border-radius: 8px;
+        z-index: 1;
+        display: none;
+        width: max-content;
+        max-width: 400px;
+        border: none; /* Remove bordas visíveis */
+        box-shadow: none; /* Remove sombras */
+    }
+
+
+    .bloco {
+        position: relative;
+        display: flex; /* Alinha os itens de forma flexível */
+        flex-direction: column; /* Coloca os itens (imagem e cards) em coluna */
+        align-items: center; /* Garante que os itens fiquem centralizados */
+        justify-content: flex-start; /* Começa os itens no topo */
+    }
+    
 }
 
 @media (max-width: 631px) {

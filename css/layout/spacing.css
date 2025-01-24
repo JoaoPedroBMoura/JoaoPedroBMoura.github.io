@@ -132,6 +132,12 @@ html, body {
   border-right: 2px solid #AB594B;
   padding-right: 30px;
 }
+#resumoProfissional{
+  .borda-direita{
+    border-right: 2px solid rgba(57, 57, 57, 0.5);
+    padding-right: 30px;
+  }
+}
 .borda-menu{
   list-style-type: disc;
   padding: 0; 
