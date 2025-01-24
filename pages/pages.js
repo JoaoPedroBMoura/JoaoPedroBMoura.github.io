@@ -72,22 +72,85 @@ const linkConsole = document.getElementById('projetosConsole');
             pegarOsItensDeOutroHTML("divProjetos", await criaPaginaProjeto("console")); 
     });
 
-   // Seleciona o elemento principal
+   
 const bloco = document.querySelector('.bloco');
 const img = document.querySelector('.hover-image')
 
-    // Adiciona o evento de clique
+   
     bloco.addEventListener('click', (event) => {
-        event.stopPropagation(); // Impede que o clique fora feche imediatamente
-        bloco.classList.toggle('active'); // Alterna a exibição do card
+        event.stopPropagation(); 
+        bloco.classList.toggle('active');
     });
 
-    // Fecha o card ao clicar fora
+   
     document.addEventListener('click', (event) => {
         if (!bloco.contains(event.target)) {
-            bloco.classList.remove('active'); // Remove a classe active
+            bloco.classList.remove('active'); 
         }
     });
+
+    let clickCount = 0;
+        const clickDelay = 500; 
+
+        document.getElementById('projetosDeSite').addEventListener('click', function() {
+            clickCount++;
+
+            setTimeout(() => {
+                if (clickCount === 1) {
+                    
+                    $('#divProjetos').collapse('show');
+                } else if (clickCount === 2) {
+                    
+                    $('#divProjetos').collapse('hide');
+                }
+                clickCount = 0; 
+            }, clickDelay);
+        });
+
+        document.getElementById('projetosApi').addEventListener('click', function() {
+            clickCount++;
+
+            setTimeout(() => {
+                if (clickCount === 1) {
+                    
+                    $('#divProjetos').collapse('show');
+                } else if (clickCount === 2) {
+                    
+                    $('#divProjetos').collapse('hide');
+                }
+                clickCount = 0; 
+            }, clickDelay);
+        });
+
+        document.getElementById('projetosConsole').addEventListener('click', function() {
+            clickCount++;
+
+            setTimeout(() => {
+                if (clickCount === 1) {
+                    
+                    $('#divProjetos').collapse('show');
+                } else if (clickCount === 2) {
+                    
+                    $('#divProjetos').collapse('hide');
+                }
+                clickCount = 0; 
+            }, clickDelay);
+        });
+
+        document.getElementById('projetoAnalises').addEventListener('click', function() {
+            clickCount++;
+
+            setTimeout(() => {
+                if (clickCount === 1) {
+                    
+                    $('#divProjetos').collapse('show');
+                } else if (clickCount === 2) {
+                    
+                    $('#divProjetos').collapse('hide');
+                }
+                clickCount = 0; 
+            }, clickDelay);
+        });
 
 
 /*

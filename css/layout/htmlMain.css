@@ -7,9 +7,9 @@
     gap: 5px;
 } 
 .button-menu .btn { 
-    margin-right: 20px; 
+    
     margin-bottom: 20px;
-    margin-top: 10px;
+    
 }
 
 .content-container { 
@@ -25,6 +25,14 @@
 .borda-arredondada {
     border: 5px solid #AB594B; 
     padding: 5px;
+}
+
+.borda-link{
+    border: 0.5px solid;
+    color: inherit;
+    padding: 5px;
+    padding-bottom: 8px;
+    border-radius: 10px;
 }
 
 #imagemCentral :hover{
@@ -78,10 +86,22 @@
 
 .dados-pessoais ul,
 .idiomas ul {
-  list-style-type: none; /* Remove os marcadores da lista */
+  list-style-type: none; 
   padding: 0;
   margin: 0;
 }
+
+.imagem-ampliavel{
+    transition: transform 0.3s ease-in-out;
+    position: relative; 
+    z-index: 1;
+}
+
+.imagem-ampliavel:hover {
+    transform: scale(1.5) ;
+    z-index: 10;
+}
+
 
 @media (max-width: 1072px)  {
     .justify-content-center{
@@ -93,7 +113,7 @@
 @media (max-width: 1000px) {
     .hover-card {
         position: relative;
-        top: 110%; 
+        margin-top: 10px;
         left: 0;
         background-color: #D08E6C;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -165,6 +185,17 @@
         align-items: center; /* Garante que os itens fiquem centralizados */
         justify-content: flex-start; /* Começa os itens no topo */
     }
+
+    #resumoProfissional {
+        .borda-direita {
+            border-right: 2px !important;
+            padding-right: 30px;
+        }
+    }
+
+    .imagem-ampliavel:active {
+        transform: scale(1.2); 
+    }
     
 }
 
@@ -193,6 +224,13 @@
         margin-bottom: 30px;
     }
 }
+
+@media (max-width: 576px) {
+    .tech-icon{
+        width: 40px;
+    }
+}
+
 
 @media (max-width: 400px) {
     .hover-card h2{

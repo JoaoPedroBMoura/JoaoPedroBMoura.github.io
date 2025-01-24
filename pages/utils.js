@@ -115,14 +115,14 @@ export class Util{
         const dadoProjeto = await this.pegarDadosProjeto(nomeProjeto,array)
 
         const divSites = document.createElement('div');
-        divSites.className = 'container col-md-3 col-lg-3 margem-baixo-30 margin-d-e-5 background-ferrugem p-4';
+        divSites.className = 'container col-md-6 col-lg-6 margem-baixo-30 margin-d-e-5 background-ferrugem p-4';
         
         const tituloCard = document.createElement('h4');
         tituloCard.innerText = `${dadoProjeto.nome}`;
         tituloCard.className = 'letra-branca mb-4';
 
         const imagemProjeto = document.createElement('img')
-        imagemProjeto.className = 'img-fluid'
+        imagemProjeto.className = 'img-fluid imagem-ampliavel'
         imagemProjeto.src = `${dadoProjeto.linkImg}`
         imagemProjeto.alt =  `${dadoProjeto.textoAlt}`
 
@@ -133,6 +133,7 @@ export class Util{
         const linkProjeto = document.createElement('a')
         linkProjeto.innerText = `${dadoProjeto.nome}`
         linkProjeto.href = `${dadoProjeto.link}`
+        linkProjeto.className = 'borda-link'
 
         divSites.append(tituloCard, imagemProjeto, descricaoProjeto, linkProjeto)
         

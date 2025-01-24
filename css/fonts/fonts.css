@@ -74,14 +74,32 @@
     font-size: 18px;
   }
 
-  .button-text { 
+  .button-text {
+    position: relative; /* Necessário para o posicionamento do pseudo-elemento */
     background: none;
-    border: none; 
-    padding: 0; 
-    margin: 0; 
-    color: inherit; /* Herda a cor do texto */ 
-    cursor: pointer; /* Mantém o cursor de ponteiro */ 
-  }
+    border: none;
+    padding: 3px;
+    margin: 0;
+    color: inherit;
+    cursor: pointer;
+    padding: 19px;
+}
+
+ .button-menu .button-text::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid;
+    color: inherit;
+    opacity: 0.25;
+    pointer-events: none; 
+    box-sizing: border-box; 
+    border-radius: 10px;
+    margin: 10px;
+}
 
   .button-menu .btn:hover { 
     background-color: #393939;  

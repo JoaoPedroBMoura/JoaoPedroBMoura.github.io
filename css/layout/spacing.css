@@ -2,6 +2,13 @@
     display: flex;
     justify-content: space-between;
 }
+
+.button-menu > .row{
+     display: flex;
+    justify-content: space-between;
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    margin: 20px;
+}
   
 .item {
   flex: 1;
@@ -82,7 +89,8 @@
 }
 
 .padding-esquerda-0{
-  padding-left: 0px;
+  padding-left: 0;
+  padding-right: 0;;
 }
 
 .padding-esqueda-60{
@@ -103,6 +111,7 @@
 
 .margin-d-e-5{
  border: solid ;
+ max-width: 30em;
 }
 
 section ul{
@@ -151,4 +160,9 @@ html, body {
   position: absolute;
    left: 0;
    margin-left: 5em;
+}
+
+#projetosPessoais{
+  padding-left: 0;
+  padding-right: 0;
 }
