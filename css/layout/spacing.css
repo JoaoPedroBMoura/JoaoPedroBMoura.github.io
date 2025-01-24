@@ -101,6 +101,13 @@
   padding-top: 30px;
 }
 
+@media (max-width: 1072px)  {
+  .justify-content-center{
+    justify-content: center;
+    padding-top: 5em !important; 
+  }
+}
+
 .margin-d-e-5{
  border: solid ;
 }
@@ -131,6 +138,12 @@ html, body {
 .borda-direita{
   border-right: 2px solid #AB594B;
   padding-right: 30px;
+}
+#resumoProfissional{
+  .borda-direita{
+    border-right: 2px solid rgba(57, 57, 57, 0.5);
+    padding-right: 30px;
+  }
 }
 .borda-menu{
   list-style-type: disc;

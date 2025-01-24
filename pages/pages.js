@@ -39,7 +39,7 @@ const linkLeanSixSigma = document.getElementById('cursosLeanSixSigma');
             pegarOsItensDeOutroHTML("divCursos", await criaPagina("leanSixSigma")); 
     });
 
-const linkProjetoSite = document.getElementById('projetosDeSite');
+const linkProjetoSite = document.getElementById('projetosDeSite'); 
 
     linkProjetoSite.addEventListener('click', async (env) => {
         env.preventDefault();
@@ -70,6 +70,23 @@ const linkConsole = document.getElementById('projetosConsole');
         env.preventDefault();
 
             pegarOsItensDeOutroHTML("divProjetos", await criaPaginaProjeto("console")); 
+    });
+
+   // Seleciona o elemento principal
+const bloco = document.querySelector('.bloco');
+const img = document.querySelector('.hover-image')
+
+    // Adiciona o evento de clique
+    bloco.addEventListener('click', (event) => {
+        event.stopPropagation(); // Impede que o clique fora feche imediatamente
+        bloco.classList.toggle('active'); // Alterna a exibição do card
+    });
+
+    // Fecha o card ao clicar fora
+    document.addEventListener('click', (event) => {
+        if (!bloco.contains(event.target)) {
+            bloco.classList.remove('active'); // Remove a classe active
+        }
     });
 
 

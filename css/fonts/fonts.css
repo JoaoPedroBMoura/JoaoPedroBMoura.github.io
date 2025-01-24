@@ -24,7 +24,7 @@
     color:#AB594B;
   }
   
-  .letra-laranja .herda-cor{ 
+  .letra-caramelo .herda-cor{ 
     color: inherit; /* Garante que os itens da lista herdem a cor da letra-marrom */ 
   }
 
@@ -52,6 +52,10 @@
     align-items: center;
     align-content: center;
     text-align: center;
+  }
+
+  p{
+    text-align: justify;
   }
 
   .no-link-style{
