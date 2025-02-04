@@ -368,6 +368,14 @@
         justify-content: center;
     }
     
+    #comunidadeDsDescript,
+    #dioDescript{
+        background-color: #F9DEB7;
+        border-radius: 10px;
+        padding: 10px;
+        
+    }
+
 }
 
 @media (max-width: 631px) {
