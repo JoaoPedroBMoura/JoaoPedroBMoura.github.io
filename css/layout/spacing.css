@@ -75,6 +75,9 @@
   margin-right: 70px;
 }
 
+.margem-direita-10{
+  margin-right: 2px;
+}
 .margem-cima-30{
   margin-top: 30px;
 }
@@ -165,4 +168,10 @@ html, body {
 #projetosPessoais{
   padding-left: 0;
   padding-right: 0;
+}
+
+.pos-absoluta {
+  position: absolute;
+  top: 0;
+  left: 70;
 }

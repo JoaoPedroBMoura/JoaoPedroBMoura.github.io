@@ -9,7 +9,7 @@ async function pegarOsItensDeOutroHTML(paginaAntiga, novaPagina) {
     body.append(novaPagina);
 }
 
-// páginas  
+// Course and project pages
 const linkDotnet = document.getElementById('dotnet');
 
     linkDotnet.addEventListener('click', async (env) => {
@@ -72,9 +72,8 @@ const linkConsole = document.getElementById('projetosConsole');
             pegarOsItensDeOutroHTML("divProjetos", await criaPaginaProjeto("console")); 
     });
 
-   
+   // Take care of my image with personal data
 const bloco = document.querySelector('.bloco');
-const img = document.querySelector('.hover-image')
 
    
     bloco.addEventListener('click', (event) => {
@@ -89,7 +88,8 @@ const img = document.querySelector('.hover-image')
         }
     });
 
-    let clickCount = 0;
+    // Takes care of project collapses
+        let clickCount = 0;
         const clickDelay = 500; 
 
         document.getElementById('projetosDeSite').addEventListener('click', function() {
@@ -152,11 +152,24 @@ const img = document.querySelector('.hover-image')
             }, clickDelay);
         });
 
-
-/*
-const home = document.getElementById('home');
-    home.addEventListener('click', (env) => {
-        env.preventDefault();
-        pegarOsItensDeOutroHTML("main-content", initialContent);
-    });
-*/
+        document.addEventListener('DOMContentLoaded', () => {
+            const backToTopButton = document.querySelector('.back-to-top');
+        
+            // Exibir botão ao rolar a página
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            });
+        
+            // Função para rolar suavemente para o topo
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        

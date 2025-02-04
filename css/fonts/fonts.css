@@ -93,6 +93,7 @@
     right: 0;
     bottom: 0;
     border: 2px solid;
+    background-color: inherit;
     color: inherit;
     opacity: 0.25;
     pointer-events: none; 
@@ -101,7 +102,7 @@
     margin: 10px;
 }
 
-  .button-menu .btn:hover { 
+  #cursosCertificacoes,#projetosPessoais .button-menu .btn:hover { 
     background-color: #393939;  
     color: #F9DEB7; 
   }

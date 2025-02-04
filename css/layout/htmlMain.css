@@ -12,6 +12,22 @@
     
 }
 
+#cursosCertificacoes .button-menu .btn:hover,
+#cursosCertificacoes .button-menu .btn:focus,
+#cursosCertificacoes .button-menu .btn:active{
+    background-color: initial !important; 
+    color: #AB594B !important;
+    outline: none; 
+}
+
+#projetosPessoais .button-menu .btn:hover,
+#projetosPessoais .button-menu .btn:focus,
+#projetosPessoais .button-menu .btn:active{
+    background-color: initial !important; 
+    color: #AB594B !important;
+    outline: none; 
+}
+
 .content-container { 
     opacity: 0; 
     visibility: hidden; 
@@ -23,9 +39,72 @@
 }
 
 .borda-arredondada {
-    border: 5px solid #AB594B; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 4px dashed #AB594B;
+    border-radius: 50%;
+    z-index: 1;
+    animation: girar-borda 5s infinite linear;
+    -webkit-animation: girar-borda 5s infinite linear;
+    transform-origin: center;
+    will-change: transform;
+    box-shadow: 0 0 30px rgba(171,89,75,0.3);
+}
+
+@keyframes girar-borda {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(50deg);
+    }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(50deg); }
+}
+@-webkit-keyframes girar-borda {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.borda-rotacionada {
+    position: relative;
+    animation: none; 
+    width: 200px; /* Ajuste conforme necessário */
+    height: 200px; /* Ajuste conforme necessário */
+}
+
+.imagem-container {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 190px; /* Ajuste conforme necessário */
+    height: 190px; /* Ajuste conforme necessário */
+    overflow: hidden;
+    border-radius: 50%;
+    z-index: 2;
     padding: 5px;
 }
+
+.imagem-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 10.0s;
+}
+
+.imagem-container:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
 
 .borda-link{
     border: 0.5px solid;
@@ -82,8 +161,6 @@
     align-items: flex-start; /* Alinha os itens ao topo */
 }
 
-
-
 .dados-pessoais ul,
 .idiomas ul {
   list-style-type: none; 
@@ -92,15 +169,41 @@
 }
 
 .imagem-ampliavel{
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.9s ;
     position: relative; 
     z-index: 1;
 }
 
-.imagem-ampliavel:hover {
-    transform: scale(1.5) ;
+.back-to-top {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    background:#F9DEB7;
+    border: none;
+    border-radius: 50%;
+    width: 50px; /* Define a largura do botão */
+    height: 50px; /* Define a altura do botão */
+    display: flex; /* Centraliza a imagem dentro do botão */
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    visibility: hidden; /* Inicialmente escondido */
+    opacity: 0; /* Inicialmente invisível */
+    transition: visibility 0s, opacity 0.3s linear; /* Transição suave */
     z-index: 10;
 }
+
+.back-to-top.show {
+    visibility: visible; /* Torna visível */
+    opacity: 1; /* Torna opaco */
+}
+
+.back-to-top img {
+    max-width: 100%; /* Garante que a imagem se ajuste ao tamanho do botão */
+    max-height: 100%; /* Garante que a imagem se ajuste ao tamanho do botão */
+}
+
 
 
 @media (max-width: 1072px)  {
@@ -136,7 +239,41 @@
         justify-content: flex-start; /* Começa os itens no topo */
     }
 }
+@media (min-width:768px){
+    .btn{
+        transition: background-color 0.3s ease;
+    }
 
+    #comunidadeDsDescript,#dioDescript {
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        position: absolute;
+        left: 50%; /* Centraliza o conteúdo */
+        top: 80%;
+        transform: translateX(-50%);
+        background-color: #F9DEB7;
+        color: black;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 110%; /* Ajuste conforme necessário */
+        text-align: center;
+        z-index: 1;
+    }
+
+    .btn:hover + #comunidadeDsDescript, 
+    .btn:hover + #dioDescript{
+        visibility: visible; 
+        opacity: 1; 
+        display: block;
+    }
+
+    .imagem-ampliavel:hover {
+        transform: scale(1.2) ;
+        z-index: 10;
+    }
+ }
 
 @media (max-width: 768px) {
 
@@ -173,17 +310,17 @@
         display: none;
         width: max-content;
         max-width: 400px;
-        border: none; /* Remove bordas visíveis */
-        box-shadow: none; /* Remove sombras */
+        border: none;
+        box-shadow: none; 
     }
 
 
     .bloco {
         position: relative;
-        display: flex; /* Alinha os itens de forma flexível */
-        flex-direction: column; /* Coloca os itens (imagem e cards) em coluna */
-        align-items: center; /* Garante que os itens fiquem centralizados */
-        justify-content: flex-start; /* Começa os itens no topo */
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        justify-content: flex-start; 
     }
 
     #resumoProfissional {
@@ -193,8 +330,42 @@
         }
     }
 
-    .imagem-ampliavel:active {
+    .imagem-ampliavel:active{
         transform: scale(1.2); 
+        z-index: 10;
+    }
+
+    
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #formacaoes {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        text-align: center; 
+    }
+
+    #formacaoAcademica, 
+    #experienciaProfissional, 
+    #cursosCertificacoes {
+        margin-left: 0;
+        text-align: center; 
+        width: 100%;
+    }
+
+    .button-menu .row {
+        justify-content: center;
+    }
+
+    .centro-titulo {
+        justify-content: center;
     }
     
 }

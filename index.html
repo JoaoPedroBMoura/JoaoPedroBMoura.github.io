@@ -5,8 +5,8 @@
     <meta charset = "UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name = "author" content = "João Pedro Barcellos Moura">
-    <meta name = "keywords" content = "resumo profissional, anlista de dados, CEFET, logistica, 
-                                        Kotlin, Phytom, Java, Git, Github, Docker,Lean Six Sigma Yellos Belt
+    <meta name = "keywords" content = "resumo profissional, anlista de dados, CEFET, logistica,portifólio, desenvolvedor full-stack, 
+                                        JavaScript, Phytom, Java, Git, Github, Docker,Lean Six Sigma Yellos Belt
                                         Excel para analise de dados,Visualização de dados com Power BI,
                                         SQL - Básico ao Avançado, Métricas de negócios">
     <link rel="stylesheet" href="./css/vendors/bootstrap.min.css">
@@ -20,7 +20,7 @@
       <nav class="navbar navbar-expand-lg navbar-light navbar-brown margem-0 menu-fixo">
         
         <div>
-          <img id="imagemCentral" src="./img/icons/teste.png" alt="folha" class="img-fluid img-para-esquerda" width="30">
+          <img id="imagemCentral" src="./img/icons/teste.png" alt="folha" class="img-fluid img-para-esquerda" width="45">
           <!-- Botão toggle das opções -->
           <button class="navbar-toggler letra-preta" 
               type="button" 
@@ -36,7 +36,6 @@
           <div id="navBarCollapsavel" class="letra-branca font-menu collapse d-lg-flex margem-esquerda-20">
               <!--Opções do menu-->
               <ul class="navbar-nav mr-auto">
-                <li class="nav-item no-break borda-menu "><a href="#" id="home" class="nav-link">Home</a></li> 
                 <li class="nav-item no-break borda-menu"><a href="#formacaoes" class="nav-link">Construção Profissional</a></li> 
                 <li class="nav-item no-break borda-menu"><a href="#skillsTecnologias" class="nav-link">Habilidades</a></li>
                 <li class="nav-item no-break borda-menu"><a href="#projetosPessoais"  class="nav-link">Projetos</a></li>
@@ -56,7 +55,12 @@
           <section id="dadosPessoaisImg" class="d-flex justify-content-center align-items-center padding-baixo-20 padding-acima">
             <div class="bloco">
 
-              <img class="rounded-circle borda-arredondada hover-image" src="./img/utils/Foto_séria_quadrada-transformed.jpeg" alt="Foto do autor" width="200">
+              <div class="borda-rotacionada">
+                <div class="borda-arredondada"></div>
+                <div class="imagem-container">
+                    <img class="rounded-circle hover-image" src="./img/utils/Foto_séria_quadrada-transformed.jpeg" alt="Foto do autor" width="200">
+                </div>
+             </div>
               
               <div class="letra-preto font-20 hover-card">
 
@@ -110,7 +114,7 @@
 
           <section class="row">
 
-            <div class="font-20 col-md-3 col-lg-3 ">
+            <div class="font-20 col-md-3 col-lg-3 borda-direita">
               <h4 class="centro-titulo">Sobre mim</h4>
               <p>
                 Profissional com visão analítica madura, mentalidade ágil, facilidade de aprendizado e com
@@ -118,7 +122,7 @@
               </p>
             </div>
   
-            <div class="font-20 col-md-4 col-lg-4">
+            <div class="font-20 col-md-4 col-lg-4 borda-direita">
               <h4 class="centro-titulo">Experiências</h4>
               <p>
                  SQL • Power BI • ETL • Excel • Google Sheets • DBeaver • 
@@ -132,14 +136,27 @@
               <h4 class="centro-titulo">Estudos</h4>
 
               <div class="row">
-                <p class="col-md-6 col-lg-6 borda-direita">
-                  Comunidade DS • Formação prática como Analista de Dados • conclusão 
-                  prevista para fevereiro de 2025.
-                </p>
-                <p class="col-md-6 col-lg-6">
-                  Dio • Acesso vitalício a uma plataforma com centenas de formações em centenas 
-                  de tecnologias diferentes, com foco principal em programação
-                </p>
+                
+                <div class="col-md-6 col-lg-6 text-center button-menu ">
+                  <button  class="btn letra-preta dropdown-toggle button-text" type="button" data-toggle="collapse" data-target="#comunidadeDsDescript" >
+                    Comunidade DS 
+                 </button>
+                   <p id="comunidadeDsDescript" class="collapse">
+                     Formação prática como Analista de Dados. Conclusão 
+                     prevista para fevereiro de 2025.
+                   </p>
+                </div>
+
+                <div class="col-md-6 col-lg-6 text-center button-menu">
+                  <button  class="btn letra-preta dropdown-toggle button-text" type="button" data-toggle="collapse" data-target="#dioDescript">
+                    Dio.me
+                  </button>
+                   <p id="dioDescript" class="collapse ">
+                     Dio - Acesso vitalício a uma plataforma com centenas de formações em centenas 
+                     de tecnologias diferentes, com foco principal em programação
+                   </p>
+                </div>
+                
               </div>
               
             </div>
@@ -353,10 +370,10 @@
 
       <!--Projetos--> 
       <section id="projetosPessoais" class="background-preto col-md-12 col-xl-12 col-lg-12 padding-acima padding-baixo-20">
-        <h2 class="centro-titulo letra-laranja">Projetos</h2>
+        <h2 class="centro-titulo letra-caramelo">Projetos</h2>
 
         
-        <nav class="button-menu letra-laranja ">
+        <nav class="button-menu letra-caramelo ">
 
           <div class="row col-12 col-sm-12 col-md-12 col-lg-12 padding-esquerda-0">
 
@@ -383,6 +400,9 @@
           </section>
       </section>
 
+      <button class="back-to-top" aria-label="Voltar ao topo">
+        <img src="./img/icons/seta_para_cima.svg" alt="seta para cima">
+      </button>
     </main>
 
     <footer class="background-laranja">
