@@ -1,18 +1,18 @@
 {
     "sites":[
         {
-            "nome": "Reportagem",
-            "linkImg":"https://raw.githubusercontent.com/JoaoPedroBMoura/Reportagens/refs/heads/main/images/siteReportagens.png",
-            "textoAlt":"Foto do site de Reportagens",
-            "descricao":"Projeto desenvolvido com o propósito de começar a estudar as divisões de tela feitas com grid pelo bootstrap",
-            "link": "https://joaopedrobmoura.github.io/Reportagens/"
+            "nome": "Site de Contatos",
+            "linkImg":"https://raw.githubusercontent.com/JoaoPedroBMoura/SiteDeContatos/refs/heads/main/img/HomeContatos.png",
+            "textoAlt":"Página princiapl da página de contatos",
+            "descricao":"Esse site permite você criar e editar uma lista de contatos. Ele precisa ser conectado com um banco de dados manualmente. Foi desenvolvido em ASP.NET",
+            "link": "https://github.com/JoaoPedroBMoura/SiteDeContatos"
         },
         {
-            "nome": "Site de Empresa",
-            "linkImg":"https://raw.githubusercontent.com/JoaoPedroBMoura/Web-Fundamentals-Project/refs/heads/main/images/SiteConcluido.png",
-            "textoAlt":"site de um empresa qualquer",
-            "descricao":"Projeto desenvolvido no começo do curso para nos mostrar as principais ferramentas do bootstrap e do prórpio HTML",
-            "link": "https://joaopedrobmoura.github.io/Web-Fundamentals-Project/"
+            "nome": "Catalogo de Filmes",
+            "linkImg":"https://raw.githubusercontent.com/JoaoPedroBMoura/catalogo_de_filmes/refs/heads/main/img/Home_do_site_catalogo.png",
+            "textoAlt":"Página princiapl com alguns filmes listados",
+        "descricao":"Um catalogo de filmes, com dados locais. O objetivo principal era desenvolver habilidade de manipulação de DOM com JS",
+            "link": "https://joaopedrobmoura.github.io/catalogo_de_filmes/"
         },
         {
             "nome": "Site de Vendas",
@@ -22,11 +22,18 @@
             "link": "https://joaopedrobmoura.github.io/Momentos-Perfeitos/"
         },
         {
-            "nome": "Site de Contatos",
-            "linkImg":"https://raw.githubusercontent.com/JoaoPedroBMoura/SiteDeContatos/refs/heads/main/img/HomeContatos.png",
-            "textoAlt":"Página princiapl da página de contatos",
-            "descricao":"Esse site permite você criar e editar uma lista de contatos. Ele precisa ser conectado com um banco de dados manualmente. Foi desenvolvido em ASP.NET",
-            "link": "https://github.com/JoaoPedroBMoura/SiteDeContatos"
+            "nome": "Site de Empresa",
+            "linkImg":"https://raw.githubusercontent.com/JoaoPedroBMoura/Web-Fundamentals-Project/refs/heads/main/images/SiteConcluido.png",
+            "textoAlt":"site de um empresa qualquer",
+            "descricao":"Projeto desenvolvido no começo do curso para nos mostrar as principais ferramentas do bootstrap e do prórpio HTML",
+            "link": "https://joaopedrobmoura.github.io/Web-Fundamentals-Project/"
+        },
+        {
+            "nome": "Reportagem",
+            "linkImg":"https://raw.githubusercontent.com/JoaoPedroBMoura/Reportagens/refs/heads/main/images/siteReportagens.png",
+            "textoAlt":"Foto do site de Reportagens",
+            "descricao":"Projeto desenvolvido com o propósito de começar a estudar as divisões de tela feitas com grid pelo bootstrap",
+            "link": "https://joaopedrobmoura.github.io/Reportagens/"
         }
     ],
     "deConsole":[
