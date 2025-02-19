@@ -15,6 +15,13 @@
             "link": "https://joaopedrobmoura.github.io/catalogo_de_filmes/"
         },
         {
+            "nome": "Lab de strings",
+            "linkImg":"https://raw.githubusercontent.com/JoaoPedroBMoura/lab_strings/refs/heads/main/img/pagina_inicial.png",
+            "textoAlt":"Página princiapl com todas as funções de strings estudadas durante o curso de Fundamentos Web da graduação",
+            "descricao":"Site com o objetivo de treinar as funções de strings do JS",
+            "link": "https://joaopedrobmoura.github.io/lab_strings/"
+        },
+        {
             "nome": "Site de Vendas",
             "linkImg":"https://raw.githubusercontent.com/JoaoPedroBMoura/Momentos-Perfeitos/refs/heads/main/img/siteVendas.png",
             "textoAlt":"Site de vendas de alguma loja",
