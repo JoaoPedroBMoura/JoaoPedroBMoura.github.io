@@ -22,6 +22,13 @@
             "link": "https://joaopedrobmoura.github.io/lab_strings/"
         },
         {
+            "nome":"Enciclopedia de Filmes",
+            "linkImg":"https://raw.githubusercontent.com/JoaoPedroBMoura/API_filmes/refs/heads/main/img/pagina_principal.png",
+            "textoAlt":"Home API",
+            "descricao":"O propósito desse site é consultar uma API publica é permitir obter informações sobre os mais diversos filmes",
+            "link":"https://joaopedrobmoura.github.io/API_filmes/"
+        },
+        {
             "nome": "Site de Vendas",
             "linkImg":"https://raw.githubusercontent.com/JoaoPedroBMoura/Momentos-Perfeitos/refs/heads/main/img/siteVendas.png",
             "textoAlt":"Site de vendas de alguma loja",
