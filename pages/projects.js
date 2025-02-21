@@ -16,8 +16,11 @@ export async function criaPaginaProjeto(projeto) {
     const projetoLabString = await projetos.criaCard("Lab de strings", "sites")
     const projetoLabApiFilme = await projetos.criaCard("Enciclopedia de Filmes", "sites")
     const projetoLabApiConvMoedas = await projetos.criaCard("Conversos de moedas", "sites")
+    const projetoLabApiBiblioteca = await projetos.criaCard("", "sites")
 
-    sectionSite.append(projetoListaContatos,projetoCatalogoFilme, projetoLabString,projetoLabApiFilme,projetoLabApiConvMoedas, projetoVendas,projetoEmpresa, projetoNatureza)
+    sectionSite.append(projetoListaContatos, projetoCatalogoFilme, projetoLabString, projetoLabApiFilme,
+                       projetoLabApiConvMoedas, projetoLabApiBiblioteca, projetoVendas, projetoEmpresa,
+                       projetoNatureza)
     
     //API'S
     const sectionAPI = document.createElement('section');

@@ -24,16 +24,23 @@
         {
             "nome":"Enciclopedia de Filmes",
             "linkImg":"https://raw.githubusercontent.com/JoaoPedroBMoura/API_filmes/refs/heads/main/img/pagina_principal.png",
-            "textoAlt":"Home API",
+            "textoAlt":"Home site",
             "descricao":"O propósito desse site é consultar uma API publica é permitir obter informações sobre os mais diversos filmes",
             "link":"https://joaopedrobmoura.github.io/API_filmes/"
         },
         {
             "nome":"Conversos de moedas",
             "linkImg":"https://raw.githubusercontent.com/JoaoPedroBMoura/API_converte_moedas/refs/heads/main/img/pagina_principal.png",
-            "textoAlt":"Home API",
+            "textoAlt":"Home site",
             "descricao":"O propósito desse site é consultar uma API publica é permitir ao usuário converter moedas de um país para de outro país",
             "link":"https://joaopedrobmoura.github.io/API_converte_moedas/"
+        },
+        {
+            "nome":"Cadastro de Livros",
+            "linkImg":"https://raw.githubusercontent.com/JoaoPedroBMoura/API_biblioteca/refs/heads/main/img/pagina_inicial.png",
+            "textoAlt":"Home site",
+            "descricao":"O propósito desse site é fazer testes de cadastro em uma biblioteca temporária. Fazer comunicação com uma API",
+            "link":"https://joaopedrobmoura.github.io/API_biblioteca/"
         },
         {
             "nome": "Site de Vendas",
