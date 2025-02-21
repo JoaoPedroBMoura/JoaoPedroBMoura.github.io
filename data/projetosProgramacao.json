@@ -29,6 +29,13 @@
             "link":"https://joaopedrobmoura.github.io/API_filmes/"
         },
         {
+            "nome":"Conversos de moedas",
+            "linkImg":"https://raw.githubusercontent.com/JoaoPedroBMoura/API_converte_moedas/refs/heads/main/img/pagina_principal.png",
+            "textoAlt":"Home API",
+            "descricao":"O propósito desse site é consultar uma API publica é permitir ao usuário converter moedas de um país para de outro país",
+            "link":"https://joaopedrobmoura.github.io/API_converte_moedas/"
+        },
+        {
             "nome": "Site de Vendas",
             "linkImg":"https://raw.githubusercontent.com/JoaoPedroBMoura/Momentos-Perfeitos/refs/heads/main/img/siteVendas.png",
             "textoAlt":"Site de vendas de alguma loja",
