@@ -18,8 +18,9 @@
 .centro {
   display: flex;
   align-items: center;
-  flex-direction: row;
+  flex-direction: column;
   padding: 20px;
+  justify-content: center;
 }
 
 .centroLista {
@@ -174,4 +175,8 @@ html, body {
   position: absolute;
   top: 0;
   left: 70;
+}
+
+.row.justify-content-center {
+  justify-content: center !important;
 }
