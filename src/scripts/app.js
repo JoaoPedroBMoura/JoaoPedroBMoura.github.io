@@ -1,6 +1,6 @@
-import { criaPaginaProjeto } from "./projects.js";
-import { criaPagina } from "./skills-and-courses.js";
-import { criaPaginaProjetoDados } from "./dataAnalysisProjects.js";
+import { criaPaginaProjeto } from "./projectsController.js";
+import { criaPagina } from "./coursesController.js";
+import { criaPaginaProjetoDados } from "./analyticsController.js";
 const initialContent = document.getElementById("main-content");
 
 async function pegarOsItensDeOutroHTML(paginaAntiga, novaPagina) {

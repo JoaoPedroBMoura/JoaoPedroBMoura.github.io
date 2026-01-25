@@ -1,4 +1,4 @@
-import { Util } from "./utils.js";
+import { Util } from "./dataService.js";
 
 const projetos = new Util("projetosProgramacao.json");
 

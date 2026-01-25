@@ -9,10 +9,17 @@
                                         JavaScript, Phytom, Java, Git, Github, Docker,Lean Six Sigma Yellos Belt
                                         Excel para analise de dados,Visualização de dados com Power BI,
                                         SQL - Básico ao Avançado, Métricas de negócios">
-    <link rel="stylesheet" href="./css/vendors/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- Vendors -->
+    <link rel="stylesheet" href="./src/styles/vendors/bootstrap.min.css">
+    
+    <!-- App Styles -->
+    <link rel="stylesheet" href="./src/styles/main.css">
+    
+    <!-- AOS - Animate On Scroll Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <link rel="icon" href="./img/icons/teste.png" type="image/png">
+    <link rel="icon" href="./assets/images/icons/teste.png" type="image/png">
   </head>
   <body>
     <header class="margem-button-on">
@@ -20,7 +27,7 @@
       <nav class="navbar navbar-expand-lg navbar-light navbar-brown margem-0 menu-fixo">
         
         <div>
-          <img id="imagemCentral" src="./img/icons/teste.png" alt="folha" class="img-fluid img-para-esquerda" width="45">
+          <img id="imagemCentral" src="./assets/images/icons/teste.png" alt="folha" class="img-fluid img-para-esquerda" width="45">
           <!-- Botão toggle das opções -->
           <button class="navbar-toggler letra-preta" 
               type="button" 
@@ -52,17 +59,17 @@
        
       <section class="background-preto container padding-acima"> <!-- Banner --> 
 
-            <section class="col-md-12 col-xs-12 col-lg-12 margem-cima-30"> 
+            <section class="col-md-12 col-xs-12 col-lg-12 margem-cima-30" data-aos="fade-down"> 
               <h1 class="letra-caramelo centralizaImg font-grande padding-esquerda-20">João Pedro Barcellos Moura</h1> 
             </section> 
 
-            <section id="dadosPessoaisImg" class="d-flex justify-content-center align-items-center padding-baixo-20 padding-acima">
+            <section id="dadosPessoaisImg" class="d-flex justify-content-center align-items-center padding-baixo-20 padding-acima" data-aos="fade-up" data-aos-delay="200">
             <div class="bloco">
 
               <div class="borda-rotacionada">
                 <div class="borda-arredondada"></div>
                 <div class="imagem-container">
-                    <img class="rounded-circle hover-image" src="./img/utils/Foto_séria_quadrada-transformed.jpeg" alt="Foto do autor" width="200">
+                    <img class="rounded-circle hover-image" src="./assets/images/profile/Foto_séria_quadrada-transformed.jpeg" alt="Foto do autor" width="200">
                 </div>
              </div>
               
@@ -97,13 +104,13 @@
 
             <section class="col-md-12 col-lg-12 padding-baixo-20 row justify-content-center" >
 
-              <div class="col-md-6  col-lg-6 padding-baixo-20 centro justify-content-center"> 
-                <img class="" src="./img/background/Homem No computador.png" alt="Boneco em um computador" width="400">
+              <div class="col-md-6  col-lg-6 padding-baixo-20 centro justify-content-center" data-aos="fade-right" data-aos-delay="100"> 
+                <img class="" src="./assets/images/backgrounds/Homem No computador.png" alt="Boneco em um computador" width="400">
                 <h2 class="letra-caramelo  text-center">Dev Full-Stack</h2>
               </div> 
 
-              <div class="col-md-6  col-lg-6 padding-baixo-20 centro justify-content-center padding-esquerda">
-                <img class="" src="./img/background/Homem Analista.png" alt="Boneco em um computador" width="400">
+              <div class="col-md-6  col-lg-6 padding-baixo-20 centro justify-content-center padding-esquerda" data-aos="fade-left" data-aos-delay="200">
+                <img class="" src="./assets/images/backgrounds/Homem Analista.png" alt="Boneco em um computador" width="400">
                  <h2 class="letra-caramelo text-center">Analista de Dados</h2>            
               </div>
 
@@ -118,7 +125,7 @@
 
           <section class="row">
 
-            <div class="font-20 col-md-3 col-lg-3 borda-direita">
+            <div class="font-20 col-md-3 col-lg-3 borda-direita" data-aos="fade-up">
               <h4 class="centro-titulo">Sobre mim</h4>
               <p>
                 Profissional com visão analítica madura, mentalidade ágil, facilidade de aprendizado e com
@@ -126,17 +133,17 @@
               </p>
             </div>
   
-            <div class="font-20 col-md-4 col-lg-4 borda-direita">
+            <div class="font-20 col-md-4 col-lg-4 borda-direita" data-aos="fade-up" data-aos-delay="100">
               <h4 class="centro-titulo">Experiências</h4>
               <p>
                  SQL • Power BI • ETL • Excel • Google Sheets • DBeaver • 
-                 tarefas sobre demandas • tratar dados para geração de insight’s • 
+                 tarefas sobre demandas • tratar dados para geração de insight's • 
                 métricas de negócios • controle de KPI • desenvolvimento web • construção e 
                 consumo de API 
               </p>
             </div >
 
-            <div class="font-20 col-md-5 col-lg-5">
+            <div class="font-20 col-md-5 col-lg-5" data-aos="fade-up" data-aos-delay="200">
               <h4 class="centro-titulo">Estudos</h4>
 
               <div class="row">
@@ -175,14 +182,14 @@
       <section id="formacaoes" class="background-preto container margem-0 row text-center col-md-12 col-lg-12 padding-acima margem-baixo-30">
 
         <!--Foramção Acadêmica-->
-        <section id="formacaoAcademica" class="letra-caramelo font-media col-sm-12 col-md-12 col-xl-6 col-lg-6 margem-esquerda-30 background-preto borda-direita">
+        <section id="formacaoAcademica" class="letra-caramelo font-media col-sm-12 col-md-12 col-xl-6 col-lg-6 margem-esquerda-30 background-preto borda-direita" data-aos="fade-right">
           <h2 class="padding-acima">Formação acadêmica</h2>
           <h4 class="margem-cima-30">Bacharelado em Sistemas de Informação</h4>
           <p class="padding-baixo-20">Centro Federal de Educação Tecnológica Celso Suckow da Fonseca (CEFET/NF) • 2023.1 - 2027.1</p>
         </section>
 
         <!--Experiência Profissonal-->
-        <section id="experienciaProfissional" class="letra-caramelo font-media col-sm-12 col-md-12 col-xl-6 col-lg-6 margem-esquerda-30 background-preto borda-direita">
+        <section id="experienciaProfissional" class="letra-caramelo font-media col-sm-12 col-md-12 col-xl-6 col-lg-6 margem-esquerda-30 background-preto borda-direita" data-aos="fade-left" data-aos-delay="100">
           <h2 class="padding-acima">Experiência Profissional</h2>
           <h4 class="margem-cima-30">Shopee Express</h4>
           <li class="no-link-style">Auxiliar de Logistica • Out/2023 - Nov/2024</li>
@@ -196,7 +203,7 @@
         </section>
 
         <!--Cursos-->
-        <section id="cursosCertificacoes" class="letra-caramelo font-media col-sm-12 col-md-12 col-xl-12 col-lg-12 margem-esquerda-30 background-preto padding-esqueda-60 padding-baixo-20"> 
+        <section id="cursosCertificacoes" class="letra-caramelo font-media col-sm-12 col-md-12 col-xl-12 col-lg-12 margem-esquerda-30 background-preto padding-esqueda-60 padding-baixo-20" data-aos="fade-up" data-aos-delay="200"> 
         <div>
           <h2 class="padding-acima padding-baixo-20" >Cursos</h2>
           
@@ -235,7 +242,7 @@
       <section id="skillsTecnologias" class="row margem-0 background-laranja padding-acima">
         
         <!--Técnologias-->
-        <div class="margem-esquerda-30 col-md-12 col-lg-6">
+        <div class="margem-esquerda-30 col-md-12 col-lg-6" data-aos="fade-right">
           <h2 class="text-center letra-preta mb-4">Tecnologias</h2>
         
           <div class="container background-caramelo p-4 margem-baixo-30">
@@ -331,7 +338,7 @@
         
 
         <!--Skill's-->
-        <div class="margem-esquerda-30 col-md-12 col-lg-6 margem-baixo-30">
+        <div class="margem-esquerda-30 col-md-12 col-lg-6 margem-baixo-30" data-aos="fade-left" data-aos-delay="100">
           <h2 class="text-center letra-preta mb-4">Skills</h2>
           <div class="container background-caramelo p-4">
             <h4 class="text-center">Soft Skill's</h4>
@@ -374,10 +381,10 @@
 
       <!--Projetos--> 
       <section id="projetosPessoais" class="background-preto col-md-12 col-xl-12 col-lg-12 padding-acima padding-baixo-20">
-        <h2 class="centro-titulo letra-caramelo">Projetos</h2>
+        <h2 class="centro-titulo letra-caramelo" data-aos="fade-up">Projetos</h2>
 
         
-        <nav class="button-menu letra-caramelo ">
+        <nav class="button-menu letra-caramelo " data-aos="fade-up" data-aos-delay="100">
 
           <div class="row col-12 col-sm-12 col-md-12 col-lg-12 padding-esquerda-0">
 
@@ -405,7 +412,7 @@
       </section>
 
       <button class="back-to-top" aria-label="Voltar ao topo">
-        <img src="./img/icons/seta_para_cima.svg" alt="seta para cima">
+        <img src="./assets/images/icons/seta_para_cima.svg" alt="seta para cima">
       </button>
     </main>
 
@@ -413,8 +420,24 @@
       <p class="text-center">2025 João Pedro Barcellos Moura.</p>
     </footer>
 
+    <!-- Scripts -->
+    <script src="./src/scripts/jquery.js"></script> 
+    <script src="./src/scripts/bootstrap.js"></script> 
+    
+    <!-- AOS - Animate On Scroll -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        AOS.init({
+          duration: 800,
+          easing: 'ease-in-out',
+          once: false,
+          offset: 100
+        });
+      });
+    </script>
+    
+    <!-- App Scripts -->
+    <script type="module" src="./src/scripts/app.js"></script>
   </body>
-    <script src="./js/jquery.js" defer></script> 
-    <script src="./js/bootstrap.js" defer></script> 
-    <script type="module" src="./pages/pages.js" defer></script>
 </html>

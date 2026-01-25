@@ -1,4 +1,4 @@
-import { Util } from "./utils.js";
+import { Util } from "./dataService.js";
 
 export const skillAndCourses = document.createElement('div')
 skillAndCourses.className = 'letra-branca'
