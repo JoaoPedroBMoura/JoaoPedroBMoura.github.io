@@ -1,0 +1,68 @@
+/* ========================================
+   PORTFÓLIO REACT - ESTILOS
+   ======================================== */
+
+/* Bootstrap (base) */
+@import "./styles/vendors/bootstrap.min.css";
+
+/* Fontes */
+@import "./styles/base/fonts.css";
+
+/* Layout */
+@import "./styles/layout/htmlHeader.css";
+@import "./styles/layout/htmlMain.css";
+@import "./styles/layout/hmtlFooter.css";
+@import "./styles/layout/spacing.css";
+@import "./styles/layout/backgrounds.css";
+
+/* ========================================
+   DESIGN TOKENS - Paleta de Cores
+   ======================================== */
+
+:root {
+  --color-caramelo: #f9deb7;
+  --color-laranja: #D08E6C;
+  --color-preto: #393939;
+  --color-ferrugem: #AB594B;
+  --color-branco: #ffffff;
+}
+
+/* ========================================
+   RESET BÁSICO
+   ======================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========================================
+   AJUSTES FINOS REACT
+   ======================================== */
+
+/* 1. Ícone de folha - estender background laranja para cobrir a parte inferior */
+nav.menu-fixo {
+  padding-bottom: 15px !important;
+}
+
+/* 2. Título de Cursos - centralizar no mobile */
+@media (max-width: 767px) {
+  #cursosCertificacoes {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+  
+  #cursosCertificacoes h2 {
+    text-align: center !important;
+    width: 100%;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+/* 3. Lista de cursos - remover borda preta do dropdown */
+#divCursos .navbar-toggler {
+  border: none !important;
+  background: transparent !important;
+}

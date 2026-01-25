@@ -1,0 +1,182 @@
+.lado-a-lado {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-menu > .row{
+     display: flex;
+    justify-content: space-between;
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    margin: 20px;
+}
+  
+.item {
+  flex: 1;
+  padding: 20px;
+}
+
+.centro {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  justify-content: center;
+}
+
+.centroLista {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; 
+  gap: 10px;            
+}
+
+.centroLista > * {
+  margin: 0;            
+  padding: 0;            
+  text-align: center;     
+}
+
+
+.centralizaImg{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: auto;
+    
+}
+
+.margem-0{
+  margin-top: 0;
+  margin-bottom: 0;
+  margin: 0;
+}
+
+.zera-margem-esquerda{
+  margin-left: 0;;
+}
+
+.margem-esquerda-30{
+  padding-left: 30px;
+}
+
+.margem-esquerda-20{
+  margin-left: 9em;
+}
+
+.margem-esquerda-10{
+  margin-left: 20px;
+}
+
+.margem-esquerda-25{
+  align-items: center;
+}
+
+.margem-direita{
+  margin-right: 70px;
+}
+
+.margem-direita-10{
+  margin-right: 2px;
+}
+.margem-cima-30{
+  margin-top: 30px;
+}
+
+.margem-baixo-30{
+  margin-bottom: 30px;
+}
+
+.margin-list-10{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.padding-esquerda-0{
+  padding-left: 0;
+  padding-right: 0;;
+}
+
+.padding-esqueda-60{
+  padding-left: 60px;
+}
+
+.padding-esquerda{
+  padding-left: 160px;
+}
+
+.padding-baixo-20{
+  padding-bottom: 20px;
+}
+
+.padding-acima{
+  padding-top: 30px;
+}
+
+.margin-d-e-5{
+ border: solid ;
+ max-width: 30em;
+}
+
+section ul{
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+html, body { 
+  height: 100%; 
+  width: 100%;
+  margin: 0; 
+  padding: 0; 
+  background-color: #393939; /* Cor de fundo desejada */ 
+} 
+
+.flex-wrapper { 
+    display: flex; 
+    flex-direction: column; 
+    min-height: 100vh; /* 100% da altura da viewport */ 
+} 
+
+#main-content { 
+  flex: 1; /* Garante que o main-content ocupe o espaço disponível */ 
+}
+
+.borda-direita{
+  border-right: 2px solid #AB594B;
+  padding-right: 30px;
+}
+#resumoProfissional{
+  .borda-direita{
+    border-right: 2px solid rgba(57, 57, 57, 0.5);
+    padding-right: 30px;
+  }
+}
+.borda-menu{
+  list-style-type: disc;
+  padding: 0; 
+  margin: 0;
+  gap: 10px;
+  padding-right: 25px;
+  color: #AB594B;
+}
+
+.img-para-esquerda{
+  position: absolute;
+   left: 0;
+   margin-left: 5em;
+}
+
+#projetosPessoais{
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.pos-absoluta {
+  position: absolute;
+  top: 0;
+  left: 70;
+}
+
+.row.justify-content-center {
+  justify-content: center !important;
+}
