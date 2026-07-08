@@ -23,20 +23,17 @@ const TYPE_COLOR: Record<SkillResult['tipo'], string> = {
 
 export function SkillFilterPanel() {
   const { filterOpen, preselectedSkill, closeFilter } = useSkillFilter();
+  // Estado inicializado da prop — o FAB usa key={...} para remontar o componente
+  // quando filterOpen ou preselectedSkill muda, garantindo reset limpo sem effect.
   const [query, setQuery] = useState('');
-  const [selected, setSelected] = useState<string | null>(null);
+  const [selected, setSelected] = useState<string | null>(preselectedSkill);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const allSkills = getAllSkills();
 
-  // Pré-seleciona skill quando vem de um tag externo
+  // Foco no input ao abrir sem pré-seleção (efeito externo legítimo: DOM focus)
   useEffect(() => {
-    if (filterOpen && preselectedSkill) {
-      setSelected(preselectedSkill);
-      setQuery('');
-    } else if (filterOpen) {
-      setSelected(null);
-      setQuery('');
+    if (filterOpen && !preselectedSkill) {
       setTimeout(() => inputRef.current?.focus(), 100);
     }
   }, [filterOpen, preselectedSkill]);

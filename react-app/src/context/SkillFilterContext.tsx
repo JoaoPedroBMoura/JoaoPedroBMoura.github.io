@@ -36,6 +36,7 @@ export function SkillFilterProvider({ children }: { children: ReactNode }) {
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useSkillFilter() {
   const ctx = useContext(SkillFilterContext);
   if (!ctx) throw new Error('useSkillFilter deve ser usado dentro de SkillFilterProvider');

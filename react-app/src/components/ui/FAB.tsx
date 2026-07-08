@@ -142,7 +142,10 @@ export function FAB() {
   const [open, setOpen] = useState(false);
   const [recsOpen, setRecsOpen] = useState(false);
 
-  const { openFilter, filterOpen } = useSkillFilter();
+  const { openFilter, filterOpen, preselectedSkill } = useSkillFilter();
+
+  // Fecha speed dial se qualquer painel abrir — derivado, sem effect
+  const isSpeedDialOpen = open && !filterOpen && !recsOpen;
 
   // Aparece após 100px de scroll (mesmo comportamento do BackToTop)
   useEffect(() => {
@@ -150,11 +153,6 @@ export function FAB() {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
-
-  // Fecha speed dial se qualquer painel abrir
-  useEffect(() => {
-    if (filterOpen || recsOpen) setOpen(false);
-  }, [filterOpen, recsOpen]);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -186,7 +184,7 @@ export function FAB() {
           label="Leituras"
           onClick={() => { setRecsOpen(true); setOpen(false); }}
           delay={0}
-          visible={open}
+          visible={isSpeedDialOpen}
         />
         <FabItem
           icon={<GitHubIcon />}
@@ -195,7 +193,7 @@ export function FAB() {
           href="https://github.com/JoaoPedroBMoura"
           onClick={() => setOpen(false)}
           delay={40}
-          visible={open}
+          visible={isSpeedDialOpen}
         />
         <FabItem
           icon={<LinkedInIcon />}
@@ -204,28 +202,28 @@ export function FAB() {
           href="https://linkedin.com/in/joaopedrobmoura"
           onClick={() => setOpen(false)}
           delay={80}
-          visible={open}
+          visible={isSpeedDialOpen}
         />
         <FabItem
           icon={<FilterIcon />}
           label="Habilidades"
           onClick={() => { openFilter(); setOpen(false); }}
           delay={120}
-          visible={open}
+          visible={isSpeedDialOpen}
         />
         <FabItem
           icon={<ArrowUpIcon />}
           label="Topo"
           onClick={scrollToTop}
           delay={160}
-          visible={open}
+          visible={isSpeedDialOpen}
         />
 
         {/* Botão principal — folha */}
         <button
           onClick={() => setOpen(prev => !prev)}
-          aria-label={open ? 'Fechar menu' : 'Abrir menu'}
-          aria-expanded={open}
+          aria-label={isSpeedDialOpen ? 'Fechar menu' : 'Abrir menu'}
+          aria-expanded={isSpeedDialOpen}
           style={{
             width: '52px',
             height: '52px',
@@ -238,19 +236,19 @@ export function FAB() {
             justifyContent: 'center',
             cursor: 'pointer',
             boxShadow: '0 4px 16px rgba(0,0,0,0.4)',
-            transform: open ? 'rotate(30deg)' : 'rotate(0deg)',
+            transform: isSpeedDialOpen ? 'rotate(30deg)' : 'rotate(0deg)',
             transition: 'background 0.2s, transform 0.3s ease',
             flexShrink: 0,
           }}
           onMouseEnter={e => ((e.currentTarget as HTMLElement).style.background = 'var(--color-ferrugem)')}
-          onMouseLeave={e => ((e.currentTarget as HTMLElement).style.background = open ? 'var(--color-ferrugem)' : 'var(--color-laranja)')}
+          onMouseLeave={e => ((e.currentTarget as HTMLElement).style.background = isSpeedDialOpen ? 'var(--color-ferrugem)' : 'var(--color-laranja)')}
         >
           <LeafIcon />
         </button>
       </div>
 
       {/* Painéis */}
-      <SkillFilterPanel />
+      <SkillFilterPanel key={filterOpen ? (preselectedSkill ?? '__open__') : '__closed__'} />
       <RecommendationsPanel open={recsOpen} onClose={() => setRecsOpen(false)} />
     </>
   );
