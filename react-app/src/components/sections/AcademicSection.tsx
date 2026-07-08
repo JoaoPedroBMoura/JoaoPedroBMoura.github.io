@@ -160,11 +160,15 @@ export function AcademicSection() {
                 </p>
               )}
 
-              {/* Projeto */}
+              {/* Projetos */}
               {sub.projeto && (
-                <p style={{ color: 'var(--color-laranja)', fontSize: '0.72rem', fontStyle: 'italic', borderTop: '1px solid rgba(208,142,108,0.2)', paddingTop: '8px', margin: 0 }}>
-                  ▸ {sub.projeto}
-                </p>
+                <div style={{ borderTop: '1px solid rgba(208,142,108,0.2)', paddingTop: '8px' }}>
+                  {(Array.isArray(sub.projeto) ? sub.projeto : [sub.projeto]).map((p, i) => (
+                    <p key={i} style={{ color: 'var(--color-laranja)', fontSize: '0.72rem', fontStyle: 'italic', margin: i > 0 ? '4px 0 0' : '0' }}>
+                      ▸ {p}
+                    </p>
+                  ))}
+                </div>
               )}
             </button>
           ))}
