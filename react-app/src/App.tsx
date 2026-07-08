@@ -5,15 +5,17 @@
 
 import { useEffect } from 'react';
 import { Header, Footer } from './components/layout';
-import { 
-  HeroSection, 
-  AboutSection, 
-  FormationSection, 
-  CoursesSection, 
-  SkillsSection, 
-  ProjectsSection 
+import {
+  HeroSection,
+  AboutSection,
+  FormationSection,
+  AcademicSection,
+  CoursesSection,
+  SkillsSection,
+  ProjectsSection
 } from './components/sections';
-import { BackToTop } from './components/ui';
+import { FAB } from './components/ui';
+import { SkillFilterProvider } from './context/SkillFilterContext';
 
 // Importar AOS para animações de scroll
 import AOS from 'aos';
@@ -25,27 +27,30 @@ function App() {
     AOS.init({
       duration: 800,
       easing: 'ease-in-out',
-      once: false,
+      once: true,
       offset: 100,
     });
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      
-      <main className="flex-grow">
-        <HeroSection />
-        <AboutSection />
-        <FormationSection />
-        <CoursesSection />
-        <SkillsSection />
-        <ProjectsSection />
-      </main>
+    <SkillFilterProvider>
+      <div className="min-h-screen flex flex-col">
+        <Header />
 
-      <Footer />
-      <BackToTop />
-    </div>
+        <main className="flex-grow">
+          <HeroSection />
+          <AboutSection />
+          <FormationSection />
+          <AcademicSection />
+          <CoursesSection />
+          <SkillsSection />
+          <ProjectsSection />
+        </main>
+
+        <Footer />
+        <FAB />
+      </div>
+    </SkillFilterProvider>
   );
 }
 

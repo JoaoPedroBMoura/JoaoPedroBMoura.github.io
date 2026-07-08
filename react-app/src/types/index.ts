@@ -1,69 +1,29 @@
 /**
  * Tipos e interfaces do portfólio
  * João Pedro Barcellos Moura
+ *
+ * Cada interface aqui é o "contrato" de uma estrutura de dados usada em
+ * mais de um lugar (ou que representa um JSON importado). Tipos usados
+ * dentro de um único componente ficam declarados no próprio componente.
  */
 
 // ========================================
 // CURSOS E CERTIFICAÇÕES
 // ========================================
 
+/** Categorias exibidas como filtro em CoursesSection */
+export type CursoCategory =
+  | 'dotnet'
+  | 'gitGitHub'
+  | 'analiseDeDados'
+  | 'leanSixSigma'
+  | 'gestao';
+
+/** Formato de cada item nos JSONs em src/data/cursos*.json e certificacoes.json */
 export interface Curso {
   nome: string;
   link: string;
-}
-
-export interface CursosProgramacao {
-  dotNet: Curso[];
-  gitGitHub: Curso[];
-}
-
-export interface CursosAnaliseDados {
-  ComunidadeDs: Curso[];
-}
-
-export interface Certificacoes {
-  'gestao-projetos': Curso[];
-  Administraçao: Curso[];
-}
-
-// ========================================
-// PROJETOS
-// ========================================
-
-export interface Projeto {
-  nome: string;
-  linkImg: string;
-  textoAlt: string;
-  descricao: string;
-  link: string;
-}
-
-export interface ProjetosProgramacao {
-  sites: Projeto[];
-  deConsole: Projeto[];
-  api: Projeto[];
-}
-
-export interface ProjetosAnaliseDados {
-  analisesExcel: Projeto[];
-}
-
-// ========================================
-// DADOS PESSOAIS
-// ========================================
-
-export interface DadosPessoais {
-  nome: string;
-  localizacao: string;
-  whatsapp: string;
-  email: string;
-  linkedin: string;
-  github: string;
-}
-
-export interface Idioma {
-  nome: string;
-  nivel: string;
+  categoria: CursoCategory;
 }
 
 // ========================================
@@ -74,33 +34,4 @@ export interface NavItem {
   label: string;
   href: string;
   isExternal?: boolean;
-}
-
-// ========================================
-// TECNOLOGIAS
-// ========================================
-
-export interface Tecnologia {
-  nome: string;
-  icone: string;
-  categoria: 'backend' | 'frontend' | 'database' | 'tools' | 'analytics';
-}
-
-// ========================================
-// EXPERIÊNCIA
-// ========================================
-
-export interface Experiencia {
-  empresa: string;
-  cargo: string;
-  periodo: string;
-  descricao: string[];
-  conquistas?: string[];
-}
-
-export interface Formacao {
-  instituicao: string;
-  curso: string;
-  periodo: string;
-  descricao?: string;
 }

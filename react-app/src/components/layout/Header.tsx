@@ -1,69 +1,82 @@
 /**
- * Componente Header - Barra de navegação principal
- * Usa classes CSS originais do Bootstrap + custom
+ * Header — Navegação principal.
+ * Mobile: links de navegação ocultos (o FAB cobre topo + contatos).
+ * Desktop: todos os links visíveis na barra.
  */
 
-import { useState } from 'react';
-
-interface NavItem {
-  label: string;
-  href: string;
-  isExternal?: boolean;
-}
-
-const navItems: NavItem[] = [
-  { label: 'Construção Profissional', href: '#formacaoes' },
-  { label: 'Habilidades', href: '#skillsTecnologias' },
-  { label: 'Projetos', href: '#projetosPessoais' },
-  { label: 'O que recomenda?', href: 'https://forms.gle/gh22A2sfco1L7S8c7', isExternal: true },
-  { label: 'FAQ', href: '/pages/faq.html' },
-];
+import { navItems } from '../../data/navigation';
 
 export function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   return (
-    <header className="margem-button-on">
-      <nav className="navbar navbar-expand-lg navbar-light navbar-brown margem-0 menu-fixo">
-        <div>
-          <img 
-            id="imagemCentral" 
-            src="https://joaopedrobmoura.github.io/assets/images/icons/teste.png" 
-            alt="folha" 
-            className="img-fluid img-para-esquerda" 
-            width="45"
-          />
-          
-          <button 
-            className="navbar-toggler letra-preta"
-            type="button"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle navigation"
-          >
-            <i className="bi bi-list"></i>Menu
-          </button>
+    <header style={{ position: 'sticky', top: 0, zIndex: 100 }}>
+      <nav
+        style={{
+          background: 'var(--color-preto)',
+          borderBottom: '2px solid var(--color-laranja)',
+          padding: '0 24px',
+          display: 'grid',
+          gridTemplateColumns: '1fr auto 1fr',
+          alignItems: 'center',
+          minHeight: '56px',
+        }}
+      >
+        {/* Logo / nome — coluna esquerda */}
+        <a
+          href="#"
+          style={{
+            color: 'var(--color-caramelo)',
+            fontWeight: 700,
+            fontSize: '1rem',
+            textDecoration: 'none',
+            letterSpacing: '0.02em',
+            justifySelf: 'start',
+          }}
+        >
+          JP Moura
+        </a>
 
-          <div 
-            id="navBarCollapsavel" 
-            className={`letra-branca font-menu ${isMenuOpen ? '' : 'collapse'} d-lg-flex margem-esquerda-20`}
-          >
-            <ul className="navbar-nav mr-auto">
-              {navItems.map((item) => (
-                <li key={item.href} className="nav-item no-break borda-menu">
-                  <a
-                    href={item.href}
-                    target={item.isExternal ? '_blank' : undefined}
-                    rel={item.isExternal ? 'noopener noreferrer' : undefined}
-                    className="nav-link"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+        {/* Nav links — coluna central (centralizado de verdade) */}
+        <ul
+          style={{
+            display: 'flex',
+            gap: '4px',
+            listStyle: 'none',
+            margin: 0,
+            padding: 0,
+          }}
+          className="hidden lg:flex"
+        >
+          {navItems.map((item) => (
+            <li key={item.href}>
+              <a
+                href={item.href}
+                target={item.isExternal ? '_blank' : undefined}
+                rel={item.isExternal ? 'noopener noreferrer' : undefined}
+                style={{
+                  color: 'var(--color-caramelo)',
+                  textDecoration: 'none',
+                  padding: '8px 12px',
+                  borderRadius: '6px',
+                  fontSize: '0.85rem',
+                  fontWeight: 500,
+                  transition: 'background 0.2s',
+                  display: 'block',
+                }}
+                onMouseEnter={(e) =>
+                  ((e.target as HTMLElement).style.background = 'rgba(208,142,108,0.2)')
+                }
+                onMouseLeave={(e) =>
+                  ((e.target as HTMLElement).style.background = 'transparent')
+                }
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        {/* Coluna direita vazia — mantém o logo na esquerda e os links centrados */}
+        <span aria-hidden="true" />
       </nav>
     </header>
   );

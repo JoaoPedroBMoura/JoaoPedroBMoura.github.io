@@ -2,18 +2,9 @@
    PORTFÓLIO REACT - ESTILOS
    ======================================== */
 
-/* Bootstrap (base) */
-@import "./styles/vendors/bootstrap.min.css";
+@import "tailwindcss";
 
-/* Fontes */
-@import "./styles/base/fonts.css";
-
-/* Layout */
-@import "./styles/layout/htmlHeader.css";
-@import "./styles/layout/htmlMain.css";
-@import "./styles/layout/hmtlFooter.css";
-@import "./styles/layout/spacing.css";
-@import "./styles/layout/backgrounds.css";
+/* Fontes via Google Fonts — carregadas em react-app/index.html */
 
 /* ========================================
    DESIGN TOKENS - Paleta de Cores
@@ -37,22 +28,20 @@
   box-sizing: border-box;
 }
 
-/* ========================================
-   AJUSTES FINOS REACT
-   ======================================== */
-
-/* 1. Ícone de folha - estender background laranja para cobrir a parte inferior */
-nav.menu-fixo {
-  padding-bottom: 15px !important;
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
-/* 2. Título de Cursos - centralizar no mobile */
+/* ========================================
+   AJUSTES FINOS — título de Cursos centralizado no mobile
+   ======================================== */
+
 @media (max-width: 767px) {
   #cursosCertificacoes {
     padding-left: 15px !important;
     padding-right: 15px !important;
   }
-  
+
   #cursosCertificacoes h2 {
     text-align: center !important;
     width: 100%;
@@ -61,8 +50,267 @@ nav.menu-fixo {
   }
 }
 
-/* 3. Lista de cursos - remover borda preta do dropdown */
-#divCursos .navbar-toggler {
-  border: none !important;
-  background: transparent !important;
+/* ========================================
+   MARQUEE — Letreiro de tecnologias
+   ======================================== */
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.marquee-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee-wrapper::before,
+.marquee-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marquee-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, var(--color-preto), transparent);
+}
+
+.marquee-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, var(--color-preto), transparent);
+}
+
+/* ========================================
+   ACADEMIC SECTION — Tabs de semestres
+   ======================================== */
+
+.semester-tab {
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  border: 2px solid var(--color-laranja);
+  color: var(--color-caramelo);
+  background: transparent;
+  white-space: nowrap;
+}
+
+.semester-tab.active {
+  background: var(--color-laranja);
+  color: var(--color-preto);
+}
+
+.semester-tab:hover:not(.active) {
+  background: rgba(208, 142, 108, 0.2);
+}
+
+.skill-tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: rgba(208, 142, 108, 0.25);
+  color: var(--color-caramelo);
+  border: 1px solid var(--color-laranja);
+  margin: 2px;
+}
+
+.subject-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(208, 142, 108, 0.3);
+  border-radius: 10px;
+  padding: 14px 16px;
+  transition: border-color 0.2s;
+}
+
+.subject-card:hover {
+  border-color: var(--color-laranja);
+}
+
+/* ========================================
+   PROJECT CARDS — Modernizados
+   ======================================== */
+
+.project-card-modern {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(208, 142, 108, 0.25);
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.project-card-modern:hover {
+  border-color: var(--color-laranja);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(208, 142, 108, 0.15);
+}
+
+.project-status-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status-producao { background: #166534; color: #bbf7d0; }
+.status-concluido { background: #1e40af; color: #bfdbfe; }
+.status-desenvolvimento { background: #92400e; color: #fde68a; }
+
+/* ========================================
+   HEADER — Mobile hamburger sem Bootstrap
+   ======================================== */
+
+.hamburger-line {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--color-caramelo);
+  transition: all 0.3s ease;
+  margin: 5px 0;
+}
+
+/* ========================================
+   EXPERIENCE TIMELINE
+   ======================================== */
+
+.exp-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-laranja);
+  border: 2px solid var(--color-caramelo);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+/* ========================================
+   BACK TO TOP — mantido para não quebrar imports
+   (substituído funcionalmente pelo FAB)
+   ======================================== */
+
+.back-to-top {
+  display: none;
+}
+
+/* ========================================
+   DRAWER / PAINÉIS — animações
+   ======================================== */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
+
+/* Input de busca no SkillFilterPanel */
+.skill-filter-input:focus {
+  border-color: var(--color-laranja) !important;
+  box-shadow: 0 0 0 2px rgba(208,142,108,0.2);
+}
+
+/* Subject cards agora são botões — remove o estilo padrão de botão */
+button.subject-card {
+  font-family: inherit;
+}
+
+/* ========================================
+   PROFILE PHOTO — card de contato lateral
+   ======================================== */
+
+/*
+ * Wrapper: flex row no desktop (card vai para a direita),
+ * flex column no mobile (card vai para baixo).
+ * Alinhamento centrado em ambos os casos.
+ */
+.profile-contact-wrapper {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+/*
+ * Card — clipa o conteúdo via max-width (desktop) ou max-height (mobile).
+ * overflow: hidden esconde o conteúdo que ultrapassa a dimensão animada.
+ */
+.contact-slide-card {
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  /* Desktop: anima largura */
+  max-width: 0;
+  transition: max-width 0.35s ease, opacity 0.25s ease;
+}
+
+.contact-slide-card.open {
+  max-width: 260px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/*
+ * Inner: largura fixa para o conteúdo não "espreme" durante a animação.
+ * padding real fica aqui (no outer só tem overflow: hidden).
+ */
+.contact-slide-inner {
+  width: 240px;
+  padding: 20px;
+  background: #1a1a1a;
+  border: 1px solid rgba(208, 142, 108, 0.35);
+  border-radius: 14px;
+  margin-left: 20px; /* gap entre foto e card */
+}
+
+/* Mobile: muda para coluna e anima altura */
+@media (max-width: 639px) {
+  .profile-contact-wrapper {
+    flex-direction: column;
+  }
+
+  .contact-slide-card {
+    max-width: 320px !important; /* permite largura no mobile */
+    max-height: 0;
+    width: min(320px, 90vw);
+    transition: max-height 0.35s ease, opacity 0.25s ease;
+  }
+
+  .contact-slide-card.open {
+    max-height: 380px;
+  }
+
+  .contact-slide-inner {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 16px;
+    box-sizing: border-box;
+  }
 }

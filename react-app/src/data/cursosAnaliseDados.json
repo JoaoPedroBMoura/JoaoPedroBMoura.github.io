@@ -1,0 +1,32 @@
+[
+  {
+    "nome": "Estatística para Análise de Dados - Comunidade DS (10/2024)",
+    "link": "https://github.com/JoaoPedroBMoura/my-certification/blob/main/dados/Comunidade%20DS/Estat%C3%ADsitca%20para%20Analise%20de%20Dados.pdf",
+    "categoria": "analiseDeDados"
+  },
+  {
+    "nome": "Visualização de Dados com Power BI - Comunidade DS (09/2024)",
+    "link": "https://github.com/JoaoPedroBMoura/my-certification/blob/main/dados/Comunidade%20DS/Power%20BI.pdf",
+    "categoria": "analiseDeDados"
+  },
+  {
+    "nome": "Excel para Análise de Dados - Comunidade DS (08/2024)",
+    "link": "https://github.com/JoaoPedroBMoura/my-certification/blob/main/dados/Comunidade%20DS/Excel%20para%20Analise%20de%20Dados.pdf",
+    "categoria": "analiseDeDados"
+  },
+  {
+    "nome": "SQL do Básico ao Avançado - Comunidade DS (07/2024)",
+    "link": "https://github.com/JoaoPedroBMoura/my-certification/blob/main/dados/Comunidade%20DS/Certificado%20SQL%20do%20B%C3%A1sico%20ao%20Avan%C3%A7ado.pdf",
+    "categoria": "analiseDeDados"
+  },
+  {
+    "nome": "Métricas de Negócio - Comunidade DS (07/2024)",
+    "link": "https://github.com/JoaoPedroBMoura/my-certification/blob/main/dados/Comunidade%20DS/M%C3%A9tricas%20de%20Neg%C3%B3cio.pdf",
+    "categoria": "analiseDeDados"
+  },
+  {
+    "nome": "Introdução a Bancos de Dados Relacionais - Dio (11/2024)",
+    "link": "https://github.com/JoaoPedroBMoura/my-certification/tree/main/dados/Dio",
+    "categoria": "analiseDeDados"
+  }
+]
