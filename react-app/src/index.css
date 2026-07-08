@@ -51,6 +51,73 @@ body {
 }
 
 /* ========================================
+   HEADER — Navegação responsiva
+   ======================================== */
+
+/* Links do desktop: flex centralizado, oculto no mobile */
+.nav-links-desktop {
+  display: none;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 1024px) {
+  .nav-links-desktop {
+    display: flex;
+  }
+}
+
+/* Botão hamburger: visível no mobile, oculto no desktop */
+.hamburger-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+@media (min-width: 1024px) {
+  .hamburger-btn {
+    display: none;
+  }
+}
+
+.hamburger-line {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--color-caramelo);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  transform-origin: center;
+}
+
+/* Animação X ao abrir */
+.top-open  { transform: translateY(7px) rotate(45deg); }
+.mid-open  { opacity: 0; transform: scaleX(0); }
+.bot-open  { transform: translateY(-7px) rotate(-45deg); }
+
+/* Drawer mobile */
+.mobile-nav-drawer {
+  background: var(--color-preto);
+  border-bottom: 2px solid var(--color-laranja);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+@media (min-width: 1024px) {
+  .mobile-nav-drawer {
+    display: none;
+  }
+}
+
+/* ========================================
    MARQUEE — Letreiro de tecnologias
    ======================================== */
 

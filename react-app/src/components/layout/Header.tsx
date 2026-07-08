@@ -1,14 +1,22 @@
 /**
  * Header — Navegação principal.
- * Mobile: links de navegação ocultos (o FAB cobre topo + contatos).
- * Desktop: todos os links visíveis na barra.
+ *
+ * Mobile  (<1024px): logo à esquerda + botão hamburger à direita.
+ *                    Menu abre como drawer vertical abaixo do header.
+ * Desktop (≥1024px): logo à esquerda + links centralizados + espaço direito.
  */
 
+import { useState } from 'react';
 import { navItems } from '../../data/navigation';
 
 export function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMenu = () => setMenuOpen(false);
+
   return (
     <header style={{ position: 'sticky', top: 0, zIndex: 100 }}>
+      {/* Barra principal */}
       <nav
         style={{
           background: 'var(--color-preto)',
@@ -20,9 +28,10 @@ export function Header() {
           minHeight: '56px',
         }}
       >
-        {/* Logo / nome — coluna esquerda */}
+        {/* Logo — coluna esquerda */}
         <a
           href="#"
+          onClick={closeMenu}
           style={{
             color: 'var(--color-caramelo)',
             fontWeight: 700,
@@ -35,17 +44,8 @@ export function Header() {
           JP Moura
         </a>
 
-        {/* Nav links — coluna central (centralizado de verdade) */}
-        <ul
-          style={{
-            display: 'flex',
-            gap: '4px',
-            listStyle: 'none',
-            margin: 0,
-            padding: 0,
-          }}
-          className="hidden lg:flex"
-        >
+        {/* Nav links — coluna central, só visível em desktop */}
+        <ul className="nav-links-desktop">
           {navItems.map((item) => (
             <li key={item.href}>
               <a
@@ -63,10 +63,10 @@ export function Header() {
                   display: 'block',
                 }}
                 onMouseEnter={(e) =>
-                  ((e.target as HTMLElement).style.background = 'rgba(208,142,108,0.2)')
+                  ((e.currentTarget as HTMLElement).style.background = 'rgba(208,142,108,0.2)')
                 }
                 onMouseLeave={(e) =>
-                  ((e.target as HTMLElement).style.background = 'transparent')
+                  ((e.currentTarget as HTMLElement).style.background = 'transparent')
                 }
               >
                 {item.label}
@@ -75,9 +75,60 @@ export function Header() {
           ))}
         </ul>
 
-        {/* Coluna direita vazia — mantém o logo na esquerda e os links centrados */}
-        <span aria-hidden="true" />
+        {/* Coluna direita: hamburger no mobile, vazio no desktop */}
+        <div style={{ justifySelf: 'end' }}>
+          <button
+            className="hamburger-btn"
+            onClick={() => setMenuOpen((prev) => !prev)}
+            aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
+            aria-expanded={menuOpen}
+          >
+            {/* Três linhas → X animado via CSS */}
+            <span className={`hamburger-line ${menuOpen ? 'top-open' : ''}`} />
+            <span className={`hamburger-line ${menuOpen ? 'mid-open' : ''}`} />
+            <span className={`hamburger-line ${menuOpen ? 'bot-open' : ''}`} />
+          </button>
+        </div>
       </nav>
+
+      {/* Drawer mobile — visível só quando menuOpen */}
+      {menuOpen && (
+        <div className="mobile-nav-drawer">
+          <ul style={{ listStyle: 'none', margin: 0, padding: '8px 0' }}>
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <a
+                  href={item.href}
+                  target={item.isExternal ? '_blank' : undefined}
+                  rel={item.isExternal ? 'noopener noreferrer' : undefined}
+                  onClick={closeMenu}
+                  style={{
+                    display: 'block',
+                    color: 'var(--color-caramelo)',
+                    textDecoration: 'none',
+                    padding: '14px 24px',
+                    fontSize: '1rem',
+                    fontWeight: 500,
+                    borderBottom: '1px solid rgba(208,142,108,0.1)',
+                    transition: 'background 0.15s',
+                  }}
+                  onMouseEnter={(e) =>
+                    ((e.currentTarget as HTMLElement).style.background = 'rgba(208,142,108,0.12)')
+                  }
+                  onMouseLeave={(e) =>
+                    ((e.currentTarget as HTMLElement).style.background = 'transparent')
+                  }
+                >
+                  {item.label}
+                  {item.isExternal && (
+                    <span style={{ fontSize: '0.7rem', opacity: 0.5, marginLeft: '6px' }}>↗</span>
+                  )}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </header>
   );
 }
