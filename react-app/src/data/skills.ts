@@ -46,7 +46,7 @@ export const hardSkills: string[] = [
 export const softSkills: string[] = [
   'Visão Analítica e Sistêmica',
   'Autonomia e Protagonismo',
-  'Autodidática e Curiosidade',
+  'Autodidática e Curiosidade', 
   'Comunicação Clara',
   'Aprendizado Rápido',
   'Proatividade',
