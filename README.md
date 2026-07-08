@@ -18,7 +18,7 @@
 
 Sou um profissional apaixonado por tecnologia, com **visão analítica madura**, **mentalidade ágil** e forte **foco em resolução de problemas**. Acredito que o aprendizado contínuo e a proatividade são as chaves para o sucesso em qualquer área.
 
-Atualmente curso **Bacharelado em Sistemas de Informação** no **CEFET/NF** (2023-2027) e busco constantemente me desenvolver tanto na área de **desenvolvimento de software** quanto em **análise de dados**.
+Atualmente curso **Bacharelado em Sistemas de Informação** no **CEFET/NF** (2023-2028) e busco constantemente me desenvolver tanto na área de **desenvolvimento de software** quanto em **análise de dados**.
 
 > *"Minha maior qualidade é transformar dados em insights e código em soluções."*
 
