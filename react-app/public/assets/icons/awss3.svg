@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <!-- Bucket S3 -->
+  <path d="M16 40 Q16 28 64 28 Q112 28 112 40 L112 88 Q112 100 64 100 Q16 100 16 88 Z" fill="#569A31"/>
+  <path d="M16 40 Q16 52 64 52 Q112 52 112 40 Q112 28 64 28 Q16 28 16 40 Z" fill="#7dc242"/>
+  <path d="M16 88 Q16 100 64 100 Q112 100 112 88 Q112 76 64 76 Q16 76 16 88 Z" fill="#3d7a22"/>
+  <!-- S3 text -->
+  <text x="64" y="74" font-family="Arial,sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="white">S3</text>
+</svg>

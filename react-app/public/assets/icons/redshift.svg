@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <!-- Cilindro Redshift -->
+  <ellipse cx="64" cy="38" rx="48" ry="14" fill="#a855f7"/>
+  <rect x="16" y="38" width="96" height="52" fill="#7e22ce"/>
+  <ellipse cx="64" cy="90" rx="48" ry="14" fill="#6b21a8"/>
+  <ellipse cx="64" cy="38" rx="48" ry="14" fill="#a855f7"/>
+  <!-- RS text -->
+  <text x="64" y="72" font-family="Arial,sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="white">RS</text>
+</svg>

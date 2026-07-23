@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <!-- Barras do Power BI -->
+  <rect x="8"  y="72" width="28" height="48" rx="4" fill="#F2C811"/>
+  <rect x="42" y="44" width="28" height="76" rx="4" fill="#F2C811"/>
+  <rect x="76" y="16" width="28" height="104" rx="4" fill="#F2C811"/>
+  <!-- Bloco MS no canto -->
+  <rect x="96" y="8" width="24" height="24" rx="3" fill="#F2C811" opacity="0.6"/>
+</svg>

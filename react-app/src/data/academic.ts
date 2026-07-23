@@ -169,7 +169,7 @@ export const semesters: Semester[] = [
       {
         nome: 'Programação de Aplicações Corporativas',
         cargaHoraria: '90/90',
-        skills: ['Java EE', 'Padrões Corporativos', 'Persistência', 'Camadas de Aplicação','POO'],
+        skills: ['Java EE', 'Padrões Corporativos', 'Persistência', 'Camadas de Aplicação','POO',"JWT","REST APIs"],
         projeto: ['Sistema de Padaria — modelagem completa com diagrama de classes e fluxo de domínio (Excalidraw)','Este portfólio — desenvolvido aplicando os conceitos da disciplina'],
         descricao: 'Java EE com padrões corporativos — persistência, camadas de aplicação e os padrões que grandes sistemas empresariais usam. Projeto prático: sistema de padaria com modelagem completa em Excalidraw. A disciplina que conecta a OOP do 3º período com arquiteturas corporativas de verdade.',
       },
