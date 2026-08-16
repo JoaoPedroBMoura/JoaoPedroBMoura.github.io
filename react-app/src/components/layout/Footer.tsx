@@ -2,7 +2,7 @@
  * Footer — rodapé do portfólio com lista de contatos.
  */
 
-import { contacts } from '../ui/contactsData';
+import { contacts } from '../ui/contactsConfig';
 
 export function Footer() {
   return (

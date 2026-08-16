@@ -9,7 +9,7 @@
  * Design segue o design system: fundo escuro, borda laranja, texto caramelo.
  */
 
-import { contacts } from './contactsData';
+import { contacts } from './contactsConfig';
 
 // ── Componente ─────────────────────────────────────────────────────────────
 
