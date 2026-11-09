@@ -1,12 +1,14 @@
 /**
- * ProjectsSection — Projetos reais de João Pedro B. Moura
- * Cards com "Ver mais" abrem DetailModal (painel 75% da tela).
- * Skill tags clicáveis abrem SkillFilterPanel via context.
+ * ProjectsSection — Projetos reais de João Pedro B. Moura.
+ * Cards com "Ver mais" abrem DetailModal. Skill tags: exibição traduzida
+ * pelo glossário; chave do filtro em PT. Textos dos projetos são bilíngues.
  */
 
 import { useState } from 'react';
 import { projects, projectCategories as categories, type Project, type ProjectCategory as Category } from '../../data/projects';
 import { useSkillFilter } from '../../context/SkillFilterContext';
+import { useLang } from '../../i18n/LanguageContext';
+import { translateTag } from '../../i18n/glossary';
 import { DetailModal, type DetailContent } from '../ui/DetailModal';
 
 function StatusBadge({ status, label }: { status: Project['status']; label: string }) {
@@ -20,26 +22,27 @@ interface ProjectCardProps {
 
 function ProjectCard({ project, onOpen }: ProjectCardProps) {
   const { openFilter } = useSkillFilter();
+  const { lang, L, ui } = useLang();
 
   return (
     <div className="project-card-modern">
       {/* Topo */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '12px' }}>
         <h3 style={{ color: 'var(--color-caramelo)', fontSize: '0.95rem', fontWeight: 700, lineHeight: 1.3 }}>
-          {project.nome}
+          {L(project.nome)}
         </h3>
-        <StatusBadge status={project.status} label={project.statusLabel} />
+        <StatusBadge status={project.status} label={L(project.statusLabel)} />
       </div>
 
       {/* Descrição */}
       <p style={{ color: 'rgba(249,222,183,0.8)', fontSize: '0.85rem', lineHeight: 1.6, flexGrow: 1 }}>
-        {project.descricao}
+        {L(project.descricao)}
       </p>
 
       {/* Destaque */}
       {project.destaque && (
         <p style={{ color: 'var(--color-laranja)', fontSize: '0.75rem', fontWeight: 600, fontStyle: 'italic' }}>
-          ✦ {project.destaque}
+          ✦ {L(project.destaque)}
         </p>
       )}
 
@@ -50,10 +53,10 @@ function ProjectCard({ project, onOpen }: ProjectCardProps) {
             key={t}
             className="skill-tag"
             onClick={() => openFilter(t)}
-            title={`Filtrar por "${t}"`}
+            title={ui.detail.filterByTag.replace('{tag}', translateTag(t, lang))}
             style={{ cursor: 'pointer' }}
           >
-            {t}
+            {translateTag(t, lang)}
           </button>
         ))}
       </div>
@@ -76,19 +79,19 @@ function ProjectCard({ project, onOpen }: ProjectCardProps) {
             onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.borderColor = 'var(--color-laranja)')}
             onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(208,142,108,0.4)')}
           >
-            Ver mais ›
+            {ui.common.seeMore}
           </button>
         )}
         {project.github && (
           <a href={project.github} target="_blank" rel="noopener noreferrer"
             style={{ color: 'var(--color-laranja)', fontSize: '0.75rem', textDecoration: 'none' }}>
-            GitHub →
+            {ui.common.github}
           </a>
         )}
         {project.demo && (
           <a href={project.demo} target="_blank" rel="noopener noreferrer"
             style={{ color: 'rgba(249,222,183,0.65)', fontSize: '0.75rem', textDecoration: 'none' }}>
-            Demo →
+            {ui.common.demo}
           </a>
         )}
       </div>
@@ -99,6 +102,7 @@ function ProjectCard({ project, onOpen }: ProjectCardProps) {
 export function ProjectsSection() {
   const [activeCategory, setActiveCategory] = useState<Category>('todos');
   const [modalContent, setModalContent] = useState<DetailContent | null>(null);
+  const { ui } = useLang();
 
   const openProject = (p: Project) => {
     setModalContent({ type: 'project', data: p });
@@ -118,15 +122,15 @@ export function ProjectsSection() {
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
           <h2 data-aos="fade-up"
             style={{ color: 'var(--color-caramelo)', fontSize: 'clamp(1.6rem, 4vw, 2.2rem)', fontWeight: 700, marginBottom: '8px' }}>
-            Projetos
+            {ui.projects.title}
           </h2>
           <p data-aos="fade-up" data-aos-delay="100"
             style={{ color: 'rgba(249,222,183,0.6)', fontSize: '0.95rem' }}>
-            Do governo federal a projetos de estudo — {projects.length} projetos documentados
+            {ui.projects.subtitle.replace('{n}', String(projects.length))}
           </p>
           <p data-aos="fade-up" data-aos-delay="150"
             style={{ color: 'rgba(249,222,183,0.4)', fontSize: '0.78rem', marginTop: '6px' }}>
-            Clique em "Ver mais" para detalhes · Clique nas tags para filtrar habilidades
+            {ui.projects.hint}
           </p>
         </div>
 
@@ -136,7 +140,7 @@ export function ProjectsSection() {
           {categories.map((cat) => (
             <button key={cat.key} onClick={() => setActiveCategory(cat.key)}
               className={`semester-tab${activeCategory === cat.key ? ' active' : ''}`}>
-              {cat.label}
+              {ui.projects.categories[cat.key]}
             </button>
           ))}
         </div>
@@ -144,7 +148,7 @@ export function ProjectsSection() {
         {/* Grid de projetos */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '16px' }}>
           {filtered.map((project, i) => (
-            <div key={project.nome} data-aos="fade-up" data-aos-delay={String(Math.min(i, 4) * 60)}>
+            <div key={project.nome.en} data-aos="fade-up" data-aos-delay={String(Math.min(i, 4) * 60)}>
               <ProjectCard project={project} onOpen={openProject} />
             </div>
           ))}

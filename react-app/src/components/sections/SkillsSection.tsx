@@ -1,11 +1,11 @@
 /**
- * SkillsSection — Letreiro de tecnologias + soft/hard skills
- * Usa marquee-wrapper/marquee-track do index.css
- * Ícones via devicons CDN
- * Dados (techs/hardSkills/softSkills) vêm de src/data/skills.ts
+ * SkillsSection — Letreiro de tecnologias + hard/soft skills.
+ * Títulos e as listas hard/soft são bilíngues. Os nomes das tecnologias
+ * (Python, React...) são iguais nos dois idiomas.
  */
 
 import { techs, hardSkills, softSkills, type Tech } from '../../data/skills';
+import { useLang } from '../../i18n/LanguageContext';
 
 // duplicado para o loop infinito (track contém 2x o array)
 const doubled = [...techs, ...techs];
@@ -47,6 +47,8 @@ function TechCard({ tech }: { tech: Tech }) {
 }
 
 export function SkillsSection() {
+  const { L, ui } = useLang();
+
   return (
     <section
       id="skillsTecnologias"
@@ -67,14 +69,14 @@ export function SkillsSection() {
             marginBottom: '8px',
           }}
         >
-          Tecnologias &amp; Ferramentas
+          {ui.skills.title}
         </h2>
         <p
           data-aos="fade-up"
           data-aos-delay="100"
           style={{ color: 'rgba(249,222,183,0.6)', fontSize: '0.95rem' }}
         >
-          Stack que uso no dia a dia — analytics, backend e infra
+          {ui.skills.subtitle}
         </p>
       </div>
 
@@ -123,10 +125,10 @@ export function SkillsSection() {
               letterSpacing: '0.08em',
             }}
           >
-            Hard Skills
+            {ui.skills.hard}
           </h3>
           <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            {hardSkills.map((s) => (
+            {L(hardSkills).map((s) => (
               <li
                 key={s}
                 style={{
@@ -165,10 +167,10 @@ export function SkillsSection() {
               letterSpacing: '0.08em',
             }}
           >
-            Soft Skills
+            {ui.skills.soft}
           </h3>
           <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            {softSkills.map((s) => (
+            {L(softSkills).map((s) => (
               <li
                 key={s}
                 style={{

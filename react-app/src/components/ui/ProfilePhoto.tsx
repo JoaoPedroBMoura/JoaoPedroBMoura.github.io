@@ -5,15 +5,15 @@
  *   Desktop → card aparece à DIREITA da foto (flex row)
  *   Mobile  → card aparece ABAIXO da foto (flex column)
  *
- * O card está no fluxo do documento — empurra conteúdo, não sobrepõe.
- * Design segue o design system: fundo escuro, borda laranja, texto caramelo.
+ * Título e rótulos de contato são bilíngues (ui / L). O alt da foto também.
  */
 
 import { contacts } from './contactsConfig';
-
-// ── Componente ─────────────────────────────────────────────────────────────
+import { useLang } from '../../i18n/LanguageContext';
 
 export function ProfilePhoto() {
+  const { L, ui } = useLang();
+
   return (
     /*
      * Wrapper em flex — muda de direção via CSS (row no desktop, column no mobile).
@@ -45,7 +45,7 @@ export function ProfilePhoto() {
         {/* Foto — parada, por cima do anel */}
         <img
           src="/assets/images/profile/Foto_séria_quadrada-transformed.jpeg"
-          alt="Foto de João Pedro Moura"
+          alt={ui.hero.photoAlt}
           width={210}
           height={210}
           loading="lazy"
@@ -71,12 +71,12 @@ export function ProfilePhoto() {
             letterSpacing: '0.1em',
             marginBottom: '14px',
           }}>
-            Contatos
+            {ui.footer.contacts}
           </p>
 
           <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
             {contacts.map(({ Icon, label, href }) => (
-              <li key={label}>
+              <li key={label.en}>
                 {href ? (
                   <a
                     href={href}
@@ -98,7 +98,7 @@ export function ProfilePhoto() {
                     onMouseLeave={e => ((e.currentTarget as HTMLElement).style.background = 'transparent')}
                   >
                     <span style={{ color: 'var(--color-laranja)', flexShrink: 0 }}><Icon /></span>
-                    {label}
+                    {L(label)}
                     <span style={{ color: 'rgba(208,142,108,0.5)', marginLeft: 'auto', fontSize: '0.7rem' }}>↗</span>
                   </a>
                 ) : (
@@ -111,7 +111,7 @@ export function ProfilePhoto() {
                     padding: '6px 8px',
                   }}>
                     <span style={{ color: 'var(--color-laranja)', flexShrink: 0 }}><Icon /></span>
-                    {label}
+                    {L(label)}
                   </span>
                 )}
               </li>

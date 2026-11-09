@@ -1,16 +1,21 @@
 /**
  * Header — Navegação principal.
  *
- * Mobile  (<1024px): logo à esquerda + botão hamburger à direita.
+ * Mobile  (<1024px): logo à esquerda + seletor de idioma + hamburger à direita.
  *                    Menu abre como drawer vertical abaixo do header.
- * Desktop (≥1024px): logo à esquerda + links centralizados + espaço direito.
+ * Desktop (≥1024px): logo à esquerda + links centralizados + seletor de idioma.
+ *
+ * Os rótulos do menu são bilíngues (navItems) e resolvidos com L().
  */
 
 import { useState } from 'react';
 import { navItems } from '../../data/navigation';
+import { useLang } from '../../i18n/LanguageContext';
+import { LanguageToggle } from '../ui/LanguageToggle';
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { L, ui } = useLang();
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -69,18 +74,19 @@ export function Header() {
                   ((e.currentTarget as HTMLElement).style.background = 'transparent')
                 }
               >
-                {item.label}
+                {L(item.label)}
               </a>
             </li>
           ))}
         </ul>
 
-        {/* Coluna direita: hamburger no mobile, vazio no desktop */}
-        <div style={{ justifySelf: 'end' }}>
+        {/* Coluna direita: seletor de idioma + hamburger (mobile) */}
+        <div style={{ justifySelf: 'end', display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <LanguageToggle />
           <button
             className="hamburger-btn"
             onClick={() => setMenuOpen((prev) => !prev)}
-            aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
+            aria-label={menuOpen ? ui.header.closeMenu : ui.header.openMenu}
             aria-expanded={menuOpen}
           >
             {/* Três linhas → X animado via CSS */}
@@ -119,7 +125,7 @@ export function Header() {
                     ((e.currentTarget as HTMLElement).style.background = 'transparent')
                   }
                 >
-                  {item.label}
+                  {L(item.label)}
                   {item.isExternal && (
                     <span style={{ fontSize: '0.7rem', opacity: 0.5, marginLeft: '6px' }}>↗</span>
                   )}

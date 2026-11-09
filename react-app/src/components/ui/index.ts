@@ -5,3 +5,4 @@ export { Drawer } from './Drawer';
 export { DetailModal } from './DetailModal';
 export { SkillFilterPanel } from './SkillFilterPanel';
 export { RecommendationsPanel } from './RecommendationsPanel';
+export { LanguageToggle } from './LanguageToggle';

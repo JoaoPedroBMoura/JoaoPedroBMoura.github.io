@@ -1,10 +1,14 @@
 /**
  * Footer — rodapé do portfólio com lista de contatos.
+ * O título e os rótulos de contato são bilíngues.
  */
 
 import { contacts } from '../ui/contactsConfig';
+import { useLang } from '../../i18n/LanguageContext';
 
 export function Footer() {
+  const { L, ui } = useLang();
+
   return (
     <footer
       style={{
@@ -24,7 +28,7 @@ export function Footer() {
           marginBottom: '16px',
           textAlign: 'center',
         }}>
-          Contatos
+          {ui.footer.contacts}
         </p>
 
         <ul style={{
@@ -37,7 +41,7 @@ export function Footer() {
           gap: '8px',
         }}>
           {contacts.map(({ Icon, label, href }) => (
-            <li key={label}>
+            <li key={label.en}>
               {href ? (
                 <a
                   href={href}
@@ -68,7 +72,7 @@ export function Footer() {
                   }}
                 >
                   <span style={{ color: 'var(--color-laranja)', flexShrink: 0 }}><Icon /></span>
-                  {label}
+                  {L(label)}
                 </a>
               ) : (
                 <span style={{
@@ -82,7 +86,7 @@ export function Footer() {
                   border: '1px solid rgba(208,142,108,0.15)',
                 }}>
                   <span style={{ color: 'var(--color-laranja)', flexShrink: 0 }}><Icon /></span>
-                  {label}
+                  {L(label)}
                 </span>
               )}
             </li>

@@ -1,11 +1,16 @@
 /**
  * Utilitário de busca por habilidade — agrega dados de projetos, matérias
  * e experiências para o SkillFilterPanel.
+ *
+ * As tags/skills continuam em português (são a CHAVE de busca). Já os
+ * TÍTULOS e DESCRIÇÕES mostrados nos resultados são bilíngues, então
+ * searchBySkill recebe o idioma atual (lang) e resolve cada texto.
  */
 
 import { projects } from '../data/projects';
-import { semesters } from '../data/academic';
+import { semesters, statusStyle } from '../data/academic';
 import { experiencias } from '../data/experience';
+import type { Locale } from '../i18n/config';
 
 export interface SkillResult {
   tipo: 'projeto' | 'materia' | 'experiencia';
@@ -15,7 +20,7 @@ export interface SkillResult {
   tags: string[];
 }
 
-/** Retorna todas as habilidades únicas de todas as fontes, ordenadas. */
+/** Retorna todas as habilidades únicas (chaves em PT) de todas as fontes, ordenadas. */
 export function getAllSkills(): string[] {
   const set = new Set<string>();
   projects.forEach(p => p.techs.forEach(t => set.add(t)));
@@ -26,9 +31,10 @@ export function getAllSkills(): string[] {
 
 /**
  * Busca onde uma habilidade aparece em projetos, matérias e experiências.
- * Usa comparação case-insensitive para cobrir variações de capitalização.
+ * Compara em case-insensitive para cobrir variações de capitalização.
+ * `lang` escolhe o idioma dos títulos e descrições exibidos.
  */
-export function searchBySkill(skill: string): SkillResult[] {
+export function searchBySkill(skill: string, lang: Locale): SkillResult[] {
   const lc = skill.toLowerCase();
   const results: SkillResult[] = [];
 
@@ -36,9 +42,9 @@ export function searchBySkill(skill: string): SkillResult[] {
     if (p.techs.some(t => t.toLowerCase() === lc)) {
       results.push({
         tipo: 'projeto',
-        titulo: p.nome,
-        subtitulo: p.statusLabel,
-        descricao: p.detalhe ?? p.descricao,
+        titulo: p.nome[lang],
+        subtitulo: p.statusLabel[lang],
+        descricao: (p.detalhe ?? p.descricao)[lang],
         tags: p.techs,
       });
     }
@@ -47,12 +53,14 @@ export function searchBySkill(skill: string): SkillResult[] {
   semesters.forEach(s => {
     s.subjects.forEach(sub => {
       if (sub.skills.some(sk => sk.toLowerCase() === lc)) {
-        const statusLabel = s.status === 'concluido' ? 'Concluído' : s.status === 'cursando' ? 'Cursando' : 'Futuro';
+        const fallback = lang === 'en'
+          ? `Course in the ${s.label.en} of the Information Systems program.`
+          : `Disciplina do ${s.label.pt} do curso de Sistemas de Informação.`;
         results.push({
           tipo: 'materia',
-          titulo: sub.nome,
-          subtitulo: `${s.label} · ${statusLabel}`,
-          descricao: sub.descricao ?? sub.observacao ?? `Disciplina do ${s.label} do curso de Sistemas de Informação.`,
+          titulo: sub.nome[lang],
+          subtitulo: `${s.label[lang]} · ${statusStyle[s.status].label[lang]}`,
+          descricao: sub.descricao?.[lang] ?? sub.observacao?.[lang] ?? fallback,
           tags: sub.skills,
         });
       }
@@ -63,9 +71,9 @@ export function searchBySkill(skill: string): SkillResult[] {
     if (e.techs?.some(t => t.toLowerCase() === lc)) {
       results.push({
         tipo: 'experiencia',
-        titulo: `${e.cargo} — ${e.empresa}`,
-        subtitulo: e.periodo,
-        descricao: e.descricao,
+        titulo: `${e.cargo[lang]} — ${e.empresa}`,
+        subtitulo: e.periodo[lang],
+        descricao: e.descricao[lang],
         tags: e.techs ?? [],
       });
     }

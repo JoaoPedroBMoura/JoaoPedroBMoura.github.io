@@ -1,15 +1,34 @@
 /**
- * HeroSection — Banner principal sem Bootstrap
+ * HeroSection — Banner principal.
+ * Cards de atuação (roles) e o botão de CTA são bilíngues.
  */
 
 import { ProfilePhoto } from '../ui/ProfilePhoto';
+import { useLang } from '../../i18n/LanguageContext';
+import type { I18n } from '../../i18n/config';
 
-const roles = [
-  { label: 'Analista de Dados Pleno', icon: '📊', desc: 'Power BI · AWS Redshift e S3 · Python · SQL' },
-  { label: 'Dev Full-Stack', icon: '💻', desc: 'React · TypeScript · C#/.NET · PostgreSQL · MySql' },
+interface Role {
+  label: I18n;
+  icon: string;
+  desc: I18n;
+}
+
+const roles: Role[] = [
+  {
+    label: { en: 'Mid-level Data Analyst', pt: 'Analista de Dados Pleno' },
+    icon: '📊',
+    desc: { en: 'Power BI · AWS Redshift & S3 · Python · SQL', pt: 'Power BI · AWS Redshift e S3 · Python · SQL' },
+  },
+  {
+    label: { en: 'Full-Stack Dev', pt: 'Dev Full-Stack' },
+    icon: '💻',
+    desc: { en: 'React · TypeScript · C#/.NET · PostgreSQL · MySQL', pt: 'React · TypeScript · C#/.NET · PostgreSQL · MySql' },
+  },
 ];
 
 export function HeroSection() {
+  const { ui, L } = useLang();
+
   return (
     <section
       id="inicio"
@@ -58,7 +77,7 @@ export function HeroSection() {
       >
         {roles.map((role, i) => (
           <div
-            key={role.label}
+            key={role.label.en}
             data-aos={i === 0 ? 'fade-right' : 'fade-left'}
             data-aos-delay={String(100 + i * 100)}
             style={{
@@ -87,9 +106,9 @@ export function HeroSection() {
                 marginBottom: '6px',
               }}
             >
-              {role.label}
+              {L(role.label)}
             </h2>
-            <p style={{ color: 'rgba(249,222,183,0.65)', fontSize: '0.82rem' }}>{role.desc}</p>
+            <p style={{ color: 'rgba(249,222,183,0.65)', fontSize: '0.82rem' }}>{L(role.desc)}</p>
           </div>
         ))}
       </div>
@@ -115,7 +134,7 @@ export function HeroSection() {
           onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.opacity = '0.85')}
           onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.opacity = '1')}
         >
-          Ver Projetos
+          {ui.hero.viewProjects}
         </a>
         <a
           href="https://linkedin.com/in/joaopedrobmoura"

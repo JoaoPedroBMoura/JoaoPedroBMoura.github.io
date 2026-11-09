@@ -1,15 +1,28 @@
 /**
- * FormationSection — Formação + Experiência Profissional
- * Timeline vertical com 3 empresas e projetos reais.
- * Dados de experiências vêm de src/data/experience.ts.
- * Tags de tech são clicáveis → abre SkillFilterPanel.
- * "Ver mais ›" → abre DetailModal com contexto de experiência.
+ * FormationSection — Formação + Experiência Profissional.
+ * Timeline vertical com 3 empresas e projetos reais (src/data/experience.ts).
+ * Tags de tech são clicáveis → abre SkillFilterPanel (exibição traduzida
+ * pelo glossário; a chave continua em PT). "Ver mais" → DetailModal.
  */
 
 import { useState } from 'react';
 import { experiencias, type ExpItem } from '../../data/experience';
 import { useSkillFilter } from '../../context/SkillFilterContext';
+import { useLang } from '../../i18n/LanguageContext';
+import { translateTag } from '../../i18n/glossary';
+import type { I18n } from '../../i18n/config';
 import { DetailModal, type DetailContent } from '../ui/DetailModal';
+
+// ── Conteúdo bilíngue do card de formação acadêmica ─────────────────────────
+const degree = {
+  curso: { en: 'B.Sc. in Information Systems', pt: 'Bacharelado em Sistemas de Informação' } as I18n,
+  campus: { en: 'CEFET-RJ · Nova Friburgo', pt: 'CEFET-RJ · Nova Friburgo' } as I18n,
+  periodo: { en: '2023.1 — 2028.2 (expected)', pt: '2023.1 — 2028.2 (previsão)' } as I18n,
+  descricao: {
+    en: 'A 4.5-year program focused on software analysis and development, databases, networks, process management and IT governance. Alongside the degree, I work as an intern applying what I learn in real production projects.',
+    pt: 'Curso de 4,5 anos com foco em Análise e desenvolvimento de software, banco de dados, redes, Gestão de processos e Governança de TI. Paralelo à formação, atuo como estagiário aplicando o aprendizado em projetos reais de produção.',
+  } as I18n,
+};
 
 // ── Card de experiência ────────────────────────────────────────────────────
 
@@ -21,6 +34,9 @@ interface ExperienceCardProps {
 
 function ExperienceCard({ exp, index, onOpen }: ExperienceCardProps) {
   const { openFilter } = useSkillFilter();
+  const { lang, L, ui } = useLang();
+
+  const projetos = exp.projetos ? L(exp.projetos) : null;
 
   return (
     <div
@@ -55,23 +71,23 @@ function ExperienceCard({ exp, index, onOpen }: ExperienceCardProps) {
           <h3 style={{ color: 'var(--color-caramelo)', fontSize: '1rem', fontWeight: 700 }}>
             {exp.empresa}
           </h3>
-          <span style={{ color: 'rgba(249,222,183,0.65)', fontSize: '0.78rem' }}>{exp.periodo}</span>
+          <span style={{ color: 'rgba(249,222,183,0.65)', fontSize: '0.78rem' }}>{L(exp.periodo)}</span>
         </div>
 
         {/* Cargo */}
         <p style={{ color: 'var(--color-laranja)', fontSize: '0.85rem', fontWeight: 600, marginBottom: '8px' }}>
-          {exp.cargo}
+          {L(exp.cargo)}
         </p>
 
         {/* Descrição */}
-        <p style={{ color: 'rgba(249,222,183,0.75)', fontSize: '0.875rem', lineHeight: 1.65, marginBottom: exp.projetos ? '12px' : '8px' }}>
-          {exp.descricao}
+        <p style={{ color: 'rgba(249,222,183,0.75)', fontSize: '0.875rem', lineHeight: 1.65, marginBottom: projetos ? '12px' : '8px' }}>
+          {L(exp.descricao)}
         </p>
 
         {/* Projetos (só Central de Custódia) */}
-        {exp.projetos && (
+        {projetos && (
           <ul style={{ margin: '0 0 12px', padding: '0', listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '6px' }}>
-            {exp.projetos.map((p) => (
+            {projetos.map((p) => (
               <li key={p} style={{ color: 'rgba(249,222,183,0.65)', fontSize: '0.8rem', display: 'flex', gap: '8px' }}>
                 <span style={{ color: 'var(--color-laranja)', flexShrink: 0 }}>▸</span>
                 {p}
@@ -88,10 +104,10 @@ function ExperienceCard({ exp, index, onOpen }: ExperienceCardProps) {
                 key={t}
                 className="skill-tag"
                 onClick={() => openFilter(t)}
-                title={`Filtrar por "${t}"`}
+                title={ui.detail.filterByTag.replace('{tag}', translateTag(t, lang))}
                 style={{ cursor: 'pointer' }}
               >
-                {t}
+                {translateTag(t, lang)}
               </button>
             ))}
           </div>
@@ -121,7 +137,7 @@ function ExperienceCard({ exp, index, onOpen }: ExperienceCardProps) {
             (e.currentTarget as HTMLElement).style.borderColor = 'rgba(208,142,108,0.4)';
           }}
         >
-          Ver mais ›
+          {ui.common.seeMore}
         </button>
       </div>
     </div>
@@ -132,6 +148,7 @@ function ExperienceCard({ exp, index, onOpen }: ExperienceCardProps) {
 
 export function FormationSection() {
   const [modalContent, setModalContent] = useState<DetailContent | null>(null);
+  const { L, ui } = useLang();
 
   const handleOpen = (exp: ExpItem) => {
     setModalContent({ type: 'experience', data: exp });
@@ -166,7 +183,7 @@ export function FormationSection() {
               marginBottom: '32px',
             }}
           >
-            Formação Acadêmica
+            {ui.formation.academicTitle}
           </h2>
 
           <div
@@ -178,18 +195,16 @@ export function FormationSection() {
             }}
           >
             <h3 style={{ color: 'var(--color-caramelo)', fontSize: '0.95rem', fontWeight: 700, marginBottom: '6px' }}>
-              Bacharelado em Sistemas de Informação
+              {L(degree.curso)}
             </h3>
             <p style={{ color: 'var(--color-laranja)', fontSize: '0.85rem', fontWeight: 600, marginBottom: '8px' }}>
-              CEFET-RJ · Nova Friburgo
+              {L(degree.campus)}
             </p>
             <p style={{ color: 'rgba(249,222,183,0.65)', fontSize: '0.8rem', marginBottom: '16px' }}>
-              2023.1 — 2028.2 (previsão)
+              {L(degree.periodo)}
             </p>
             <p style={{ color: 'rgba(249,222,183,0.7)', fontSize: '0.85rem', lineHeight: 1.6 }}>
-              Curso de 4,5 anos com foco em Análise e desenvolvimento de software, banco de dados, redes, Gestão de processos
-               e Governança de TI. Paralelo à formação, atuo como estagiário aplicando o
-              aprendizado em projetos reais de produção.
+              {L(degree.descricao)}
             </p>
           </div>
         </div>
@@ -204,7 +219,7 @@ export function FormationSection() {
               marginBottom: '32px',
             }}
           >
-            Experiência Profissional
+            {ui.formation.experienceTitle}
           </h2>
 
           <div>

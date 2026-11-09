@@ -5,6 +5,7 @@
  */
 
 import { useEffect, type ReactNode } from 'react';
+import { useLang } from '../../i18n/LanguageContext';
 
 interface DrawerProps {
   open: boolean;
@@ -16,6 +17,8 @@ interface DrawerProps {
 }
 
 export function Drawer({ open, onClose, title, children, width = '75%' }: DrawerProps) {
+  const { ui } = useLang();
+
   // Fecha com Escape + trava scroll do body
   useEffect(() => {
     if (!open) return;
@@ -91,7 +94,7 @@ export function Drawer({ open, onClose, title, children, width = '75%' }: Drawer
           </h2>
           <button
             onClick={onClose}
-            aria-label="Fechar"
+            aria-label={ui.drawer.close}
             style={{
               background: 'none',
               border: 'none',

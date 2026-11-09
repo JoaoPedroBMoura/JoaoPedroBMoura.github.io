@@ -1,10 +1,15 @@
 /**
  * DetailModal — painel expandido para projetos, matérias e experiências.
  * Usa o Drawer como base. Aceita três tipos de conteúdo via union type.
+ * Todo o texto é resolvido no idioma atual (L / ui) e as tags técnicas
+ * têm a exibição traduzida pelo glossário (chave do filtro continua em PT).
  */
 
 import { Drawer } from './Drawer';
 import { useSkillFilter } from '../../context/SkillFilterContext';
+import { useLang } from '../../i18n/LanguageContext';
+import { translateTag } from '../../i18n/glossary';
+import type { I18n } from '../../i18n/config';
 import type { Project } from '../../data/projects';
 import type { Subject, Semester } from '../../data/academic';
 import type { ExpItem } from '../../data/experience';
@@ -19,7 +24,7 @@ type ProjectContent = {
 type SubjectContent = {
   type: 'subject';
   data: Subject;
-  semesterLabel: string;
+  semesterLabel: I18n;
   semesterStatus: Semester['status'];
 };
 
@@ -51,6 +56,7 @@ const semesterStatusColors: Record<string, string> = {
 
 export function DetailModal({ content, onClose }: DetailModalProps) {
   const { openFilter } = useSkillFilter();
+  const { lang, L, ui } = useLang();
 
   if (!content) return null;
 
@@ -58,7 +64,7 @@ export function DetailModal({ content, onClose }: DetailModalProps) {
   if (content.type === 'project') {
     const p = content.data;
     return (
-      <Drawer open title={p.nome} onClose={onClose}>
+      <Drawer open title={L(p.nome)} onClose={onClose}>
         {/* Badge de status */}
         <div style={{ marginBottom: '20px' }}>
           <span
@@ -74,13 +80,13 @@ export function DetailModal({ content, onClose }: DetailModalProps) {
               color: '#fff',
             }}
           >
-            {p.statusLabel}
+            {L(p.statusLabel)}
           </span>
         </div>
 
         {/* Descrição */}
         <p style={{ color: 'rgba(249,222,183,0.9)', fontSize: '0.95rem', lineHeight: 1.75, marginBottom: '20px' }}>
-          {p.descricao}
+          {L(p.descricao)}
         </p>
 
         {/* Detalhes técnicos */}
@@ -95,10 +101,10 @@ export function DetailModal({ content, onClose }: DetailModalProps) {
             }}
           >
             <h4 style={{ color: 'var(--color-laranja)', fontSize: '0.78rem', fontWeight: 700, marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-              Detalhes Técnicos
+              {ui.detail.technicalDetails}
             </h4>
             <p style={{ color: 'rgba(249,222,183,0.8)', fontSize: '0.88rem', lineHeight: 1.7, margin: 0 }}>
-              {p.detalhe}
+              {L(p.detalhe)}
             </p>
           </div>
         )}
@@ -106,14 +112,14 @@ export function DetailModal({ content, onClose }: DetailModalProps) {
         {/* Destaque */}
         {p.destaque && (
           <p style={{ color: 'var(--color-laranja)', fontSize: '0.85rem', fontWeight: 600, fontStyle: 'italic', marginBottom: '20px' }}>
-            ✦ {p.destaque}
+            ✦ {L(p.destaque)}
           </p>
         )}
 
         {/* Tech tags clicáveis */}
         <div style={{ marginBottom: '24px' }}>
           <h4 style={{ color: 'rgba(249,222,183,0.5)', fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '10px' }}>
-            Tecnologias
+            {ui.detail.technologies}
           </h4>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
             {p.techs.map(t => (
@@ -121,10 +127,10 @@ export function DetailModal({ content, onClose }: DetailModalProps) {
                 key={t}
                 className="skill-tag"
                 onClick={() => { onClose(); setTimeout(() => openFilter(t), 100); }}
-                title={`Ver onde "${t}" aparece`}
+                title={ui.detail.seeWhereTag.replace('{tag}', translateTag(t, lang))}
                 style={{ cursor: 'pointer' }}
               >
-                {t}
+                {translateTag(t, lang)}
               </button>
             ))}
           </div>
@@ -150,7 +156,7 @@ export function DetailModal({ content, onClose }: DetailModalProps) {
                 textDecoration: 'none',
               }}
             >
-              GitHub →
+              {ui.common.github}
             </a>
           )}
           {p.demo && (
@@ -171,7 +177,7 @@ export function DetailModal({ content, onClose }: DetailModalProps) {
                 textDecoration: 'none',
               }}
             >
-              Demo →
+              {ui.common.demo}
             </a>
           )}
         </div>
@@ -182,21 +188,22 @@ export function DetailModal({ content, onClose }: DetailModalProps) {
   // ── Experiência ───────────────────────────────────────────────────────────
   if (content.type === 'experience') {
     const exp = content.data;
+    const projetos = exp.projetos ? L(exp.projetos) : [];
     return (
       <Drawer open title={exp.empresa} onClose={onClose}>
         {/* Cargo + Período */}
         <div style={{ marginBottom: '20px' }}>
           <p style={{ color: 'var(--color-laranja)', fontSize: '0.9rem', fontWeight: 600, marginBottom: '4px' }}>
-            {exp.cargo}
+            {L(exp.cargo)}
           </p>
           <p style={{ color: 'rgba(249,222,183,0.5)', fontSize: '0.8rem' }}>
-            {exp.periodo}
+            {L(exp.periodo)}
           </p>
         </div>
 
         {/* Texto detalhado — parágrafos separados por \n\n */}
         <div style={{ marginBottom: '20px' }}>
-          {(exp.detalhe ?? exp.descricao).split('\n\n').map((paragrafo, i) => (
+          {L(exp.detalhe ?? exp.descricao).split('\n\n').map((paragrafo, i) => (
             <p
               key={i}
               style={{
@@ -212,7 +219,7 @@ export function DetailModal({ content, onClose }: DetailModalProps) {
         </div>
 
         {/* Projetos notáveis */}
-        {exp.projetos && exp.projetos.length > 0 && (
+        {projetos.length > 0 && (
           <div
             style={{
               background: 'rgba(208,142,108,0.08)',
@@ -223,10 +230,10 @@ export function DetailModal({ content, onClose }: DetailModalProps) {
             }}
           >
             <h4 style={{ color: 'var(--color-laranja)', fontSize: '0.78rem', fontWeight: 700, marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-              Projetos & Entregas
+              {ui.detail.projectsDeliveries}
             </h4>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              {exp.projetos.map(proj => (
+              {projetos.map(proj => (
                 <li key={proj} style={{ display: 'flex', gap: '8px', color: 'rgba(249,222,183,0.75)', fontSize: '0.85rem', lineHeight: 1.5 }}>
                   <span style={{ color: 'var(--color-laranja)', flexShrink: 0 }}>▸</span>
                   {proj}
@@ -240,7 +247,7 @@ export function DetailModal({ content, onClose }: DetailModalProps) {
         {exp.techs && exp.techs.length > 0 && (
           <div>
             <h4 style={{ color: 'rgba(249,222,183,0.5)', fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '10px' }}>
-              Tecnologias
+              {ui.detail.technologies}
             </h4>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
               {exp.techs.map(t => (
@@ -248,10 +255,10 @@ export function DetailModal({ content, onClose }: DetailModalProps) {
                   key={t}
                   className="skill-tag"
                   onClick={() => { onClose(); setTimeout(() => openFilter(t), 100); }}
-                  title={`Ver onde "${t}" aparece`}
+                  title={ui.detail.seeWhereTag.replace('{tag}', translateTag(t, lang))}
                   style={{ cursor: 'pointer' }}
                 >
-                  {t}
+                  {translateTag(t, lang)}
                 </button>
               ))}
             </div>
@@ -263,14 +270,15 @@ export function DetailModal({ content, onClose }: DetailModalProps) {
 
   // ── Matéria ────────────────────────────────────────────────────────────────
   const { data: sub, semesterLabel, semesterStatus } = content;
-  const statusLabel = semesterStatus === 'concluido' ? 'Concluído' : semesterStatus === 'cursando' ? 'Cursando' : 'Futuro';
+  const statusLabel = ui.status[semesterStatus];
   const statusColor = semesterStatusColors[semesterStatus] ?? '#374151';
+  const projeto = sub.projeto ? L(sub.projeto) : [];
 
   return (
-    <Drawer open title={sub.nome} onClose={onClose}>
+    <Drawer open title={L(sub.nome)} onClose={onClose}>
       {/* Meta info */}
       <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '20px', alignItems: 'center' }}>
-        <span style={{ color: 'rgba(249,222,183,0.6)', fontSize: '0.8rem' }}>{semesterLabel}</span>
+        <span style={{ color: 'rgba(249,222,183,0.6)', fontSize: '0.8rem' }}>{L(semesterLabel)}</span>
         {sub.cargaHoraria && (
           <span style={{ color: 'rgba(249,222,183,0.4)', fontSize: '0.78rem' }}>· {sub.cargaHoraria}h</span>
         )}
@@ -292,11 +300,11 @@ export function DetailModal({ content, onClose }: DetailModalProps) {
       {/* Descrição */}
       {sub.descricao ? (
         <p style={{ color: 'rgba(249,222,183,0.9)', fontSize: '0.95rem', lineHeight: 1.75, marginBottom: '20px' }}>
-          {sub.descricao}
+          {L(sub.descricao)}
         </p>
       ) : (
         <p style={{ color: 'rgba(249,222,183,0.5)', fontSize: '0.9rem', lineHeight: 1.7, marginBottom: '20px', fontStyle: 'italic' }}>
-          Descrição em breve.
+          {ui.detail.descriptionSoon}
         </p>
       )}
 
@@ -312,27 +320,29 @@ export function DetailModal({ content, onClose }: DetailModalProps) {
           }}
         >
           <p style={{ color: 'rgba(249,222,183,0.8)', fontSize: '0.85rem', lineHeight: 1.65, margin: 0, fontStyle: 'italic' }}>
-            💡 {sub.observacao}
+            💡 {L(sub.observacao)}
           </p>
         </div>
       )}
 
       {/* Projeto prático */}
-      {sub.projeto && (
+      {projeto.length > 0 && (
         <div style={{ marginBottom: '20px' }}>
           <h4 style={{ color: 'var(--color-laranja)', fontSize: '0.78rem', fontWeight: 700, marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-            Projeto Prático
+            {ui.detail.practicalProject}
           </h4>
-          <p style={{ color: 'rgba(249,222,183,0.8)', fontSize: '0.88rem', lineHeight: 1.65, margin: 0 }}>
-            {sub.projeto}
-          </p>
+          {projeto.map((proj, i) => (
+            <p key={i} style={{ color: 'rgba(249,222,183,0.8)', fontSize: '0.88rem', lineHeight: 1.65, margin: i > 0 ? '6px 0 0' : '0' }}>
+              {proj}
+            </p>
+          ))}
         </div>
       )}
 
       {/* Skill tags clicáveis */}
       <div>
         <h4 style={{ color: 'rgba(249,222,183,0.5)', fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '10px' }}>
-          Habilidades Trabalhadas
+          {ui.detail.skillsWorked}
         </h4>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
           {sub.skills.map(s => (
@@ -340,10 +350,10 @@ export function DetailModal({ content, onClose }: DetailModalProps) {
               key={s}
               className="skill-tag"
               onClick={() => { onClose(); setTimeout(() => openFilter(s), 100); }}
-              title={`Ver onde "${s}" aparece`}
+              title={ui.detail.seeWhereTag.replace('{tag}', translateTag(s, lang))}
               style={{ cursor: 'pointer' }}
             >
-              {s}
+              {translateTag(s, lang)}
             </button>
           ))}
         </div>

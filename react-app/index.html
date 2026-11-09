@@ -1,24 +1,33 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Portfólio de João Pedro B. Moura — Estagiário de Análise de Dados, Dev Full-Stack, CEFET-RJ" />
+
+    <!--
+      SEO bilíngue (EN / PT). Observação: o corpo do site é renderizado em JS
+      e o idioma padrão é inglês, então o buscador indexa o conteúdo em inglês.
+      Por isso as metatags abaixo trazem OS DOIS idiomas: assim buscas em
+      português ("analista de dados") e em inglês ("data analyst") encontram
+      a página. O JSON-LD no fim descreve o perfil de forma neutra de idioma.
+    -->
+    <meta name="description" content="Portfolio of João Pedro B. Moura — Data Analyst & Full-Stack Developer (Python, Power BI, SQL, AWS Redshift, React/TypeScript). · Portfólio de João Pedro B. Moura — Analista de Dados e Desenvolvedor Full-Stack. Automações Python, Power BI, dados em AWS, React/TypeScript. CEFET-RJ." />
     <meta name="author" content="João Pedro Barcellos Moura" />
-    <meta name="keywords" content="analista de dados, desenvolvedor, React, Python, Power BI, SQL, CEFET-RJ, portfólio" />
+    <meta name="keywords" content="data analyst, analista de dados, data analytics, análise de dados, Python, Power BI, SQL, AWS Redshift, AWS S3, ETL, RAG, React, TypeScript, full-stack developer, desenvolvedor full-stack, Clean Architecture, CEFET-RJ, portfolio, portfólio, João Pedro Moura, JoaoPedroBMoura" />
 
     <!-- Open Graph (compartilhamento em redes sociais / LinkedIn) -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="João Pedro B. Moura — Portfólio" />
-    <meta property="og:description" content="Estagiário de Análise de Dados e Dev Full-Stack. Automações Python, Power BI, React/TypeScript." />
+    <meta property="og:title" content="João Pedro B. Moura — Data Analyst & Full-Stack Developer" />
+    <meta property="og:description" content="Data Analyst & Full-Stack Developer — Python, Power BI, SQL, AWS, React/TypeScript. · Analista de Dados e Desenvolvedor Full-Stack — automações Python, Power BI, AWS, React/TypeScript." />
     <meta property="og:url" content="https://joaopedrobmoura.github.io/" />
     <meta property="og:image" content="https://joaopedrobmoura.github.io/assets/images/profile/Foto_s%C3%A9ria_quadrada-transformed.jpeg" />
-    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="pt_BR" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="João Pedro B. Moura — Portfólio" />
-    <meta name="twitter:description" content="Estagiário de Análise de Dados e Dev Full-Stack. Automações Python, Power BI, React/TypeScript." />
+    <meta name="twitter:title" content="João Pedro B. Moura — Data Analyst & Full-Stack Developer" />
+    <meta name="twitter:description" content="Data Analyst & Full-Stack Developer — Python, Power BI, SQL, AWS, React/TypeScript. · Analista de Dados e Desenvolvedor Full-Stack — Python, Power BI, AWS, React/TypeScript." />
     <meta name="twitter:image" content="https://joaopedrobmoura.github.io/assets/images/profile/Foto_s%C3%A9ria_quadrada-transformed.jpeg" />
 
     <!-- Favicon -->
@@ -29,7 +38,33 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-    <title>João Pedro B. Moura — Portfólio</title>
+    <title>João Pedro B. Moura — Data Analyst & Full-Stack Developer</title>
+
+    <!--
+      Dados estruturados (schema.org/Person). Ajudam o Google a entender quem
+      você é, cargos, skills e idiomas — independente da língua da busca.
+    -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "João Pedro Barcellos Moura",
+      "alternateName": "João Pedro B. Moura",
+      "url": "https://joaopedrobmoura.github.io/",
+      "image": "https://joaopedrobmoura.github.io/assets/images/profile/Foto_s%C3%A9ria_quadrada-transformed.jpeg",
+      "jobTitle": ["Data Analyst", "Analista de Dados", "Full-Stack Developer"],
+      "knowsLanguage": ["en", "pt-BR"],
+      "knowsAbout": ["Data Analysis", "Python", "Power BI", "SQL", "AWS Redshift", "ETL", "RAG", "React", "TypeScript", "Clean Architecture"],
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "CEFET-RJ — Centro Federal de Educação Tecnológica Celso Suckow da Fonseca"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/joaopedrobmoura/",
+        "https://github.com/JoaoPedroBMoura"
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

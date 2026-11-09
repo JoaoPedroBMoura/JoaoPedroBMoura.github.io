@@ -1,19 +1,19 @@
 /**
  * SkillFilterPanel — painel de filtro de habilidades.
- * Lido via SkillFilterContext. Mostra lista de skills → clique mostra
+ * Lido via SkillFilterContext. Mostra a lista de skills → clique mostra
  * onde a skill aparece (projetos, matérias, experiências).
+ *
+ * A CHAVE da skill continua em português (consistência do filtro); só a
+ * exibição é traduzida pelo glossário. A busca casa tanto o texto em PT
+ * quanto o traduzido, para funcionar nos dois idiomas.
  */
 
 import { useState, useEffect, useRef } from 'react';
 import { Drawer } from './Drawer';
 import { useSkillFilter } from '../../context/SkillFilterContext';
+import { useLang } from '../../i18n/LanguageContext';
+import { translateTag } from '../../i18n/glossary';
 import { getAllSkills, searchBySkill, type SkillResult } from '../../utils/skillSearch';
-
-const TYPE_LABEL: Record<SkillResult['tipo'], string> = {
-  projeto:    '📁 Projeto',
-  materia:    '🎓 Matéria',
-  experiencia: '💼 Experiência',
-};
 
 const TYPE_COLOR: Record<SkillResult['tipo'], string> = {
   projeto:    '#1e40af',
@@ -23,6 +23,7 @@ const TYPE_COLOR: Record<SkillResult['tipo'], string> = {
 
 export function SkillFilterPanel() {
   const { filterOpen, preselectedSkill, closeFilter } = useSkillFilter();
+  const { lang, ui } = useLang();
   // Estado inicializado da prop — o FAB usa key={...} para remontar o componente
   // quando filterOpen ou preselectedSkill muda, garantindo reset limpo sem effect.
   const [query, setQuery] = useState('');
@@ -31,6 +32,13 @@ export function SkillFilterPanel() {
 
   const allSkills = getAllSkills();
 
+  // Rótulos exibidos para cada tipo de resultado (bilíngue, via ui).
+  const typeLabel: Record<SkillResult['tipo'], string> = {
+    projeto: ui.skillFilter.typeProjeto,
+    materia: ui.skillFilter.typeMateria,
+    experiencia: ui.skillFilter.typeExperiencia,
+  };
+
   // Foco no input ao abrir sem pré-seleção (efeito externo legítimo: DOM focus)
   useEffect(() => {
     if (filterOpen && !preselectedSkill) {
@@ -38,11 +46,13 @@ export function SkillFilterPanel() {
     }
   }, [filterOpen, preselectedSkill]);
 
-  const filteredSkills = query.trim()
-    ? allSkills.filter(s => s.toLowerCase().includes(query.toLowerCase()))
+  const q = query.trim().toLowerCase();
+  const filteredSkills = q
+    ? allSkills.filter(s =>
+        s.toLowerCase().includes(q) || translateTag(s, lang).toLowerCase().includes(q))
     : allSkills;
 
-  const results = selected ? searchBySkill(selected) : [];
+  const results = selected ? searchBySkill(selected, lang) : [];
 
   const grouped = results.reduce<Record<string, SkillResult[]>>((acc, r) => {
     if (!acc[r.tipo]) acc[r.tipo] = [];
@@ -50,12 +60,12 @@ export function SkillFilterPanel() {
     return acc;
   }, {});
 
+  const title = selected
+    ? ui.skillFilter.whereTitle.replace('{skill}', translateTag(selected, lang))
+    : ui.skillFilter.title;
+
   return (
-    <Drawer
-      open={filterOpen}
-      onClose={closeFilter}
-      title={selected ? `"${selected}" — onde aparece` : 'Filtrar por Habilidade'}
-    >
+    <Drawer open={filterOpen} onClose={closeFilter} title={title}>
       {/* Input de busca */}
       {!selected && (
         <div style={{ marginBottom: '16px' }}>
@@ -64,7 +74,7 @@ export function SkillFilterPanel() {
             type="text"
             value={query}
             onChange={e => setQuery(e.target.value)}
-            placeholder="Buscar habilidade..."
+            placeholder={ui.skillFilter.placeholder}
             style={{
               width: '100%',
               padding: '10px 14px',
@@ -77,7 +87,7 @@ export function SkillFilterPanel() {
             }}
           />
           <p style={{ color: 'rgba(249,222,183,0.45)', fontSize: '0.75rem', marginTop: '8px' }}>
-            {filteredSkills.length} habilidade{filteredSkills.length !== 1 ? 's' : ''} — clique para ver onde aparece
+            {filteredSkills.length} {filteredSkills.length !== 1 ? ui.skillFilter.skillPlural : ui.skillFilter.skillSingular} — {ui.skillFilter.clickToSee}
           </p>
         </div>
       )}
@@ -97,7 +107,7 @@ export function SkillFilterPanel() {
             marginBottom: '20px',
           }}
         >
-          ← Voltar à lista
+          {ui.skillFilter.backToList}
         </button>
       )}
 
@@ -111,12 +121,12 @@ export function SkillFilterPanel() {
               className="skill-tag"
               style={{ cursor: 'pointer', fontSize: '0.75rem' }}
             >
-              {skill}
+              {translateTag(skill, lang)}
             </button>
           ))}
           {filteredSkills.length === 0 && (
             <p style={{ color: 'rgba(249,222,183,0.45)', fontSize: '0.85rem' }}>
-              Nenhuma habilidade encontrada para "{query}".
+              {ui.skillFilter.noSkillFound.replace('{query}', query)}
             </p>
           )}
         </div>
@@ -127,7 +137,7 @@ export function SkillFilterPanel() {
         <div>
           {results.length === 0 && (
             <p style={{ color: 'rgba(249,222,183,0.5)', fontSize: '0.9rem' }}>
-              Nenhuma ocorrência mapeada para esta habilidade ainda.
+              {ui.skillFilter.noOccurrences}
             </p>
           )}
 
@@ -144,7 +154,7 @@ export function SkillFilterPanel() {
                   letterSpacing: '0.08em',
                   marginBottom: '12px',
                 }}>
-                  {TYPE_LABEL[tipo]} ({items.length})
+                  {typeLabel[tipo]} ({items.length})
                 </h3>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>

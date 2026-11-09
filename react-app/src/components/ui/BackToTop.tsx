@@ -4,9 +4,11 @@
  */
 
 import { useState, useEffect } from 'react';
+import { useLang } from '../../i18n/LanguageContext';
 
 export function BackToTop() {
   const [isVisible, setIsVisible] = useState(false);
+  const { ui } = useLang();
 
   useEffect(() => {
     const toggleVisibility = () => {
@@ -28,7 +30,7 @@ export function BackToTop() {
     <button
       onClick={scrollToTop}
       className={`back-to-top ${isVisible ? 'show' : ''}`}
-      aria-label="Voltar ao topo"
+      aria-label={ui.backToTop.aria}
     >
       <svg
         width="20"

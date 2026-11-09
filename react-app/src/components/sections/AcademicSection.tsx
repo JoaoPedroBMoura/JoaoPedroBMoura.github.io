@@ -1,12 +1,14 @@
 /**
- * AcademicSection — Vida Acadêmica CEFET-RJ
- * Cards de matérias clicáveis → abre DetailModal com descrição completa.
- * Skill tags clicáveis → abre SkillFilterPanel via context.
+ * AcademicSection — Vida Acadêmica CEFET-RJ.
+ * Cards de matérias clicáveis → abre DetailModal.
+ * Skill tags: exibição traduzida pelo glossário; chave do filtro em PT.
  */
 
 import { useState } from 'react';
 import { semesters, statusStyle, type Subject, type Semester } from '../../data/academic';
 import { useSkillFilter } from '../../context/SkillFilterContext';
+import { useLang } from '../../i18n/LanguageContext';
+import { translateTag } from '../../i18n/glossary';
 import { DetailModal, type DetailContent } from '../ui/DetailModal';
 
 export function AcademicSection() {
@@ -14,6 +16,7 @@ export function AcademicSection() {
   const [modalContent, setModalContent] = useState<DetailContent | null>(null);
 
   const { openFilter } = useSkillFilter();
+  const { lang, L, ui } = useLang();
   const sem = semesters[activePeriodo];
   const style = statusStyle[sem.status];
 
@@ -37,15 +40,15 @@ export function AcademicSection() {
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
           <h2 data-aos="fade-up"
             style={{ color: 'var(--color-caramelo)', fontSize: 'clamp(1.6rem, 4vw, 2.2rem)', fontWeight: 700, marginBottom: '8px' }}>
-            Vida Acadêmica
+            {ui.academic.title}
           </h2>
           <p data-aos="fade-up" data-aos-delay="100"
             style={{ color: 'rgba(249,222,183,0.6)', fontSize: '0.95rem' }}>
-            CEFET-RJ · Bacharelado em Sistemas de Informação · Campus Nova Friburgo · 8 períodos
+            {ui.academic.subtitle}
           </p>
           <p data-aos="fade-up" data-aos-delay="150"
             style={{ color: 'rgba(249,222,183,0.4)', fontSize: '0.78rem', marginTop: '6px' }}>
-            Clique em qualquer matéria para ver detalhes · Clique nas tags para filtrar habilidades
+            {ui.academic.hint}
           </p>
         </div>
 
@@ -79,7 +82,7 @@ export function AcademicSection() {
           {(['concluido', 'cursando', 'futuro'] as const).map((s) => (
             <div key={s} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.75rem', color: 'rgba(249,222,183,0.65)' }}>
               <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: statusStyle[s].dot, display: 'inline-block' }} />
-              {statusStyle[s].label}
+              {L(statusStyle[s].label)}
             </div>
           ))}
         </div>
@@ -88,17 +91,17 @@ export function AcademicSection() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', flexWrap: 'wrap', gap: '8px' }}>
           <div>
             <h3 style={{ color: 'var(--color-caramelo)', fontSize: '1.1rem', fontWeight: 700 }}>
-              {sem.label}
+              {L(sem.label)}
             </h3>
             <p style={{ color: 'rgba(249,222,183,0.65)', fontSize: '0.78rem', marginTop: '2px' }}>
-              {sem.subjects.length} disciplinas
+              {ui.academic.disciplines.replace('{n}', String(sem.subjects.length))}
             </p>
           </div>
           <span style={{
             padding: '4px 14px', borderRadius: '999px', fontSize: '0.72rem', fontWeight: 700,
             background: style.badge, color: '#fff',
           }}>
-            {style.label}
+            {L(style.label)}
           </span>
         </div>
 
@@ -106,7 +109,7 @@ export function AcademicSection() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '12px' }}>
           {sem.subjects.map((sub) => (
             <button
-              key={sub.nome}
+              key={sub.nome.en}
               onClick={() => openSubject(sub, sem)}
               className="subject-card"
               style={{
@@ -120,7 +123,7 @@ export function AcademicSection() {
               {/* Nome + carga horária */}
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px', marginBottom: '10px' }}>
                 <h4 style={{ color: 'var(--color-caramelo)', fontSize: '0.88rem', fontWeight: 600, lineHeight: 1.3 }}>
-                  {sub.nome}
+                  {L(sub.nome)}
                 </h4>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '4px', flexShrink: 0 }}>
                   {sub.cargaHoraria && (
@@ -130,7 +133,7 @@ export function AcademicSection() {
                   )}
                   {/* Indicador de que há detalhes */}
                   {sub.descricao && (
-                    <span style={{ color: 'var(--color-laranja)', fontSize: '0.6rem', opacity: 0.7 }}>ver mais ›</span>
+                    <span style={{ color: 'var(--color-laranja)', fontSize: '0.6rem', opacity: 0.7 }}>{ui.academic.seeMoreSmall}</span>
                   )}
                 </div>
               </div>
@@ -145,10 +148,10 @@ export function AcademicSection() {
                     key={s}
                     className="skill-tag"
                     onClick={() => openFilter(s)}
-                    title={`Filtrar por "${s}"`}
+                    title={ui.detail.filterByTag.replace('{tag}', translateTag(s, lang))}
                     style={{ cursor: 'pointer' }}
                   >
-                    {s}
+                    {translateTag(s, lang)}
                   </button>
                 ))}
               </div>
@@ -156,14 +159,14 @@ export function AcademicSection() {
               {/* Observação */}
               {sub.observacao && (
                 <p style={{ color: 'rgba(249,222,183,0.65)', fontSize: '0.72rem', lineHeight: 1.5, fontStyle: 'italic', marginBottom: sub.projeto ? '8px' : '0' }}>
-                  {sub.observacao}
+                  {L(sub.observacao)}
                 </p>
               )}
 
               {/* Projetos */}
               {sub.projeto && (
                 <div style={{ borderTop: '1px solid rgba(208,142,108,0.2)', paddingTop: '8px' }}>
-                  {(Array.isArray(sub.projeto) ? sub.projeto : [sub.projeto]).map((p, i) => (
+                  {L(sub.projeto).map((p, i) => (
                     <p key={i} style={{ color: 'var(--color-laranja)', fontSize: '0.72rem', fontStyle: 'italic', margin: i > 0 ? '4px 0 0' : '0' }}>
                       ▸ {p}
                     </p>

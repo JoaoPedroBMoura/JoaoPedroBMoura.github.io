@@ -1,6 +1,7 @@
 /**
  * FAB — Floating Action Button com speed dial.
  * Ícone: folha (mesmo símbolo do favicon do site).
+ * Os rótulos das sub-ações são bilíngues (ui.fab).
  *
  * Sub-ações (expandem para cima ao clicar na folha):
  *   ⬆ Topo           → scroll para o início
@@ -12,6 +13,7 @@
 
 import { useState, useEffect } from 'react';
 import { useSkillFilter } from '../../context/SkillFilterContext';
+import { useLang } from '../../i18n/LanguageContext';
 import { RecommendationsPanel } from './RecommendationsPanel';
 import { SkillFilterPanel } from './SkillFilterPanel';
 
@@ -143,6 +145,7 @@ export function FAB() {
   const [recsOpen, setRecsOpen] = useState(false);
 
   const { openFilter, filterOpen, preselectedSkill } = useSkillFilter();
+  const { ui } = useLang();
 
   // Fecha speed dial se qualquer painel abrir — derivado, sem effect
   const isSpeedDialOpen = open && !filterOpen && !recsOpen;
@@ -181,7 +184,7 @@ export function FAB() {
         {/* Sub-ações (animam de baixo para cima, por isso a ordem é invertida) */}
         <FabItem
           icon={<StarIcon />}
-          label="Leituras"
+          label={ui.fab.leituras}
           onClick={() => { setRecsOpen(true); setOpen(false); }}
           delay={0}
           visible={isSpeedDialOpen}
@@ -206,14 +209,14 @@ export function FAB() {
         />
         <FabItem
           icon={<FilterIcon />}
-          label="Habilidades"
+          label={ui.fab.habilidades}
           onClick={() => { openFilter(); setOpen(false); }}
           delay={120}
           visible={isSpeedDialOpen}
         />
         <FabItem
           icon={<ArrowUpIcon />}
-          label="Topo"
+          label={ui.fab.topo}
           onClick={scrollToTop}
           delay={160}
           visible={isSpeedDialOpen}
@@ -222,7 +225,7 @@ export function FAB() {
         {/* Botão principal — folha */}
         <button
           onClick={() => setOpen(prev => !prev)}
-          aria-label={isSpeedDialOpen ? 'Fechar menu' : 'Abrir menu'}
+          aria-label={isSpeedDialOpen ? ui.fab.closeMenu : ui.fab.openMenu}
           aria-expanded={isSpeedDialOpen}
           style={{
             width: '52px',

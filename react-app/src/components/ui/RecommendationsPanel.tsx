@@ -1,10 +1,12 @@
 /**
  * RecommendationsPanel — painel com recomendações pessoais de livros,
  * YouTube, newsletters e perfis. Controlado pelo FAB.
+ * Título, intro, rótulos de categoria e descrições são bilíngues.
  */
 
 import { Drawer } from './Drawer';
 import { recommendations } from '../../data/recommendations';
+import { useLang } from '../../i18n/LanguageContext';
 
 interface RecommendationsPanelProps {
   open: boolean;
@@ -12,14 +14,16 @@ interface RecommendationsPanelProps {
 }
 
 export function RecommendationsPanel({ open, onClose }: RecommendationsPanelProps) {
+  const { L, ui } = useLang();
+
   return (
-    <Drawer open={open} onClose={onClose} title="Minhas Recomendações">
+    <Drawer open={open} onClose={onClose} title={ui.recommendations.title}>
       <p style={{ color: 'rgba(249,222,183,0.55)', fontSize: '0.82rem', marginBottom: '28px', lineHeight: 1.6 }}>
-        O que leio, assisto e acompanho — uma prova de que me mantenho atualizado além do que aparece no CV.
+        {ui.recommendations.intro}
       </p>
 
       {recommendations.map(category => (
-        <div key={category.label} style={{ marginBottom: '32px' }}>
+        <div key={category.label.en} style={{ marginBottom: '32px' }}>
           <h3 style={{
             color: 'var(--color-laranja)',
             fontSize: '0.85rem',
@@ -28,7 +32,7 @@ export function RecommendationsPanel({ open, onClose }: RecommendationsPanelProp
             letterSpacing: '0.08em',
             marginBottom: '14px',
           }}>
-            {category.icon} {category.label}
+            {category.icon} {L(category.label)}
           </h3>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -68,7 +72,7 @@ export function RecommendationsPanel({ open, onClose }: RecommendationsPanelProp
                   </span>
                 )}
                 <p style={{ color: 'rgba(249,222,183,0.65)', fontSize: '0.8rem', lineHeight: 1.55, margin: 0 }}>
-                  {item.description}
+                  {L(item.description)}
                 </p>
               </a>
             ))}

@@ -1,0 +1,5 @@
+# Permite a indexação de todo o site e aponta o sitemap.
+User-agent: *
+Allow: /
+
+Sitemap: https://joaopedrobmoura.github.io/sitemap.xml
